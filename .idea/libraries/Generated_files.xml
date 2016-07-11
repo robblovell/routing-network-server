@@ -1,0 +1,55 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/node_modules/glob-watcher/test/fixtures/test.js" />
+        <item url="file://$PROJECT_DIR$/app.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/resolve/test/resolver/cup.js" />
+        <item url="file://$PROJECT_DIR$/models/node.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/xml2js/83.js" />
+        <item url="file://$PROJECT_DIR$/controllers/helpers/typeIsArray.js" />
+        <item url="file://$PROJECT_DIR$/controllers/routes.js" />
+        <item url="file://$PROJECT_DIR$/controllers/helpers/traverse.js" />
+        <item url="file://$PROJECT_DIR$/routes/index.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/coffeescript-compiler/spec/input.js" />
+        <item url="file://$PROJECT_DIR$/controllers/items.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/gulp-coffee/test/fixtures/grammar.js" />
+        <item url="file://$PROJECT_DIR$/controllers/nodes.js" />
+        <item url="file://$PROJECT_DIR$/controllers/swagger.js" />
+        <item url="file://$PROJECT_DIR$/config/configuration.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/resolve/test/resolver/mug.js" />
+        <item url="file://$PROJECT_DIR$/models/route.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/moment/foo.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/xml2js/text.js" />
+        <item url="file://$PROJECT_DIR$/models/item.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/gulp-tap/src/tap.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/moment/f.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/node_modules/glob-watcher/test/fixtures/test.js" />
+      <root url="file://$PROJECT_DIR$/app.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/resolve/test/resolver/cup.js" />
+      <root url="file://$PROJECT_DIR$/models/node.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/xml2js/83.js" />
+      <root url="file://$PROJECT_DIR$/controllers/helpers/typeIsArray.js" />
+      <root url="file://$PROJECT_DIR$/controllers/routes.js" />
+      <root url="file://$PROJECT_DIR$/controllers/helpers/traverse.js" />
+      <root url="file://$PROJECT_DIR$/routes/index.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/coffeescript-compiler/spec/input.js" />
+      <root url="file://$PROJECT_DIR$/controllers/items.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/gulp-coffee/test/fixtures/grammar.js" />
+      <root url="file://$PROJECT_DIR$/controllers/nodes.js" />
+      <root url="file://$PROJECT_DIR$/controllers/swagger.js" />
+      <root url="file://$PROJECT_DIR$/config/configuration.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/resolve/test/resolver/mug.js" />
+      <root url="file://$PROJECT_DIR$/models/route.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/moment/foo.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/xml2js/text.js" />
+      <root url="file://$PROJECT_DIR$/models/item.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/gulp-tap/src/tap.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/moment/f.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

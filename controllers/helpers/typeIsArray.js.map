@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "typeIsArray.js",
+  "sourceRoot": "",
+  "sources": [
+    "typeIsArray.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;AAAA,MAAA;;EAAA,WAAA,GAAc,KAAK,CAAC,OAAN,IAAiB,SAAE,KAAF;AAAa,WAAO,EAAE,CAAC,QAAQ,CAAC,IAAZ,CAAkB,KAAlB,CAAA,KAA6B;EAAjD;;EAC/B,MAAM,CAAC,OAAP,GAAiB;AADjB"
+}
