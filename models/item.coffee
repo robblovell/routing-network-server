@@ -26,10 +26,20 @@ RouteCostsSchema = new Schema(
     }
     { strict: false }
 )
+
+ContextSchema = new Schema(
+    {
+        seller: { type: String, index: true }
+        sku: { type: String, index: true }
+    },
+    { strict: false }
+)
+
 ItemSchema = new Schema(
     {
         nodes: [NodeCostsSchema],
         routes: [RouteCostsSchema]
+        context: [ContextSchema]
     },
     { strict: false }
 )
