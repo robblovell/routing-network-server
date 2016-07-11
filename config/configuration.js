@@ -11,7 +11,7 @@
     scheme: process.env.SCHEME || 'https',
     insightsKey: "",
     segementKey: "",
-    version: "0.1.0",
+    version: "0.0.1",
     timeout: 15000
   };
 
