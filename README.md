@@ -3,6 +3,7 @@
 A persistence layer for a routing network and mechanisms to determine minimum paths from one node to another.
 
 The network consists of six node types where products or "items" can reside: **Warehouse, Resupplier, Seller, Sweeper, Consumer**
+
 And one node type that represents an item: **Item** (still to be modeled)
 
 There are three edge types: **Sweeps_to, Resupplies, Leaf**
