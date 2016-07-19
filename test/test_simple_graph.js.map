@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "test_simple_graph.js",
+  "sourceRoot": "",
+  "sources": [
+    "test_simple_graph.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;AAAA"
+}
