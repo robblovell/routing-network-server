@@ -28,3 +28,14 @@ RETURN rows AS shortestPath, reduce(cost=0, r IN relationships(rows)| cost+r.cos
 ORDER BY totalCost ASC
 LIMIT 10
 ```
+
+TODO:
+* REST interface hooked to the graph database
+* REST endpoint for Routes
+* Add **items** and **satellites** to the model
+* Queries for Consolidated routes
+* 2D locations 
+* Other costs like time and distance (per item type)
+* Cost breakdowns between sellers, retailer, and consumer (per item type)
+* Fees for nodes (per item type)
+
