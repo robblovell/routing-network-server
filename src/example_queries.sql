@@ -1,7 +1,6 @@
-——— Best
 
 MATCH p=(sweepNode)-[:SWEEPS_TO]->()-[:RESUPPLIES]->()-[:LEAF]->(consumer:Consumer)
-	WHERE sweepNode.kind = 'Sweeper' and sweepNode.inventory > 0.5
+	WHERE sweepNode.kind = 'Sweeper' and sweepNode.inventory > 0
     WITH COLLECT(p) AS rows1
 
 MATCH q=(fullNode)-[:LEAF]->(consumer:Consumer)

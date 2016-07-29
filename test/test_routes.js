@@ -12,18 +12,8 @@
 
   driver = neo4j.driver('bolt://localhost', neo4j.auth.basic('neo4j', 'macro7'));
 
-  describe('Errata', function() {
-    var all, buildGraph, consumer, deleteGraph, edges, id, nodes, routes, sellers, superdcs, sweep_sellers, warehouses;
-    id = 1;
-    routes = [];
-    superdcs = [];
-    warehouses = [];
-    sweep_sellers = [];
-    sellers = [];
-    consumer = {};
-    all = [];
-    nodes = [];
-    edges = [];
+  describe('Test Routes', function() {
+    var buildGraph, deleteGraph;
     deleteGraph = function(done) {
       var session, tx;
       session = driver.session();
@@ -46,305 +36,35 @@
       });
     };
     buildGraph = function(done) {
-      var atlanta, cost, dallas, decide, distance, edge, i, inventory, j, k, l, la, len, len1, len2, len3, len4, len5, len6, len7, len8, location, m, n, nj, node, nodeStr, o, p, q, r, resupplied, resupplier, resupplier2, route, s, seattle, seller, session, sku, t, tx, u, v, w, warehouse;
-      sku = '12345';
-      nj = {
-        id: 'NJ',
-        name: 'NewJersey',
-        location: 0,
-        kind: 'Superdc',
-        inventory: 25
+      var props, session, tx, upsert;
+      props = {
+        value: "1",
+        prop1: "a",
+        prop2: "c"
       };
-      atlanta = {
-        id: 'Atlanta',
-        name: 'Atlanta',
-        location: 100,
-        kind: 'Superdc',
-        inventory: 25
-      };
-      dallas = {
-        id: 'Dallas',
-        name: 'Dallas',
-        location: 50,
-        kind: 'Superdc',
-        inventory: 25
-      };
-      la = {
-        id: 'LosAngeles',
-        name: 'LosAngeles',
-        location: 100,
-        kind: 'Superdc',
-        inventory: 25
-      };
-      seattle = {
-        id: 'Seattle',
-        name: 'Seattle',
-        location: 100,
-        kind: 'Superdc',
-        inventory: 25
-      };
-      superdcs = [nj, atlanta, dallas, la, seattle];
-      all = [nj, atlanta, dallas, la, seattle];
-      for (l = 0, len = superdcs.length; l < len; l++) {
-        resupplier = superdcs[l];
-        for (m = 0, len1 = superdcs.length; m < len1; m++) {
-          resupplied = superdcs[m];
-          if (resupplier !== resupplied) {
-            distance = math.abs(resupplier.location - resupplied.location);
-            cost = distance;
-            route = {
-              id: resupplier,
-              source: resupplier,
-              kind: 'resupplies',
-              destination: resupplied,
-              estimate: {
-                cost: cost,
-                distance: distance
-              }
-            };
-            routes.push(route);
-          }
-        }
-      }
-      warehouses = [nj, dallas, seattle];
-      j = 0;
-      for (k = n = 0, len2 = superdcs.length; n < len2; k = ++n) {
-        resupplier = superdcs[k];
-        if (k < superdcs.length) {
-          resupplier2 = superdcs[k + 1];
-        } else {
-          resupplier2 = superdcs[0];
-        }
-        for (i = o = 0; o <= 1; i = ++o) {
-          decide = math.floor(math.random(-1000, 1000));
-        }
-        if (decide > 0) {
-          distance = math.floor(math.random(3, 7));
-        } else {
-          distance = math.floor(math.random(-3, -7));
-          location = math.floor(resupplier.location + distance);
-          distance = math.floor(math.abs(distance));
-          cost = distance;
-          warehouse = {
-            id: "Ware" + j,
-            name: "Warehouse " + j,
-            location: location,
-            kind: 'Warehouse'
-          };
-          warehouses.push(warehouse);
-          all.push(warehouse);
-          route = {
-            id: id++,
-            source: resupplier,
-            kind: 'resupplies',
-            destination: warehouse,
-            estimate: {
-              cost: cost,
-              distance: distance
-            }
-          };
-          routes.push(route);
-          j += 1;
-          if ((resupplier2 != null)) {
-            distance = math.floor(math.random(-12, 12));
-            location = math.floor(resupplier2.location + distance);
-            distance = math.floor(math.abs(distance));
-            cost = distance;
-            warehouse = {
-              id: "Ware" + j,
-              name: "Warehouse " + j,
-              location: location,
-              kind: 'Warehouse'
-            };
-            warehouses.push(warehouse);
-            all.push(warehouse);
-            route = {
-              id: id++,
-              source: resupplier2,
-              kind: 'resupplies',
-              destination: warehouse,
-              estimate: {
-                cost: cost,
-                distance: distance
-              }
-            };
-            routes.push(route);
-            j += 1;
-          }
-        }
-      }
-      j = 100;
-      for (k = p = 0, len3 = warehouses.length; p < len3; k = ++p) {
-        warehouse = warehouses[k];
-        for (i = q = 0; q <= 1; i = ++q) {
-          decide = math.floor(math.random(-1000, 1000));
-          if (decide > 0) {
-            distance = math.floor(math.random(10, 15));
-          } else {
-            distance = math.floor(math.random(-10, -15));
-          }
-          location = math.floor(warehouse.location + distance);
-          distance = math.floor(math.abs(distance));
-          cost = distance;
-          seller = {
-            id: 'Vend' + j,
-            name: 'SweepSeller ' + j,
-            location: location,
-            kind: 'Sweeper'
-          };
-          sweep_sellers.push(seller);
-          all.push(seller);
-          route = {
-            id: id++,
-            source: seller,
-            kind: 'sweeps_to',
-            destination: warehouse,
-            estimate: {
-              cost: cost,
-              distance: distance
-            }
-          };
-          routes.push(route);
-          j += 10;
-        }
-      }
-      sellers = [];
-      j = 1000;
-      for (i = r = 0; r <= 100; i = ++r) {
-        inventory = 0;
-        if (i < 50) {
-          location = math.floor(math.random(1, 19));
-        } else if (i > 50) {
-          location = math.floor(math.random(81, 98));
-        } else {
-          location = 53;
-          inventory = 4;
-        }
-        if (inventory > 0) {
-          seller = {
-            id: 'Sell' + j,
-            name: 'Seller' + j,
-            location: location,
-            kind: 'Seller',
-            inventory: inventory
-          };
-        } else {
-          seller = {
-            id: 'Sell' + j,
-            name: 'Seller' + j,
-            location: location,
-            kind: 'Seller'
-          };
-        }
-        sellers.push(seller);
-        all.push(seller);
-        j += 100;
-      }
-      consumer = {
-        id: 'Robb',
-        name: 'Robb Lovell',
-        location: 48,
-        kind: 'Consumer'
-      };
-      all.push(consumer);
-      for (s = 0, len4 = all.length; s < len4; s++) {
-        node = all[s];
-        if (node !== consumer) {
-          distance = math.floor(math.abs(node.location - consumer.location));
-          cost = distance;
-          route = {
-            id: id++,
-            source: node,
-            kind: 'leaf',
-            destination: consumer,
-            estimate: {
-              cost: cost,
-              distance: distance
-            }
-          };
-          routes.push(route);
-          if (!(node.inventory != null)) {
-            node.inventory = math.floor(math.random(0, 2));
-          }
-        } else {
-          node.inventory = 0;
-        }
-      }
-      for (t = 0, len5 = routes.length; t < len5; t++) {
-        route = routes[t];
-        edges.push(route);
-      }
-      console.log("------------------------------------------------------------------------------------------------");
-      for (u = 0, len6 = edges.length; u < len6; u++) {
-        edge = edges[u];
-        console.log("Edge: " + JSON.stringify(edge));
-      }
-      console.log("------------------------------------------------------------------------------------------------");
-      for (v = 0, len7 = all.length; v < len7; v++) {
-        node = all[v];
-        console.log("Node: " + JSON.stringify(node));
-      }
-      console.log("------------------------------------------------------------------------------------------------");
+      upsert = "MERGE (n:Test { id: {value}, prop1:{a} prop2:{b} }) ON CREATE SET n.created=timestamp()";
       session = driver.session();
       tx = session.beginTransaction();
-      for (w = 0, len8 = all.length; w < len8; w++) {
-        node = all[w];
-        console.log("CREATE NODE: " + JSON.stringify(node));
-        nodeStr = "CREATE (Node:" + node.kind + " {id: {id}, name: {name}, location: {location}, kind: {kind}, inventory: {inventory}})";
-        tx.run(nodeStr, node);
-      }
+      tx.run(upsert, props);
       return tx.commit().subscribe({
         onCompleted: function() {
-          var len9, match, matchStr, params, session2, tx2, x;
-          console.log("------------------------------------------------------------------------------------------------");
+          var session2, tx2;
           session.close();
-          session2 = driver.session();
+          session2 = driver.session2();
           tx2 = session2.beginTransaction();
-          for (x = 0, len9 = edges.length; x < len9; x++) {
-            edge = edges[x];
-            params = {
-              sourcekind: edge.source.kind,
-              sourcename: edge.source.name,
-              destinationkind: edge.destination.kind,
-              destinationname: edge.destination.name,
-              kind: edge.kind,
-              cost: edge.estimate.distance
-            };
-            matchStr = "CREATE EDGE: MATCH (a:" + params.sourcekind + " {name: " + params.sourcename + "}), (b:" + params.destinationkind + " {name: " + params.destinationname + "}) CREATE (a)-[rel:" + params.kind.toUpperCase() + " {kind: {" + params.kind + "}, cost: " + params.cost + "}]->(b) RETURN rel";
-            console.log(matchStr);
-            match = "MATCH (a:" + params.sourcekind + " {name:{sourcename}}), (b:" + params.destinationkind + " {name:{destinationname}}) CREATE (a)-[rel:" + params.kind.toUpperCase() + " {kind: {kind}, cost: {cost}}]->(b) RETURN rel";
-            tx2.run(match, params);
-            console.log("------------------------------------------------------------------------------------------------");
-          }
-          return tx2.commit().subscribe({
+          tx2.run(upsert, props);
+          return tx.commit().subscribe({
             onCompleted: function() {
-              console.log("completed");
-              session2.close();
-              return done();
-            },
-            onError: function(error) {
-              console.log(error);
-              session2.close();
               return done();
             }
           });
-        },
-        onError: function(error) {
-          console.log(error);
-          session.close();
-          return done();
         }
       });
     };
-    before(function(done) {
+    return before(function(done) {
       return deleteGraph(function() {
-        return buildGraph(function() {
-          return done();
-        });
+        return buildGraph(done);
       });
-    });
-    return it('Finds shortest route', function(done) {
-      return done();
     });
   });
 

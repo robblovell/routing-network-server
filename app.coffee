@@ -16,7 +16,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jade')
 
 # uncomment after placing your favicon in /public
-#app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')))
 #app.use(logger('dev'))
 app.use(cors())
 app.use(bodyParser.json())
@@ -31,13 +31,21 @@ config = require('./config/configuration')
 mongoose = require('mongoose')
 mongoose.Promise = require('bluebird')
 mongoose.connect(config.db) # connect to our database
+
+code= require('./models/code')
+Codes = require('./controllers/codes')(app, code.model)
+
 item= require('./models/item')
 Items = require('./controllers/items')(app, item.model)
+
 node= require('./models/node')
 Nodes = require('./controllers/nodes')(app, node.model)
+
 route= require('./models/route')
 Routes = require('./controllers/routes')(app, route.model)
+
 Resources = {
+  Codes:Codes
   Items:Items
   Nodes:Nodes
   Routes:Routes

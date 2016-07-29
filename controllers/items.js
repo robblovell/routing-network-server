@@ -18,7 +18,9 @@
         }
         return next();
       }
-    }).get().put().post()["delete"]().index({
+    }).get({
+      before: function(req, res, next) {}
+    }).put().post()["delete"]().index({
       before: function(req, res, next) {
         if ((req.query.query != null)) {
           req.modelQuery = this.model.find(JSON.parse(req.query.query));

@@ -10,7 +10,10 @@ module.exports = (app, model) ->
                 result = traverse(req.body[0],'', [])
                 req.body[0] = result[0]
             next()
-    }).get().put().post().delete().index({
+    }).get({
+        before: (req, res, next) ->
+
+    }).put().post().delete().index({
         before: (req, res, next) ->
             if (req.query.query?)
                 req.modelQuery = this.model.find(JSON.parse(req.query.query))

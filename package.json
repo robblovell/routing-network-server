@@ -6,6 +6,8 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "async": "^2.0.0",
+    "babyparse": "^0.4.6",
     "bluebird": "^3.4.1",
     "body-parser": "~1.13.2",
     "coffeescript-compiler": "^0.1.1",
@@ -14,6 +16,7 @@
     "cors": "^2.7.1",
     "debug": "~2.2.0",
     "express": "~4.13.1",
+    "ioredis": "^2.2.0",
     "jade": "~1.11.0",
     "ljson": "^2.0.0",
     "mathjs": "^3.3.0",
@@ -26,10 +29,12 @@
     "resourcejs": "^1.2.2",
     "seraph": "^0.14.4",
     "serve-favicon": "~2.3.0",
-    "stylus": "0.42.3"
+    "stylus": "0.42.3",
+    "uuid": "^2.0.2"
   },
   "devDependencies": {
     "azure": "^0.10.6",
+    "combyne": "^2.0.0",
     "concurrent-transform": "^1.0.0",
     "gulp": "^3.9.1",
     "gulp-coffee": "^2.3.2",
@@ -41,6 +46,7 @@
     "shelljs": "^0.7.0",
     "shoulda": "0.0.1",
     "stylus": "^0.42.3",
+    "superagent": "^2.1.0",
     "tape": "^4.6.0",
     "touch": "^1.0.0"
   }
