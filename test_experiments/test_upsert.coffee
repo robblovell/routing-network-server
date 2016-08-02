@@ -28,17 +28,21 @@ describe 'Test Routes', () ->
         })
 
 
-    makeUpsert = (node, data) ->
+    makeUpsert = (data) ->
         data.id = uuid.v4() unless (data.id?)
         properties = (("n."+key+" = {"+key+"}, ") for key,value of data).reduce((t,s) -> t + s)
-        properties = properties.slice(0,-2)
+        properties = properties.slice(0,-2) # remove the trailing comma.
         create = "n.created=timestamp(), "+properties
         update = "n.updated=timestamp(), "+properties
         #         1234567890123456789012345678901234567890
 
-        upsertStatement = "MERGE (n:#{node} { id: neo4j.int({id}) }) ON CREATE SET "+create+" ON MATCH SET "+update
+        upsertStatement = "MERGE (n:#{data.type} { id: {id} }) ON CREATE SET "+
+            create+
+            " ON MATCH SET "+
+            update
 
-        return upsertStatement
+        return [data, upsertStatement]
+
 
     makeIdNode = () ->
         makeStatement = makeUpsert({id:id})
@@ -46,23 +50,24 @@ describe 'Test Routes', () ->
 
     buildGraph = (done) ->
 
-        tx = session.beginTransaction()
-        tx.run(upsert, props)
+#        tx = session.beginTransaction()
+#        tx.run(upsert, props)
+#
+#        tx.commit().subscribe({
+#                onCompleted: (result) ->
+#
+#            })
 
-        tx.commit().subscribe({
-                onCompleted: (result) ->
 
-            })
-
-        props = { prop1: "x", prop2: "z" }
-        upsert = makeUpsert('Test',props)
+        props = { type: "Test", prop1: "x", prop2: "z" }
+        [data, upsert] = makeUpsert(props)
 
 #        upsert = " MERGE (n) ON CREATE SET "+create+" ON MATCH SET "+update
         console.log("12345678901234567890123456789012345678901234567890123456789012345678901234567890")
         console.log(upsert)
         session = driver.session()
         tx = session.beginTransaction()
-        tx.run(upsert, props)
+        tx.run(upsert, data)
 
         tx.commit().subscribe({
             onCompleted: (result) ->
@@ -70,7 +75,7 @@ describe 'Test Routes', () ->
 
                 session2 = driver.session()
                 tx2 = session2.beginTransaction()
-                props = { id: 449, prop1: "231", prop2: "1000" }
+                props = {type: "Test", id: data.id, prop1: "231", prop2: "1000" }
 
                 tx2.run(upsert, props)
 

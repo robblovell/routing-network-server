@@ -24,23 +24,27 @@
       return this.redis.get(query, callback);
     };
 
-    RedisRepository.prototype.get = function(id, callback) {
-      return this.redis.get(id, callback);
+    RedisRepository.prototype.get = function(example, callback) {
+      return this.redis.get(example.id, callback);
     };
 
-    RedisRepository.prototype.add = function(json) {
+    RedisRepository.prototype.add = function(obj) {
+      var result;
       if ((this.buffer != null)) {
-        return this.buffer.set(id, JSON.stringify(json));
+        return this.buffer.set(id, JSON.stringify(obj));
       } else {
-        return this.redis.set(id, json);
+        result = this.redis.set(id, JSON.stringify(obj));
+        return callback(null, result);
       }
     };
 
-    RedisRepository.prototype.set = function(id, json) {
+    RedisRepository.prototype.set = function(id, obj, callback) {
+      var result;
       if ((this.buffer != null)) {
-        return this.buffer.set(id, JSON.stringify(json));
+        return this.buffer.set(id, JSON.stringify(obj));
       } else {
-        return this.redis.set(id, json);
+        result = this.redis.set(id, JSON.stringify(obj));
+        return callback(null, result);
       }
     };
 

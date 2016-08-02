@@ -80,5 +80,4 @@ module.exports = class RestRepository
             (error, results) =>
                 console.log("Error:"+error) if (error?)
                 @buffer = null
-#                console.log('done')
         )

@@ -13,20 +13,22 @@ class RedisRepository extends iRepository
     find: (query, callback) ->
         return @redis.get(query, callback)
 
-    get: (id, callback) ->
-        return @redis.get(id, callback)
+    get: (example, callback) ->
+        return @redis.get(example.id, callback)
 
-    add: (json) ->
+    add: (obj) ->
         if (@buffer?)
-            @buffer.set(id, JSON.stringify(json))
+            @buffer.set(id, JSON.stringify(obj))
         else
-            @redis.set(id, json)
+            result = @redis.set(id, JSON.stringify(obj))
+            callback(null, result)
 
-    set: (id, json) ->
+    set: (id, obj, callback) ->
         if (@buffer?)
-            @buffer.set(id, JSON.stringify(json))
+            @buffer.set(id, JSON.stringify(obj))
         else
-            @redis.set(id, json)
+            result = @redis.set(id, JSON.stringify(obj))
+            callback(null, result)
 
     delete: (id) ->
         throw new Error("not implemented")

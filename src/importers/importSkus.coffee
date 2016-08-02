@@ -19,10 +19,8 @@ config = {
 #    beforeFirstChunk: undefined,
 #    withCredentials: undefined
 }
-config.nodeType = 'Warehouse'
-config.nodeIdName = 'ConsolidatedWarehouseID'
+config.nodeType = 'Sku'
+config.nodeIdName = 'id'
 importer = new Importer(config)
 
 module.exports = importer
-
-

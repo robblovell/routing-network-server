@@ -37,7 +37,7 @@
         }
       });
     };
-    makeUpsert = function(node, data) {
+    makeUpsert = function(data) {
       var create, key, properties, update, upsertStatement, value;
       if (!(data.id != null)) {
         data.id = uuid.v4();
@@ -56,8 +56,8 @@
       properties = properties.slice(0, -2);
       create = "n.created=timestamp(), " + properties;
       update = "n.updated=timestamp(), " + properties;
-      upsertStatement = ("MERGE (n:" + node + " { id: neo4j.int({id}) }) ON CREATE SET ") + create + " ON MATCH SET " + update;
-      return upsertStatement;
+      upsertStatement = ("MERGE (n:" + data.type + " { id: {id} }) ON CREATE SET ") + create + " ON MATCH SET " + update;
+      return [data, upsertStatement];
     };
     makeIdNode = function() {
       var makeStatement;
@@ -67,22 +67,18 @@
       return makeStatement;
     };
     buildGraph = function(done) {
-      var props, session, tx, upsert;
-      tx = session.beginTransaction();
-      tx.run(upsert, props);
-      tx.commit().subscribe({
-        onCompleted: function(result) {}
-      });
+      var data, props, ref, session, tx, upsert;
       props = {
+        type: "Test",
         prop1: "x",
         prop2: "z"
       };
-      upsert = makeUpsert('Test', props);
+      ref = makeUpsert(props), data = ref[0], upsert = ref[1];
       console.log("12345678901234567890123456789012345678901234567890123456789012345678901234567890");
       console.log(upsert);
       session = driver.session();
       tx = session.beginTransaction();
-      tx.run(upsert, props);
+      tx.run(upsert, data);
       return tx.commit().subscribe({
         onCompleted: function(result) {
           var session2, tx2;
@@ -90,7 +86,8 @@
           session2 = driver.session();
           tx2 = session2.beginTransaction();
           props = {
-            id: 449,
+            type: "Test",
+            id: data.id,
             prop1: "231",
             prop2: "1000"
           };

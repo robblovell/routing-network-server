@@ -19,9 +19,9 @@
     fastMode: false
   };
 
-  config.nodeType = 'Warehouse';
+  config.nodeType = 'Sku';
 
-  config.nodeIdName = 'ConsolidatedWarehouseID';
+  config.nodeIdName = 'id';
 
   importer = new Importer(config);
 
@@ -29,4 +29,4 @@
 
 }).call(this);
 
-//# sourceMappingURL=importWarehouses.js.map
+//# sourceMappingURL=importSkus.js.map

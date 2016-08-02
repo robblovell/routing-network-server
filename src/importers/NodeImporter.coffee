@@ -3,7 +3,7 @@ Papa = require('babyparse')
 fs = require('fs');
 async = require('async')
 
-class ZipCodeImporter extends iImport
+class Importer extends iImport
     constructor: (config) ->
         @config = config
 
@@ -13,21 +13,16 @@ class ZipCodeImporter extends iImport
         result = Papa.parse(contents, @config)
         data = result.data
         repo.pipeline()
-        for zipcode in data
-            zipcode.zip3 = zipcode.zip.substring(0,3)
-            zipcode.type = "Zip"
 
-        have = []
-        for zipcode in data
-            id = zipcode.zip3
-            if !have[id]
-                repo.set(id, zipcode, (error, result) ->
-                    if error?
-                        callback(error, null)
-
-                    return
-                )
-                have[id] = true
+        for node in data
+            id = node[@config.nodeIdName]
+            node.type = @config.nodeType
+            node.id = id
+            repo.set(id, node, (error, result) ->
+                if error?
+                    callback(error, null)
+                return
+            )
 
         repo.exec(callback)
         return
@@ -38,11 +33,11 @@ class ZipCodeImporter extends iImport
         result = Papa.parse(contents, @config)
         data = result.data
 
-        makeAdd = (zipcode) ->
+        makeAdd = (node) ->
             return (callback) ->
-                repo.find(JSON.stringify({zip: zipcode.zip}), (error, result) ->
+                repo.find(JSON.stringify({zip: node.zip}), (error, result) ->
                     if (result.body.length == 0)
-                        repo.add(zipcode, (error, result) ->
+                        repo.add(node, (error, result) ->
                             console.log(error) if (error?)
                             callback(error, result)
                             return
@@ -51,14 +46,14 @@ class ZipCodeImporter extends iImport
                         callback(error, result)
                     return
                 )
-        addZipcodeFuncs = []
-        for zipcode, i in data
-            addZipcodeFuncs.push(makeAdd(zipcode))
+        addFuncs = []
+        for node, i in data
+            addFuncs.push(makeAdd(node))
 
-        async.parallelLimit(addZipcodeFuncs, 10, (error, result) ->
+        async.parallelLimit(addFuncs, 10, (error, result) ->
             console.log(error) if error?
             callback(error, result)
             return
         )
 
-module.exports = ZipCodeImporter
+module.exports = Importer
