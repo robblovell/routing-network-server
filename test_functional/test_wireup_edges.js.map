@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "test_wireup_edges.js",
+  "sourceRoot": "",
+  "sources": [
+    "test_wireup_edges.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;AAAA"
+}

@@ -20,14 +20,29 @@
     }
 
     Importer.prototype.importKeyValue = function(filename, repo, callback) {
-      var contents, data, id, j, len, node, result;
+      var contents, data, id, j, k, len, node, result, v;
       contents = fs.readFileSync(filename, 'utf8');
       result = Papa.parse(contents, this.config);
       data = result.data;
       repo.pipeline();
       for (j = 0, len = data.length; j < len; j++) {
         node = data[j];
-        id = node[this.config.nodeIdName];
+        if (this.config.nodeIdName === '') {
+          id = ((function() {
+            var results;
+            results = [];
+            for (k in node) {
+              v = node[k];
+              results.push(v);
+            }
+            return results;
+          })()).reduce(function(x, y) {
+            return "" + x + "_" + y;
+          });
+        } else {
+          id = node[this.config.nodeIdName];
+        }
+        console.log("id: " + id);
         node.type = this.config.nodeType;
         node.id = id;
         repo.set(id, node, function(error, result) {

@@ -15,7 +15,11 @@ class Importer extends iImport
         repo.pipeline()
 
         for node in data
-            id = node[@config.nodeIdName]
+            if (@config.nodeIdName == '')
+                id = (v for k,v of node).reduce((x,y) -> ""+x+"_"+y)
+            else
+                id = node[@config.nodeIdName]
+            console.log("id: "+id)
             node.type = @config.nodeType
             node.id = id
             repo.set(id, node, (error, result) ->

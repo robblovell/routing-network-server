@@ -6,51 +6,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce9ccdf8-cac6-4359-a079-a8003980d434" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/old/consolidatedwarehouses1.numbers" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/old/warehouses.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/skus.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/weights-codes.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/importers/NodeImporter.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/importers/NodeImporter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/importers/NodeImporter.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/importers/importSkus.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/test_neo4jrepository.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_functional/test_import_skus.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_functional/test_import_warehouses.coffee" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/consolidatedwarehouses1.numbers" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/test_routes.coffee" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/test_routes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/test_routes.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/test_simple_graph.coffee" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/test_simple_graph.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/test_simple_graph.js.map" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/data/ConsolidatedWarehouse.csv" afterPath="$PROJECT_DIR$/data/old/ConsolidatedWarehouse.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/test_routes_simplified.coffee" afterPath="$PROJECT_DIR$/test_experiments/build_graph.coffee" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/test_routes_simplified.js" afterPath="$PROJECT_DIR$/test_experiments/build_graph.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/test_routes_simplified.js.map" afterPath="$PROJECT_DIR$/test_experiments/build_graph.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/importers/importLtlCodes.coffee" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_functional/test_import_ltlcodes.coffee" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_functional/test_wireup_edges.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/warehouses.csv" afterPath="$PROJECT_DIR$/data/warehouses.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/ZipCodeImporter.coffee" afterPath="$PROJECT_DIR$/src/importers/ZipCodeImporter.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/ZipCodeImporter.js" afterPath="$PROJECT_DIR$/src/importers/ZipCodeImporter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/ZipCodeImporter.js.map" afterPath="$PROJECT_DIR$/src/importers/ZipCodeImporter.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/importWarehouses.coffee" afterPath="$PROJECT_DIR$/src/importers/importWarehouses.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/importWarehouses.js" afterPath="$PROJECT_DIR$/src/importers/importWarehouses.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/importWarehouses.js.map" afterPath="$PROJECT_DIR$/src/importers/importWarehouses.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repositories/Neo4jRepository.coffee" afterPath="$PROJECT_DIR$/src/repositories/Neo4jRepository.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repositories/Neo4jRepository.js" afterPath="$PROJECT_DIR$/src/repositories/Neo4jRepository.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repositories/Neo4jRepository.js.map" afterPath="$PROJECT_DIR$/src/repositories/Neo4jRepository.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repositories/RedisRepository.coffee" afterPath="$PROJECT_DIR$/src/repositories/RedisRepository.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repositories/RedisRepository.js" afterPath="$PROJECT_DIR$/src/repositories/RedisRepository.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repositories/RedisRepository.js.map" afterPath="$PROJECT_DIR$/src/repositories/RedisRepository.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repositories/RestRepository.coffee" afterPath="$PROJECT_DIR$/src/repositories/RestRepository.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_experiments/test_upsert.coffee" afterPath="$PROJECT_DIR$/test_experiments/test_upsert.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_experiments/test_upsert.js" afterPath="$PROJECT_DIR$/test_experiments/test_upsert.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_experiments/test_upsert.js.map" afterPath="$PROJECT_DIR$/test_experiments/test_upsert.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_import_zipcodes.coffee" afterPath="$PROJECT_DIR$/test_functional/test_import_zipcodes.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_import_zipcodes.js" afterPath="$PROJECT_DIR$/test_functional/test_import_zipcodes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_import_zipcodes.js.map" afterPath="$PROJECT_DIR$/test_functional/test_import_zipcodes.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/weights-codes.csv" afterPath="$PROJECT_DIR$/data/weights-codes.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/NodeImporter.coffee" afterPath="$PROJECT_DIR$/src/importers/NodeImporter.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/NodeImporter.js" afterPath="$PROJECT_DIR$/src/importers/NodeImporter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/NodeImporter.js.map" afterPath="$PROJECT_DIR$/src/importers/NodeImporter.js.map" />
     </list>
     <ignored path="network-server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,7 +33,7 @@
     <favorites_list name="network-server" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5404076">
+    <splitter split-orientation="horizontal" split-proportion="0.36893886">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="test_import_warehouses.coffee" pinned="false" current-in-tab="false">
@@ -82,12 +46,16 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="NodeImporter.coffee" pinned="false" current-in-tab="true">
+          <file leaf-file-name="NodeImporter.coffee" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/importers/NodeImporter.coffee">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
-                  <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-                  <folding />
+                <state relative-caret-position="270">
+                  <caret line="18" column="66" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
+                  <folding>
+                    <marker date="1470171921000" expanded="true" signature="140:1918" ph="..." />
+                    <marker date="1470171921000" expanded="true" signature="283:925" ph="..." />
+                    <marker date="1470171921000" expanded="true" signature="464:881" ph="..." />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -102,48 +70,48 @@
               </provider>
             </entry>
           </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="RedisRepository.coffee" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/repositories/RedisRepository.coffee">
+          <file leaf-file-name="weights-codes.csv" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/data/weights-codes.csv">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="495">
-                  <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
-                  <folding>
-                    <marker date="1470165671000" expanded="true" signature="113:1077" ph="..." />
-                    <marker date="1470165671000" expanded="true" signature="501:668" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ZipCodeImporter.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/importers/ZipCodeImporter.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="200">
-                  <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
+                <state relative-caret-position="2055">
+                  <caret line="225" column="15" selection-start-line="225" selection-start-column="15" selection-end-line="225" selection-end-column="15" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
           <file leaf-file-name="ZipCodeImporter.coffee" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/importers/ZipCodeImporter.coffee">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
+                <state relative-caret-position="150">
                   <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="test_import_skus.coffee" pinned="false" current-in-tab="true">
+          <file leaf-file-name="test_import_skus.coffee" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/test_functional/test_import_skus.coffee">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="172">
                   <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+                  <folding>
+                    <marker date="1470170168000" expanded="true" signature="666:778" ph="..." />
+                    <marker date="1470170168000" expanded="true" signature="1517:2156" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="skus.csv" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/data/skus.csv">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
                   <folding />
                 </state>
               </provider>
@@ -189,6 +157,38 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="importLtlCodes.coffee" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/importers/importLtlCodes.coffee">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="330">
+                  <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="test_import_ltlcodes.coffee" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/test_functional/test_import_ltlcodes.coffee">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="285">
+                  <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+                  <folding>
+                    <marker date="1470172374000" expanded="true" signature="674:786" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="test_wireup_edges.coffee" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/test_functional/test_wireup_edges.coffee">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
         </leaf>
       </split-second>
     </splitter>
@@ -199,8 +199,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config/config.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/config/configuration.coffee" />
         <option value="$PROJECT_DIR$/routes/index.coffee" />
         <option value="$PROJECT_DIR$/test/test_routes.js" />
@@ -231,7 +229,6 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/example_queries.sql" />
         <option value="$PROJECT_DIR$/test/test_routes_simplified.coffee" />
-        <option value="$PROJECT_DIR$/data/weights-codes.csv" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/test/test_neo4jrepository.coffee" />
         <option value="$PROJECT_DIR$/src/repositories/RestRepository.coffee" />
@@ -244,12 +241,15 @@
         <option value="$PROJECT_DIR$/src/importers/WarehouseImporter.coffee" />
         <option value="$PROJECT_DIR$/src/importers/SkuImporter.coffee" />
         <option value="$PROJECT_DIR$/src/importers/importZipCodes.coffee" />
-        <option value="$PROJECT_DIR$/src/importers/NodeImporter.coffee" />
         <option value="$PROJECT_DIR$/src/importers/importWarehouses.coffee" />
         <option value="$PROJECT_DIR$/test_functional/test_import_warehouses.coffee" />
         <option value="$PROJECT_DIR$/src/importers/importSkus.coffee" />
         <option value="$PROJECT_DIR$/data/skus.csv" />
         <option value="$PROJECT_DIR$/test_functional/test_import_skus.coffee" />
+        <option value="$PROJECT_DIR$/src/importers/importLtlCodes.coffee" />
+        <option value="$PROJECT_DIR$/data/weights-codes.csv" />
+        <option value="$PROJECT_DIR$/src/importers/NodeImporter.coffee" />
+        <option value="$PROJECT_DIR$/test_functional/test_import_ltlcodes.coffee" />
       </list>
     </option>
   </component>
@@ -338,6 +338,10 @@
               <option name="myItemId" value="test_functional" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test_wireup_edges.coffee" />
+              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -351,10 +355,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="test_functional" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test_import_skus.coffee" />
-              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -537,7 +537,7 @@
       <recent name="$PROJECT_DIR$/data" />
     </key>
   </component>
-  <component name="RunManager" selected="Mocha.Import Warehouses">
+  <component name="RunManager" selected="Mocha.Import LtlCodes">
     <configuration default="false" name="importWarehouses.coffee" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="importWarehouses.coffee" node-parameters="--require coffee-script/register" working-dir="$PROJECT_DIR$/src/importers">
       <method />
     </configuration>
@@ -662,6 +662,18 @@
       <test-file>$PROJECT_DIR$/test_functional/test_import_warehouses.js</test-file>
       <method />
     </configuration>
+    <configuration default="false" name="Import LtlCodes" type="mocha-javascript-test-runner" factoryName="Mocha" singleton="false">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>TEST_FILE</test-kind>
+      <test-file>$PROJECT_DIR$/test_functional/test_import_ltlcodes.js</test-file>
+      <method />
+    </configuration>
     <configuration default="false" name="Import Skus" type="mocha-javascript-test-runner" factoryName="Mocha" singleton="false">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -711,17 +723,18 @@
       <test-file>$PROJECT_DIR$/test_experiments/test_upsert.js</test-file>
       <method />
     </configuration>
-    <list size="10">
+    <list size="11">
       <item index="0" class="java.lang.String" itemvalue="Mocha.Import ZipCodes" />
       <item index="1" class="java.lang.String" itemvalue="Mocha.Import Warehouses" />
-      <item index="2" class="java.lang.String" itemvalue="Mocha.Import Skus" />
-      <item index="3" class="java.lang.String" itemvalue="Mocha.unit tests" />
-      <item index="4" class="java.lang.String" itemvalue="Mocha.Build Experimental Graph" />
-      <item index="5" class="java.lang.String" itemvalue="Mocha.Test Upsert" />
-      <item index="6" class="java.lang.String" itemvalue="Node.js.bin/www" />
-      <item index="7" class="java.lang.String" itemvalue="Node.js.importWarehouses.coffee" />
-      <item index="8" class="java.lang.String" itemvalue="Node.js.importWarehouses.js" />
-      <item index="9" class="java.lang.String" itemvalue="Node.js.importZipCodes.js" />
+      <item index="2" class="java.lang.String" itemvalue="Mocha.Import LtlCodes" />
+      <item index="3" class="java.lang.String" itemvalue="Mocha.Import Skus" />
+      <item index="4" class="java.lang.String" itemvalue="Mocha.unit tests" />
+      <item index="5" class="java.lang.String" itemvalue="Mocha.Build Experimental Graph" />
+      <item index="6" class="java.lang.String" itemvalue="Mocha.Test Upsert" />
+      <item index="7" class="java.lang.String" itemvalue="Node.js.bin/www" />
+      <item index="8" class="java.lang.String" itemvalue="Node.js.importWarehouses.coffee" />
+      <item index="9" class="java.lang.String" itemvalue="Node.js.importWarehouses.js" />
+      <item index="10" class="java.lang.String" itemvalue="Node.js.importZipCodes.js" />
     </list>
     <recent_temporary>
       <list size="3">
@@ -763,50 +776,50 @@
       <workItem from="1469899634171" duration="633000" />
       <workItem from="1470008242960" duration="738000" />
       <workItem from="1470013667877" duration="21000" />
-      <workItem from="1470155514246" duration="12635000" />
+      <workItem from="1470155514246" duration="14750000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Import_Skus - 2016.08.02 at 13h 29m 19s.xml">
-      <configuration name="Import Skus" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Import_LtlCodes - 2016.08.02 at 14h 06m 37s.xml">
+      <configuration name="Import LtlCodes" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Import_Skus - 2016.08.02 at 13h 29m 46s.xml">
-      <configuration name="Import Skus" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Import_LtlCodes - 2016.08.02 at 14h 07m 08s.xml">
+      <configuration name="Import LtlCodes" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Import_Skus - 2016.08.02 at 13h 31m 31s.xml">
-      <configuration name="Import Skus" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Import_LtlCodes - 2016.08.02 at 14h 08m 22s.xml">
+      <configuration name="Import LtlCodes" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Import_Skus - 2016.08.02 at 13h 32m 19s.xml">
-      <configuration name="Import Skus" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Import_LtlCodes - 2016.08.02 at 14h 10m 09s.xml">
+      <configuration name="Import LtlCodes" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Import_Skus - 2016.08.02 at 13h 33m 45s.xml">
-      <configuration name="Import Skus" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Import_LtlCodes - 2016.08.02 at 14h 10m 24s.xml">
+      <configuration name="Import LtlCodes" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Import_Skus - 2016.08.02 at 13h 33m 52s.xml">
-      <configuration name="Import Skus" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Import_LtlCodes - 2016.08.02 at 14h 10m 58s.xml">
+      <configuration name="Import LtlCodes" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Import_Skus - 2016.08.02 at 13h 34m 37s.xml">
-      <configuration name="Import Skus" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Import_LtlCodes - 2016.08.02 at 14h 11m 11s.xml">
+      <configuration name="Import LtlCodes" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Import_Skus - 2016.08.02 at 13h 36m 13s.xml">
-      <configuration name="Import Skus" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Import_LtlCodes - 2016.08.02 at 14h 12m 32s.xml">
+      <configuration name="Import LtlCodes" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Import_Skus - 2016.08.02 at 13h 36m 14s.xml">
-      <configuration name="Import Skus" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Import_LtlCodes - 2016.08.02 at 14h 12m 58s.xml">
+      <configuration name="Import LtlCodes" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Import_Warehouses - 2016.08.02 at 13h 29m 15s.xml">
-      <configuration name="Import Warehouses" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Import_LtlCodes - 2016.08.02 at 14h 12m 59s.xml">
+      <configuration name="Import LtlCodes" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148703000" />
+    <option name="totallyTimeSpent" value="150818000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1916" y="25" width="1872" height="1055" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23122637" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23122637" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49840257" sideWeight="0.8058047" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -815,7 +828,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3258786" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3713981" sideWeight="0.19419526" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3713981" sideWeight="0.19419526" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -866,7 +879,7 @@
           <option name="timeStamp" value="49" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="183" />
+      <option name="time" value="198" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="NodeJSConfigurationType">
@@ -876,31 +889,14 @@
       <configuration name="mocha-javascript-test-runner">
         <watch expression="this.config" language="CoffeeScript" />
         <watch expression="JSON.parse(result)" language="CoffeeScript" />
+        <watch expression="node.reduce(function(p,c,i,a) {&quot;&quot;+p+c})" language="CoffeeScript" />
+        <watch expression="node" language="CoffeeScript" />
+        <watch expression="Object.values(node)" language="CoffeeScript" />
+        <watch expression="type" language="CoffeeScript" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/models/node.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/code.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/route.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/async/dist/async.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13065">
@@ -1008,14 +1004,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/test_simple_graph.coffee" />
     <entry file="file://$PROJECT_DIR$/test/test_routes.coffee" />
-    <entry file="file://$PROJECT_DIR$/data/weights-codes.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3390">
-          <caret line="226" column="0" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/old/warehouses.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1182,22 +1170,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/importers/ZipCodeImporter.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_functional/test_import_warehouses.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/importers/importWarehouses.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1206,42 +1178,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/importers/importZipCodes.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="20" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/importers/importSkus.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/importers/NodeImporter.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/repositories/Neo4jRepository.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="70" column="12" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/skus.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1258,6 +1198,95 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <marker date="1470170168000" expanded="true" signature="666:778" ph="..." />
+            <marker date="1470170168000" expanded="true" signature="1517:2156" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_functional/test_import_warehouses.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/skus.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/importers/ZipCodeImporter.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/importers/importSkus.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/importers/importLtlCodes.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/importers/importZipCodes.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/importers/NodeImporter.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="66" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
+          <folding>
+            <marker date="1470171921000" expanded="true" signature="140:1918" ph="..." />
+            <marker date="1470171921000" expanded="true" signature="283:925" ph="..." />
+            <marker date="1470171921000" expanded="true" signature="464:881" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/weights-codes.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2055">
+          <caret line="225" column="15" selection-start-line="225" selection-start-column="15" selection-end-line="225" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_functional/test_import_ltlcodes.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <folding>
+            <marker date="1470172374000" expanded="true" signature="674:786" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_functional/test_wireup_edges.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
