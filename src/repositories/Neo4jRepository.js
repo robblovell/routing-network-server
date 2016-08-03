@@ -31,44 +31,63 @@
       return;
     }
 
-    iRepository.prototype.find = function(query, callback) {};
+    iRepository.prototype.find = function(example, callback) {
+      var cypher;
+      cypher = "Match (n:" + example.type + ") RETURN n";
+      return this.run(cypher, {}, callback);
+    };
+
+    iRepository.prototype.run = function(cypher, data, callback) {
+      var session;
+      if (callback == null) {
+        callback = null;
+      }
+      if ((this.buffer != null) || (callback == null)) {
+        this.buffer.run(cypher, data);
+      } else {
+        session = this.neo4j.session();
+        session.run(cypher, data).then((function(_this) {
+          return function(result) {
+            var i, len, record, ref, results;
+            session.close();
+            if (result && result.records[0] && result.records[0]._fields) {
+              if (result.records.length === 1) {
+                callback(null, JSON.stringify(result.records[0]._fields[0].properties));
+              } else {
+                results = [];
+                ref = result.records;
+                for (i = 0, len = ref.length; i < len; i++) {
+                  record = ref[i];
+                  results.push(record._fields[0].properties);
+                }
+                callback(null, results);
+              }
+            } else {
+              callback(null, "{}");
+            }
+          };
+        })(this))["catch"]((function(_this) {
+          return function(error) {
+            console.log("Error:" + error);
+            session.close();
+            callback(error, null);
+          };
+        })(this));
+      }
+    };
 
     iRepository.prototype.get = function(example, callback) {
-      var cypher, session;
+      var cypher;
       if (example.id === "" || example.id === null) {
         callback(null, "{}");
         return;
       }
       cypher = "MATCH (n:" + example.type + ") WHERE n.id = {id} RETURN n";
-      session = this.neo4j.session();
-      return session.run(cypher, example).then((function(_this) {
-        return function(result) {
-          session.close();
-          if (result && result.records[0] && result.records[0]._fields) {
-            callback(null, JSON.stringify(result.records[0]._fields[0].properties));
-          } else {
-            callback(null, "{}");
-          }
-        };
-      })(this))["catch"]((function(_this) {
-        return function(error) {
-          console.log("Error:" + error);
-          session.close();
-          callback(error, null);
-        };
-      })(this));
+      return this.run(cypher, example, callback);
     };
 
     iRepository.prototype.add = function(cypher, callback) {
-      var make;
-      make = function(json) {
-        return function(callback) {};
-      };
-      if ((this.buffer != null) || (callback == null)) {
-        this.buffer.push(make(json));
-      } else {
-        throw new Error('not implemented');
-      }
+      throw new Error('not implemented');
     };
 
     iRepository.prototype.set = function(id, obj, callback) {
@@ -79,13 +98,13 @@
           data.id = uuid.v4();
         }
         properties = ((function() {
-          var results;
-          results = [];
+          var results1;
+          results1 = [];
           for (key in data) {
             value = data[key];
-            results.push("n." + key + " = {" + key + "}, ");
+            results1.push("n." + key + " = {" + key + "}, ");
           }
-          return results;
+          return results1;
         })()).reduce(function(t, s) {
           return t + s;
         });
@@ -121,7 +140,7 @@
 
     iRepository.prototype.pipeline = function() {
       this.session = this.neo4j.session();
-      return this.buffer = this.session.beginTransaction();
+      this.buffer = this.session.beginTransaction();
     };
 
     iRepository.prototype.exec = function(callback) {
@@ -129,12 +148,14 @@
         onCompleted: (function(_this) {
           return function() {
             _this.session.close();
+            _this.buffer = null;
             callback(null, "success");
           };
         })(this),
         onError: (function(_this) {
           return function(error) {
             _this.session.close();
+            _this.buffer = null;
             callback(error, null);
           };
         })(this)

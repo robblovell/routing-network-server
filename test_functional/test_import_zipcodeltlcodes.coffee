@@ -1,5 +1,6 @@
 should = require('should')
 assert = require('assert')
+math = require('mathjs')
 
 importer = require('../src/importers/importZipCodes')
 async = require('async')
@@ -13,58 +14,80 @@ Papa = require('babyparse')
 
 describe 'Errata', () ->
 
-    checkAllZipCodes = (filename, repo, done) =>
-        contents = fs.readFileSync(filename, 'utf8')
-        result = Papa.parse(contents, @config)
-        data = result.data
+    checkAllZipCodes = (filename1, filename2, repo, done) =>
+        contents = fs.readFileSync(filename1, 'utf8')
+        result1 = Papa.parse(contents, @config)
+        ZipCodes = result1.data
+        contentsCodes = fs.readFileSync(filename2, 'utf8')
+        result2 = Papa.parse(contentsCodes, @config)
+        LtlCodes = result2.data
 
         # function to get one zip code by id and check the result.
         make = (id, type) ->
             return (callback) ->
                 repo.get({id: id, type: type}, (error, result) ->
-
-                    JSON.parse(result).zip3.should.be.equal(id)
+                    JSON.parse(result).id.should.be.equal(id)
                     callback(null, result)
                     return
                 )
 
         getZipFuncs = []
-        have = []
-        for zipcode,i in data
+        zip3s = {}
+        for zipcode,i in ZipCodes
             continue if i == 0
-            id = zipcode[0].substring(0,3)
+            zipcode.zip3 = zipcode[0].substring(0,3)
 
-            if !have[id] and id != ""
-                getZipFuncs.push(make(id, 'Zip'))
-                have[id] = true
+            if (!zip3s[zipcode.zip3])
+                zipcode.type = "Zip"
+                zipcode.zip = [zipcode.zip]
+                zip3s[zipcode.zip3] = zipcode
+            else
+                zip3s[zipcode.zip3].zip.push(zipcode.zip)
 
+        # random test for existence of codes.
+        for ltlcode,i in LtlCodes
+            continue if i == 0
+            continue if math.floor(math.random(0,100) > 0)
+#            break if i > 2
+            for key,zipcode of zip3s
+                continue if math.floor(math.random(0,300) > 0)
+                zipcode.ltlCode = ltlcode[0]
+                zipcode.weightLo = ltlcode[1]
+                zipcode.weightHi = ltlcode[2]
+                id = zipcode.zip3+"_"+zipcode.ltlCode+"_"+zipcode.weightLo+"_"+zipcode.weightHi
+                zipcode.id = id
+                getZipFuncs.push(make(id, 'Zip')) if (id != "")
 
+        console.log("Test for this many zips:"+getZipFuncs.length)
         async.parallelLimit(getZipFuncs, 1,
             (error, results) =>
                 console.log('error'+error) if error
-                done()
-                return
+                done(); return
         )
         return
 
     it 'Imports ZipCodes Neo4j', (done) ->
         repoConfig = { user: 'neo4j', pass: 'macro7' }
         repo = new Neo4jRepostitory(repoConfig)
-        filename = './data/zipcodes.csv'
-        importer.import(filename, repo, (error, results) ->
+        filename1 = './data/zipcodes.csv'
+        filename2 = './data/weights-codes.csv'
+        importer.import(filename1, filename2, repo, (error, results) ->
             if (error?)
+                console.log("error: "+error)
+                assert(false)
                 done(); return
             # do a spot check:
-            repo.get({id: '852', type: 'Zip'}, (error, result) ->
+            repo.get({id: '002_1000_0_100', type: 'Zip'}, (error, result) ->
                 if (error?)
+                    console.log("error: "+error)
+                    assert(false)
                     done(); return
                 zip = JSON.parse(result)
-                zip.zip3.should.be.equal('852')
-                zip.zip.should.be.equal('85200')
-                zip.city.should.be.equal('Mesa')
+                zip.zip3.should.be.equal('002')
+                zip.city.should.be.equal('Portsmouth')
 
                 # now check all the zipcodes
-                checkAllZipCodes(filename, repo, done)
+                checkAllZipCodes(filename1, filename2, repo, done)
                 return
             )
             return

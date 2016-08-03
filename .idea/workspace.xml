@@ -6,15 +6,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce9ccdf8-cac6-4359-a079-a8003980d434" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/importers/importLtlCodes.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_functional/test_import_ltlcodes.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_functional/test_wireup_edges.coffee" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/importers/EdgeBuilder.coffee" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/importers/EdgeBuilder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/importers/EdgeBuilder.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/importers/ZipCodeLtlCodeImporter.coffee" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/importers/ZipCodeLtlCodesEdgeBuilder.coffee" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/importers/buildEdges.coffee" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/importers/importZipCodeLtlCodes.coffee" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_functional/test_import_zipcodeltlcodes.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/weights-codes.csv" afterPath="$PROJECT_DIR$/data/weights-codes.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/zipcodes.csv" afterPath="$PROJECT_DIR$/data/zipcodes.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/NodeImporter.coffee" afterPath="$PROJECT_DIR$/src/importers/NodeImporter.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/NodeImporter.js" afterPath="$PROJECT_DIR$/src/importers/NodeImporter.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/NodeImporter.js.map" afterPath="$PROJECT_DIR$/src/importers/NodeImporter.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/ZipCodeImporter.coffee" afterPath="$PROJECT_DIR$/src/importers/ZipCodeImporter.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/ZipCodeImporter.js" afterPath="$PROJECT_DIR$/src/importers/ZipCodeImporter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/ZipCodeImporter.js.map" afterPath="$PROJECT_DIR$/src/importers/ZipCodeImporter.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repositories/Neo4jRepository.coffee" afterPath="$PROJECT_DIR$/src/repositories/Neo4jRepository.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repositories/Neo4jRepository.js" afterPath="$PROJECT_DIR$/src/repositories/Neo4jRepository.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repositories/Neo4jRepository.js.map" afterPath="$PROJECT_DIR$/src/repositories/Neo4jRepository.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_import_ltlcodes.coffee" afterPath="$PROJECT_DIR$/test_functional/test_import_ltlcodes.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_import_ltlcodes.js" afterPath="$PROJECT_DIR$/test_functional/test_import_ltlcodes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_import_ltlcodes.js.map" afterPath="$PROJECT_DIR$/test_functional/test_import_ltlcodes.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_import_skus.coffee" afterPath="$PROJECT_DIR$/test_functional/test_import_skus.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_import_skus.js" afterPath="$PROJECT_DIR$/test_functional/test_import_skus.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_import_skus.js.map" afterPath="$PROJECT_DIR$/test_functional/test_import_skus.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_import_warehouses.coffee" afterPath="$PROJECT_DIR$/test_functional/test_import_warehouses.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_import_warehouses.js" afterPath="$PROJECT_DIR$/test_functional/test_import_warehouses.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_import_warehouses.js.map" afterPath="$PROJECT_DIR$/test_functional/test_import_warehouses.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_import_zipcodes.coffee" afterPath="$PROJECT_DIR$/test_functional/test_import_zipcodes.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_import_zipcodes.js" afterPath="$PROJECT_DIR$/test_functional/test_import_zipcodes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_import_zipcodes.js.map" afterPath="$PROJECT_DIR$/test_functional/test_import_zipcodes.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_wireup_edges.coffee" afterPath="$PROJECT_DIR$/test_functional/test_wireup_edges.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_wireup_edges.js" afterPath="$PROJECT_DIR$/test_functional/test_wireup_edges.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_wireup_edges.js.map" afterPath="$PROJECT_DIR$/test_functional/test_wireup_edges.js.map" />
     </list>
     <ignored path="network-server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,125 +60,44 @@
     <favorites_list name="network-server" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.36893886">
+    <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="test_import_warehouses.coffee" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test_functional/test_import_warehouses.coffee">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="192">
-                  <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="NodeImporter.coffee" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/importers/NodeImporter.coffee">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="18" column="66" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
-                  <folding>
-                    <marker date="1470171921000" expanded="true" signature="140:1918" ph="..." />
-                    <marker date="1470171921000" expanded="true" signature="283:925" ph="..." />
-                    <marker date="1470171921000" expanded="true" signature="464:881" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="importWarehouses.coffee" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/importers/importWarehouses.coffee">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="weights-codes.csv" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/data/weights-codes.csv">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2055">
-                  <caret line="225" column="15" selection-start-line="225" selection-start-column="15" selection-end-line="225" selection-end-column="15" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
         <leaf>
-          <file leaf-file-name="ZipCodeImporter.coffee" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/importers/ZipCodeImporter.coffee">
+          <file leaf-file-name="EdgeBuilder.coffee" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/importers/EdgeBuilder.coffee">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+                <state relative-caret-position="763">
+                  <caret line="60" column="16" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="test_import_skus.coffee" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test_functional/test_import_skus.coffee">
+          <file leaf-file-name="importZipCodeLtlCodes.coffee" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/importers/importZipCodeLtlCodes.coffee">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="172">
-                  <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-                  <folding>
-                    <marker date="1470170168000" expanded="true" signature="666:778" ph="..." />
-                    <marker date="1470170168000" expanded="true" signature="1517:2156" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="skus.csv" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/data/skus.csv">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+                <state relative-caret-position="60">
+                  <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Neo4jRepository.coffee" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/repositories/Neo4jRepository.coffee">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="375">
-                  <caret line="70" column="12" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="12" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="importZipCodes.coffee" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/importers/importZipCodes.coffee">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="18" column="20" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="20" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="warehouses.csv" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/data/warehouses.csv">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="23" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="23" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="importSkus.coffee" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/importers/importSkus.coffee">
+          <file leaf-file-name="ZipCodeLtlCodeImporter.coffee" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/importers/ZipCodeLtlCodeImporter.coffee">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="315">
-                  <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+                  <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="test_import_ltlcodes.coffee" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/test_functional/test_import_ltlcodes.coffee">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="193">
+                  <caret line="28" column="16" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="16" />
                   <folding />
                 </state>
               </provider>
@@ -167,23 +113,55 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="test_import_ltlcodes.coffee" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test_functional/test_import_ltlcodes.coffee">
+          <file leaf-file-name="test_wireup_edges.coffee" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/test_functional/test_wireup_edges.coffee">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-                  <folding>
-                    <marker date="1470172374000" expanded="true" signature="674:786" ph="..." />
-                  </folding>
+                <state relative-caret-position="375">
+                  <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="test_wireup_edges.coffee" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/test_functional/test_wireup_edges.coffee">
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="ZipCodeLtlCodesEdgeBuilder.coffee" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/importers/ZipCodeLtlCodesEdgeBuilder.coffee">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="210">
+                  <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="42" selection-end-column="53" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Neo4jRepository.coffee" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/repositories/Neo4jRepository.coffee">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-90">
+                  <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="test_import_zipcodeltlcodes.coffee" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/test_functional/test_import_zipcodeltlcodes.coffee">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="0">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <caret line="56" column="38" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="test_wireup_edges.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/test_functional/test_wireup_edges.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="311">
+                  <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
                   <folding />
                 </state>
               </provider>
@@ -199,14 +177,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config/configuration.coffee" />
-        <option value="$PROJECT_DIR$/routes/index.coffee" />
-        <option value="$PROJECT_DIR$/test/test_routes.js" />
-        <option value="$PROJECT_DIR$/src/example_queries.txt" />
-        <option value="$PROJECT_DIR$/data/ConsolidatedWarehouses.txt" />
-        <option value="$PROJECT_DIR$/data/ConsolidatedWarehouse.csv" />
-        <option value="$PROJECT_DIR$/src/importers/flushredis.coffee" />
-        <option value="$PROJECT_DIR$/bin/www" />
         <option value="$PROJECT_DIR$/gulpfile.coffee" />
         <option value="$PROJECT_DIR$/controllers/nodes.coffee" />
         <option value="$PROJECT_DIR$/controllers/routes.coffee" />
@@ -234,22 +204,30 @@
         <option value="$PROJECT_DIR$/src/repositories/RestRepository.coffee" />
         <option value="$PROJECT_DIR$/test_experiments/test_upsert.coffee" />
         <option value="internal/process/next_tick.js" />
-        <option value="$PROJECT_DIR$/src/repositories/Neo4jRepository.coffee" />
         <option value="$PROJECT_DIR$/src/repositories/RedisRepository.coffee" />
-        <option value="$PROJECT_DIR$/test_functional/test_import_zipcodes.coffee" />
-        <option value="$PROJECT_DIR$/src/importers/ZipCodeImporter.coffee" />
         <option value="$PROJECT_DIR$/src/importers/WarehouseImporter.coffee" />
         <option value="$PROJECT_DIR$/src/importers/SkuImporter.coffee" />
         <option value="$PROJECT_DIR$/src/importers/importZipCodes.coffee" />
         <option value="$PROJECT_DIR$/src/importers/importWarehouses.coffee" />
-        <option value="$PROJECT_DIR$/test_functional/test_import_warehouses.coffee" />
         <option value="$PROJECT_DIR$/src/importers/importSkus.coffee" />
         <option value="$PROJECT_DIR$/data/skus.csv" />
-        <option value="$PROJECT_DIR$/test_functional/test_import_skus.coffee" />
         <option value="$PROJECT_DIR$/src/importers/importLtlCodes.coffee" />
         <option value="$PROJECT_DIR$/data/weights-codes.csv" />
-        <option value="$PROJECT_DIR$/src/importers/NodeImporter.coffee" />
+        <option value="$PROJECT_DIR$/test_functional/test_import_warehouses.coffee" />
+        <option value="$PROJECT_DIR$/test_functional/test_import_skus.coffee" />
         <option value="$PROJECT_DIR$/test_functional/test_import_ltlcodes.coffee" />
+        <option value="$PROJECT_DIR$/src/importers/EdgeImporter.coffee" />
+        <option value="$PROJECT_DIR$/src/importers/buildEdges.coffee" />
+        <option value="$PROJECT_DIR$/test_functional/test_wireup_edges.coffee" />
+        <option value="$PROJECT_DIR$/test_experiments/build_graph.coffee" />
+        <option value="$PROJECT_DIR$/src/importers/EdgeBuilder.js" />
+        <option value="$PROJECT_DIR$/data/zipcodes.csv" />
+        <option value="$PROJECT_DIR$/src/repositories/Neo4jRepository.coffee" />
+        <option value="$PROJECT_DIR$/src/importers/NodeImporter.coffee" />
+        <option value="$PROJECT_DIR$/src/importers/ZipCodeImporter.coffee" />
+        <option value="$PROJECT_DIR$/test_functional/test_import_zipcodes.coffee" />
+        <option value="$PROJECT_DIR$/src/importers/ZipCodeLtlCodesEdgeBuilder.coffee" />
+        <option value="$PROJECT_DIR$/src/importers/EdgeBuilder.coffee" />
       </list>
     </option>
   </component>
@@ -262,7 +240,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1916" />
+    <option name="x" value="1676" />
     <option name="y" value="25" />
     <option name="width" value="1872" />
     <option name="height" value="1055" />
@@ -338,24 +316,6 @@
               <option name="myItemId" value="test_functional" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test_wireup_edges.coffee" />
-              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="network-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="network-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test_functional" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -396,6 +356,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="network-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="network-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="repositories" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -455,38 +433,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="network-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="network-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="helpers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="network-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="network-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -523,8 +469,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/test_functional" />
       <recent name="$PROJECT_DIR$/src/importers" />
+      <recent name="$PROJECT_DIR$/test_functional" />
       <recent name="$PROJECT_DIR$/src/repositories" />
       <recent name="$PROJECT_DIR$/test_experiments" />
       <recent name="$PROJECT_DIR$/test" />
@@ -674,6 +620,18 @@
       <test-file>$PROJECT_DIR$/test_functional/test_import_ltlcodes.js</test-file>
       <method />
     </configuration>
+    <configuration default="false" name="Build Edges" type="mocha-javascript-test-runner" factoryName="Mocha" singleton="false">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>TEST_FILE</test-kind>
+      <test-file>$PROJECT_DIR$/test_functional/test_wireup_edges.js</test-file>
+      <method />
+    </configuration>
     <configuration default="false" name="Import Skus" type="mocha-javascript-test-runner" factoryName="Mocha" singleton="false">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -723,18 +681,19 @@
       <test-file>$PROJECT_DIR$/test_experiments/test_upsert.js</test-file>
       <method />
     </configuration>
-    <list size="11">
+    <list size="12">
       <item index="0" class="java.lang.String" itemvalue="Mocha.Import ZipCodes" />
       <item index="1" class="java.lang.String" itemvalue="Mocha.Import Warehouses" />
       <item index="2" class="java.lang.String" itemvalue="Mocha.Import LtlCodes" />
-      <item index="3" class="java.lang.String" itemvalue="Mocha.Import Skus" />
-      <item index="4" class="java.lang.String" itemvalue="Mocha.unit tests" />
-      <item index="5" class="java.lang.String" itemvalue="Mocha.Build Experimental Graph" />
-      <item index="6" class="java.lang.String" itemvalue="Mocha.Test Upsert" />
-      <item index="7" class="java.lang.String" itemvalue="Node.js.bin/www" />
-      <item index="8" class="java.lang.String" itemvalue="Node.js.importWarehouses.coffee" />
-      <item index="9" class="java.lang.String" itemvalue="Node.js.importWarehouses.js" />
-      <item index="10" class="java.lang.String" itemvalue="Node.js.importZipCodes.js" />
+      <item index="3" class="java.lang.String" itemvalue="Mocha.Build Edges" />
+      <item index="4" class="java.lang.String" itemvalue="Mocha.Import Skus" />
+      <item index="5" class="java.lang.String" itemvalue="Mocha.unit tests" />
+      <item index="6" class="java.lang.String" itemvalue="Mocha.Build Experimental Graph" />
+      <item index="7" class="java.lang.String" itemvalue="Mocha.Test Upsert" />
+      <item index="8" class="java.lang.String" itemvalue="Node.js.bin/www" />
+      <item index="9" class="java.lang.String" itemvalue="Node.js.importWarehouses.coffee" />
+      <item index="10" class="java.lang.String" itemvalue="Node.js.importWarehouses.js" />
+      <item index="11" class="java.lang.String" itemvalue="Node.js.importZipCodes.js" />
     </list>
     <recent_temporary>
       <list size="3">
@@ -776,66 +735,66 @@
       <workItem from="1469899634171" duration="633000" />
       <workItem from="1470008242960" duration="738000" />
       <workItem from="1470013667877" duration="21000" />
-      <workItem from="1470155514246" duration="14750000" />
+      <workItem from="1470155514246" duration="30553000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Import_LtlCodes - 2016.08.02 at 14h 06m 37s.xml">
-      <configuration name="Import LtlCodes" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Build_Edges - 2016.08.02 at 19h 37m 48s.xml">
+      <configuration name="Build Edges" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Import_LtlCodes - 2016.08.02 at 14h 07m 08s.xml">
-      <configuration name="Import LtlCodes" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Build_Edges - 2016.08.02 at 19h 38m 30s.xml">
+      <configuration name="Build Edges" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Import_LtlCodes - 2016.08.02 at 14h 08m 22s.xml">
-      <configuration name="Import LtlCodes" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Build_Edges - 2016.08.02 at 19h 38m 37s.xml">
+      <configuration name="Build Edges" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Import_LtlCodes - 2016.08.02 at 14h 10m 09s.xml">
-      <configuration name="Import LtlCodes" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Build_Edges - 2016.08.02 at 19h 40m 56s.xml">
+      <configuration name="Build Edges" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Import_LtlCodes - 2016.08.02 at 14h 10m 24s.xml">
-      <configuration name="Import LtlCodes" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Build_Edges - 2016.08.02 at 19h 42m 26s.xml">
+      <configuration name="Build Edges" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Import_LtlCodes - 2016.08.02 at 14h 10m 58s.xml">
-      <configuration name="Import LtlCodes" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Build_Edges - 2016.08.02 at 19h 43m 04s.xml">
+      <configuration name="Build Edges" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Import_LtlCodes - 2016.08.02 at 14h 11m 11s.xml">
-      <configuration name="Import LtlCodes" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Build_Edges - 2016.08.02 at 19h 43m 27s.xml">
+      <configuration name="Build Edges" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Import_LtlCodes - 2016.08.02 at 14h 12m 32s.xml">
-      <configuration name="Import LtlCodes" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Build_Edges - 2016.08.02 at 19h 44m 33s.xml">
+      <configuration name="Build Edges" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Import_LtlCodes - 2016.08.02 at 14h 12m 58s.xml">
-      <configuration name="Import LtlCodes" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Build_Edges - 2016.08.02 at 19h 44m 53s.xml">
+      <configuration name="Build Edges" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Import_LtlCodes - 2016.08.02 at 14h 12m 59s.xml">
+    <history-entry file="Import_LtlCodes - 2016.08.02 at 19h 45m 11s.xml">
       <configuration name="Import LtlCodes" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150818000" />
+    <option name="totallyTimeSpent" value="166621000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1916" y="25" width="1872" height="1055" extended-state="0" />
+    <frame x="1676" y="25" width="1872" height="1055" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23122637" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49840257" sideWeight="0.8058047" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32657418" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3425827" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21771611" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3258786" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32550693" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3713981" sideWeight="0.19419526" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32123798" sideWeight="0.19419526" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32694355" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -878,8 +837,44 @@
           <line>15</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/test_functional/test_import_warehouses.coffee</url>
+          <line>50</line>
+          <properties />
+          <option name="timeStamp" value="231" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/test_functional/test_wireup_edges.coffee</url>
+          <line>21</line>
+          <properties />
+          <option name="timeStamp" value="285" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/test_functional/test_wireup_edges.coffee</url>
+          <line>25</line>
+          <properties />
+          <option name="timeStamp" value="286" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/test_functional/test_wireup_edges.coffee</url>
+          <line>29</line>
+          <properties />
+          <option name="timeStamp" value="295" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/importers/EdgeBuilder.coffee</url>
+          <line>39</line>
+          <properties />
+          <option name="timeStamp" value="296" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/importers/EdgeBuilder.coffee</url>
+          <line>60</line>
+          <properties />
+          <option name="timeStamp" value="297" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="198" />
+      <option name="time" value="298" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="NodeJSConfigurationType">
@@ -887,72 +882,13 @@
         <watch expression="JSON.parse(req.query.query)" language="CoffeeScript" />
       </configuration>
       <configuration name="mocha-javascript-test-runner">
-        <watch expression="this.config" language="CoffeeScript" />
-        <watch expression="JSON.parse(result)" language="CoffeeScript" />
-        <watch expression="node.reduce(function(p,c,i,a) {&quot;&quot;+p+c})" language="CoffeeScript" />
-        <watch expression="node" language="CoffeeScript" />
-        <watch expression="Object.values(node)" language="CoffeeScript" />
-        <watch expression="type" language="CoffeeScript" />
+        <watch expression="aNode" language="CoffeeScript" />
+        <watch expression="bNode" language="CoffeeScript" />
+        <watch expression="bNodes" language="CoffeeScript" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/async/dist/async.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13065">
-          <caret line="871" column="17" selection-start-line="871" selection-start-column="17" selection-end-line="871" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/repositories/RestRepository.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/repositories/RedisRepository.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/codes.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/repositories/MongooseRepository.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/code.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/item.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/repositories/MongooseRepository.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/repositories/iGraphRepository.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -1008,14 +944,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/zipcodes.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="59" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
           <folding />
         </state>
       </provider>
@@ -1116,41 +1044,9 @@
         <state relative-caret-position="495">
           <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
           <folding>
-            <marker date="1470165671000" expanded="true" signature="113:1077" ph="..." />
-            <marker date="1470165671000" expanded="true" signature="501:668" ph="..." />
+            <marker date="1470172480000" expanded="true" signature="113:1077" ph="..." />
+            <marker date="1470172480000" expanded="true" signature="501:668" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_experiments/build_graph.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="78" selection-start-line="6" selection-start-column="78" selection-end-line="6" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_functional/test_import_zipcodes.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="69" column="18" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/importers/ZipCodeImporter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_experiments/test_upsert.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1170,45 +1066,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/importers/importWarehouses.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/repositories/Neo4jRepository.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="70" column="12" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/test_neo4jrepository.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_functional/test_import_skus.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <marker date="1470170168000" expanded="true" signature="666:778" ph="..." />
-            <marker date="1470170168000" expanded="true" signature="1517:2156" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_functional/test_import_warehouses.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -1221,26 +1082,127 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/importers/ZipCodeImporter.coffee">
+    <entry file="file://$PROJECT_DIR$/test_experiments/test_upsert.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+        <state relative-caret-position="90">
+          <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_functional/test_import_skus.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_functional/test_import_warehouses.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/importers/importSkus.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+        <state relative-caret-position="270">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/importers/importLtlCodes.coffee">
+    <entry file="file://$PROJECT_DIR$/src/importers/EdgeBuilder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+        <state relative-caret-position="299">
+          <caret line="78" column="7" selection-start-line="78" selection-start-column="7" selection-end-line="78" selection-end-column="7" />
+          <folding>
+            <marker date="1470192175000" expanded="true" signature="48:4549" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="691:5173" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="799:1390" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="1439:1477" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="1605:3505" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="1890:2915" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="2601:2645" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="3471:3490" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="3471:3481" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="3136:3150" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="3384:3421" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="3431:3484" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="3594:3623" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="3431:3469" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="3431:3460" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="3554:3596" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="3654:3696" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="3759:3801" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="3869:3911" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="3979:4021" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="4073:5146" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="4096:5009" ph="[...]" />
+            <marker date="1470192175000" expanded="true" signature="4123:4247" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="4161:4236" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="4273:4401" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="4311:4390" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="4427:4543" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="4465:4532" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="4569:4690" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="4607:4679" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="4716:4842" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="4754:4831" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="4868:4994" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="4906:4983" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="5028:5131" ph="{...}" />
+            <marker date="1470192175000" expanded="true" signature="5069:5122" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_experiments/build_graph.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/importers/importWarehouses.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/importers/NodeImporter.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/zipcodes.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="43204" column="58" selection-start-line="43204" selection-start-column="58" selection-end-line="43204" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/weights-codes.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3375">
+          <caret line="225" column="15" selection-start-line="225" selection-start-column="15" selection-end-line="225" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/importers/ZipCodeImporter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="46" column="18" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -1253,40 +1215,106 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/importers/NodeImporter.coffee">
+    <entry file="file://$PROJECT_DIR$/test_functional/test_import_zipcodes.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="66" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
-          <folding>
-            <marker date="1470171921000" expanded="true" signature="140:1918" ph="..." />
-            <marker date="1470171921000" expanded="true" signature="283:925" ph="..." />
-            <marker date="1470171921000" expanded="true" signature="464:881" ph="..." />
-          </folding>
+        <state relative-caret-position="-105">
+          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/weights-codes.csv">
+    <entry file="file://$PROJECT_DIR$/src/importers/ZipCodeImporter.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2055">
-          <caret line="225" column="15" selection-start-line="225" selection-start-column="15" selection-end-line="225" selection-end-column="15" />
+        <state relative-caret-position="240">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_functional/test_wireup_edges.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/importers/buildEdges.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repositories/Neo4jRepository.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-90">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_functional/test_import_zipcodeltlcodes.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="56" column="38" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/importers/ZipCodeLtlCodesEdgeBuilder.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="42" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_functional/test_wireup_edges.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/importers/EdgeBuilder.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="763">
+          <caret line="60" column="16" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test_functional/test_import_ltlcodes.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-          <folding>
-            <marker date="1470172374000" expanded="true" signature="674:786" ph="..." />
-          </folding>
+        <state relative-caret-position="193">
+          <caret line="28" column="16" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_functional/test_wireup_edges.coffee">
+    <entry file="file://$PROJECT_DIR$/src/importers/importLtlCodes.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="330">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/importers/ZipCodeLtlCodeImporter.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/importers/importZipCodeLtlCodes.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
           <folding />
         </state>
       </provider>

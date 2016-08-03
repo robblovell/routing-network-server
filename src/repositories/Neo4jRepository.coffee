@@ -18,20 +18,28 @@ module.exports = class iRepository
         @neo4j = neo4j.driver(@config.url, neo4j.auth.basic(@config.user, @config.pass))
         return
 
-    find: (query, callback) ->
+    find: (example, callback) ->
+        # todo:: other types of queries, paging etc.
+        cypher = "Match (n:#{example.type}) RETURN n"
+        @run(cypher, {}, callback)
 
-
-    get: (example, callback) ->
-        if (example.id == "" or example.id == null)
-            callback(null,"{}")
-            return
-        cypher = "MATCH (n:#{example.type}) WHERE n.id = {id} RETURN n"
-        session = @neo4j.session()
-        session.run(cypher, example)
+    run: (cypher, data, callback=null) ->
+        if (@buffer? || !callback?)
+            @buffer.run(cypher, data)
+        else
+            session = @neo4j.session()
+            session.run(cypher, data)
             .then((result) =>
                 session.close()
                 if (result and result.records[0] and result.records[0]._fields)
-                    callback(null, JSON.stringify(result.records[0]._fields[0].properties))
+                    # todo:: be consistent in returning results. Return an array of objects.
+                    if (result.records.length == 1)
+                        callback(null, JSON.stringify(result.records[0]._fields[0].properties))
+                    else
+                        results = []
+                        for record in result.records
+                            results.push(record._fields[0].properties)
+                        callback(null, results)
                 else
                     callback(null, "{}")
                 return
@@ -42,17 +50,18 @@ module.exports = class iRepository
                 callback(error, null)
                 return
             )
+        return
+
+    get: (example, callback) ->
+        if (example.id == "" or example.id == null)
+            callback(null,"{}")
+            return
+        cypher = "MATCH (n:#{example.type}) WHERE n.id = {id} RETURN n"
+        @run(cypher, example, callback)
 
 
     add: (cypher, callback) ->
-        make = (json) ->
-            return (callback) ->
-
-        if (@buffer? || !callback?)
-            @buffer.push(make( json))
-        else
-            throw new Error 'not implemented'
-        return
+        throw new Error 'not implemented'
 
     set: (id, obj, callback) =>
         makeUpsert = (data) ->
@@ -93,16 +102,20 @@ module.exports = class iRepository
     pipeline: () ->
         @session = @neo4j.session()
         @buffer = @session.beginTransaction()
+        return
 
     exec: (callback) =>
         @buffer.commit()
         .subscribe({
             onCompleted: () =>
                 @session.close()
+                @buffer = null
                 callback(null, "success")
+
                 return
             onError: (error) =>
                 @session.close()
+                @buffer = null
                 callback(error, null)
                 return
         })

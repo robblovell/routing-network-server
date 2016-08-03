@@ -47,7 +47,7 @@ describe 'Import Skus', () ->
         repoConfig = { user: 'neo4j', pass: 'macro7' }
         repo = new Neo4jRepostitory(repoConfig)
         filename = './data/skus.csv'
-        importer.importKeyValue(filename, repo, (error, results) ->
+        importer.import(filename, repo, (error, results) ->
             if (error?)
                 console.log(error)
                 assert(false)

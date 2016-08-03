@@ -73,7 +73,7 @@
       };
       repo = new Neo4jRepostitory(repoConfig);
       filename = './data/weights-codes.csv';
-      return importer.importKeyValue(filename, repo, function(error, results) {
+      return importer["import"](filename, repo, function(error, results) {
         if ((error != null)) {
           console.log(error);
           assert(false);
