@@ -43,6 +43,7 @@
       this.build = bind(this.build, this);
       this.buildSkusToWarehouses = bind(this.buildSkusToWarehouses, this);
       this.buildWarehousesToZips = bind(this.buildWarehousesToZips, this);
+      this.wireupWarehouses = bind(this.wireupWarehouses, this);
       this.buildResuppliers = bind(this.buildResuppliers, this);
       this.buildSweeps = bind(this.buildSweeps, this);
       this.buildLtlToLtl = bind(this.buildLtlToLtl, this);
@@ -151,21 +152,21 @@
         return function(error, result) {
           if ((error != null)) {
             console.log("error:" + result);
-            return callback(error, result);
+            callback(error, result);
           } else if (bix + 1 < zips.length) {
-            return _this.wireupLtlsToLtls(aix, bix + 1, zips, ltls, callback);
+            _this.wireupLtlsToLtls(aix, bix + 1, zips, ltls, callback);
           } else if (aix + 1 < zips.length) {
             console.log("zip: " + zips[aix].zip3);
-            return _this.traverseZips(aix + 1, 0, zips, ltls, callback);
+            _this.traverseZips(aix + 1, 0, zips, ltls, callback);
           } else {
-            return callback(error, result);
+            callback(error, result);
           }
         };
       })(this));
     };
 
     Builder.prototype.traverseZips = function(aix, bix, zips, ltls, callback) {
-      return this.wireupLtlsToLtls(aix, bix, zips, ltls, callback);
+      this.wireupLtlsToLtls(aix, bix, zips, ltls, callback);
     };
 
     Builder.prototype.buildLtlToLtl = function(callback) {
@@ -192,12 +193,75 @@
       return callback(null, true);
     };
 
+    Builder.prototype.wireupWarehouses = function(zips, warehouses, callback) {
+      var distance, i, id1, id2, ix, j, len, len1, obj, params, warehouse, warehousezip3, zip;
+      this.repo.pipeline();
+      for (i = 0, len = warehouses.length; i < len; i++) {
+        warehouse = warehouses[i];
+        distance = geodist({
+          lat: parseInt(zip1.latitude),
+          lon: parseInt(zip1.longitude)
+        }, {
+          lat: parseInt(zip2.latitude),
+          lon: parseInt(zip2.longitude)
+        });
+        id1 = warehouse.id;
+        warehousezip3 = warehouse.PostalCode.substring(0, 3);
+        for (ix = j = 0, len1 = zips.length; j < len1; ix = ++j) {
+          zip = zips[ix];
+          if (zip.zip3 === warehousezip3) {
+            break;
+          }
+        }
+        if (ix >= zips.length) {
+          console.log("ERROR:: Warehouse missing postal code");
+          zip = zips[0];
+        }
+        id2 = zip.id;
+        params = {
+          sourcekind: 'Warehouse',
+          sourceid: '' + id1,
+          destinationkind: 'Zip',
+          destinationid: '' + id2,
+          kind: 'WAREHOUSEZIP',
+          linkid: id1 + '_' + id2
+        };
+        obj = {
+          kind: 'WAREHOUSEZIP',
+          id: id1 + "_" + id2
+        };
+        this.repo.setEdge(params, obj);
+      }
+      this.repo.exec((function(_this) {
+        return function(error, result) {
+          if ((error != null)) {
+            console.log("error:" + result);
+            callback(error, result);
+          } else {
+            callback(error, result);
+          }
+        };
+      })(this));
+    };
+
     Builder.prototype.buildWarehousesToZips = function(callback) {
-      return callback(null, true);
+      var filename;
+      filename = './data/warehouses.csv';
+      this.repo.find({
+        type: "Zip"
+      }, (function(_this) {
+        return function(error, zips) {
+          return _this.repo.find({
+            type: "Warehouse"
+          }, function(error, warehouses) {
+            _this.wireupWarehouses(0, zips, warehouses, callback);
+          });
+        };
+      })(this));
     };
 
     Builder.prototype.buildSkusToWarehouses = function(callback) {
-      return callback(null, true);
+      callback(null, true);
     };
 
     Builder.prototype.build = function(callback) {

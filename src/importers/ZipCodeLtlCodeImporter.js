@@ -77,7 +77,13 @@
           }
         });
       };
-      build(0, LtlCodes, zip3s, callback);
+      build(0, LtlCodes, zip3s, function(error, result) {
+        return repo.run("CREATE INDEX ON :Zip(id)", {}, function(error, result) {
+          return repo.run("CREATE INDEX ON :Zip(zip3)", {}, function(error, result) {
+            return callback(error, result);
+          });
+        });
+      });
     };
 
     return ZipCodeImporter;

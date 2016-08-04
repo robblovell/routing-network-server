@@ -30,7 +30,13 @@ class ZipCodeImporter extends iImport
                 )
                 have[id] = true
 
-        repo.exec(callback)
+        repo.exec((error, result) ->
+            repo.run("CREATE INDEX ON :Zip(id)", {}, (error, result) ->
+                repo.run("CREATE INDEX ON :Zip(zip3)", {}, (error, result) ->
+                    callback(error, result)
+                )
+            )
+        )
         return
 
 

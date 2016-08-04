@@ -93,10 +93,12 @@ class Builder extends iImport
                 @traverseZips(aix+1, 0, zips, ltls, callback)
             else
                 callback(error, result)
+            return
         )
 
     traverseZips: (aix, bix, zips, ltls, callback) =>
         @wireupLtlsToLtls(aix, bix, zips, ltls, callback)
+        return
 
     # add all to key value store.
     buildLtlToLtl: (callback) =>
@@ -115,10 +117,57 @@ class Builder extends iImport
         callback(null, true)
     buildResuppliers: (callback) =>
         callback(null, true)
+
+    wireupWarehouses: (zips, warehouses, callback) =>
+        @repo.pipeline()
+    # for two zips, hook up an ltl.
+        for warehouse in warehouses # hook up one zip.
+            distance = geodist({lat: parseInt(zip1.latitude), lon: parseInt(zip1.longitude)},
+                {lat: parseInt(zip2.latitude), lon: parseInt(zip2.longitude)})
+
+            id1 = warehouse.id
+            warehousezip3 = warehouse.PostalCode.substring(0,3)
+            for zip,ix in zips
+                if zip.zip3 == warehousezip3
+                    break
+            if ix >= zips.length
+                console.log("ERROR:: Warehouse missing postal code")
+                zip = zips[0]
+
+            id2 = zip.id
+            params = {
+                sourcekind: 'Warehouse',sourceid: ''+id1
+                destinationkind: 'Zip',destinationid: ''+id2
+                kind: 'WAREHOUSEZIP',linkid: id1+'_'+id2
+            }
+            obj = { kind: 'WAREHOUSEZIP', id: id1+"_"+id2 }
+
+            @repo.setEdge(params, obj)
+
+        @repo.exec((error, result) =>
+            if (error?)
+                console.log("error:" +result)
+                callback(error, result)
+            else
+                callback(error, result)
+            return
+        )
+        return
+
     buildWarehousesToZips: (callback) =>
-        callback(null, true)
+        filename = './data/warehouses.csv'
+        # warehouse nodes have a zip code.
+        @repo.find({type: "Zip"}, (error, zips) =>
+            @repo.find({type: "Warehouse"}, (error, warehouses) =>
+                @wireupWarehouses(0, zips, warehouses, callback)
+                return
+            )
+        )
+        return
+
     buildSkusToWarehouses: (callback) =>
         callback(null, true)
+        return
 
     build: (callback) =>
         async.parallel([

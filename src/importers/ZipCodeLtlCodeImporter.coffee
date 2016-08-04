@@ -63,10 +63,18 @@ class ZipCodeImporter extends iImport
             )
             return
 
-#        repo.run("CREATE INDEX ON :Zip(id)", {}, (error, result) -> )
-#        repo.run("CREATE INDEX ON :Zip(zip3)", {}, (error, result) ->)
+#        repo.run("CREATE INDEX ON :Zip(id)", {}, (error, result) ->
+#            repo.run("CREATE INDEX ON :Zip(zip3)", {}, (error, result) ->
+#            )
+#        )
         # 1 to skip the header of the csv file.
-        build(0, LtlCodes,zip3s, callback)
+        build(0, LtlCodes,zip3s, (error, result) ->
+            repo.run("CREATE INDEX ON :Zip(id)", {}, (error, result) ->
+                repo.run("CREATE INDEX ON :Zip(zip3)", {}, (error, result) ->
+                    callback(error, result)
+                )
+            )
+        )
 
         return
 

@@ -59,6 +59,7 @@
         <item url="file://$PROJECT_DIR$/node_modules/neo4j/lib-new/utils.js" />
         <item url="file://$PROJECT_DIR$/node_modules/neo4j/lib-new/GraphDatabase.js" />
         <item url="file://$PROJECT_DIR$/test_functional/test_import_skus.js" />
+        <item url="file://$PROJECT_DIR$/test_functional/test_wireup_warehouse_to_zip.js" />
         <item url="file://$PROJECT_DIR$/node_modules/neo4j/lib-new/Transaction.js" />
         <item url="file://$PROJECT_DIR$/src/importers/WarehouseImporter.js" />
         <item url="file://$PROJECT_DIR$/node_modules/ipaddr.js/test/ipaddr.test.js" />
@@ -136,6 +137,7 @@
       <root url="file://$PROJECT_DIR$/node_modules/neo4j/lib-new/utils.js" />
       <root url="file://$PROJECT_DIR$/node_modules/neo4j/lib-new/GraphDatabase.js" />
       <root url="file://$PROJECT_DIR$/test_functional/test_import_skus.js" />
+      <root url="file://$PROJECT_DIR$/test_functional/test_wireup_warehouse_to_zip.js" />
       <root url="file://$PROJECT_DIR$/node_modules/neo4j/lib-new/Transaction.js" />
       <root url="file://$PROJECT_DIR$/src/importers/WarehouseImporter.js" />
       <root url="file://$PROJECT_DIR$/node_modules/ipaddr.js/test/ipaddr.test.js" />

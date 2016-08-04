@@ -44,7 +44,13 @@
           have[id] = true;
         }
       }
-      repo.exec(callback);
+      repo.exec(function(error, result) {
+        return repo.run("CREATE INDEX ON :Zip(id)", {}, function(error, result) {
+          return repo.run("CREATE INDEX ON :Zip(zip3)", {}, function(error, result) {
+            return callback(error, result);
+          });
+        });
+      });
     };
 
     return ZipCodeImporter;
