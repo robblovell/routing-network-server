@@ -194,29 +194,22 @@
     };
 
     Builder.prototype.wireupWarehouses = function(zips, warehouses, callback) {
-      var distance, i, id1, id2, ix, j, len, len1, obj, params, warehouse, warehousezip3, zip;
+      var i, id1, id2, len, matches, obj, params, warehouse, warehousezip3, zip;
       this.repo.pipeline();
       for (i = 0, len = warehouses.length; i < len; i++) {
         warehouse = warehouses[i];
-        distance = geodist({
-          lat: parseInt(zip1.latitude),
-          lon: parseInt(zip1.longitude)
-        }, {
-          lat: parseInt(zip2.latitude),
-          lon: parseInt(zip2.longitude)
-        });
         id1 = warehouse.id;
         warehousezip3 = warehouse.PostalCode.substring(0, 3);
-        for (ix = j = 0, len1 = zips.length; j < len1; ix = ++j) {
-          zip = zips[ix];
-          if (zip.zip3 === warehousezip3) {
-            break;
-          }
+        matches = zips.filter(function(obj) {
+          return obj.zip3 === warehousezip3;
+        });
+        if (matches.length < 1) {
+          console.log("ERROR:: Warehouse missing postal code: " + warehousezip3 + "  code: " + warehouse.PostalCode);
+          continue;
+        } else if (matches.length > 1) {
+          console.log("ERROR:: More than one zip found.");
         }
-        if (ix >= zips.length) {
-          console.log("ERROR:: Warehouse missing postal code");
-          zip = zips[0];
-        }
+        zip = matches[0];
         id2 = zip.id;
         params = {
           sourcekind: 'Warehouse',
@@ -232,6 +225,7 @@
         };
         this.repo.setEdge(params, obj);
       }
+      console.log("finished");
       this.repo.exec((function(_this) {
         return function(error, result) {
           if ((error != null)) {
@@ -254,7 +248,7 @@
           return _this.repo.find({
             type: "Warehouse"
           }, function(error, warehouses) {
-            _this.wireupWarehouses(0, zips, warehouses, callback);
+            _this.wireupWarehouses(zips, warehouses, callback);
           });
         };
       })(this));

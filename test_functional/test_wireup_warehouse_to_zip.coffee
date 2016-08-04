@@ -16,7 +16,7 @@ describe 'Build Edges', () ->
             if (error?)
                 console.log(error)
                 assert(false)
-                done(); return
+            done();
             return
         )
         return

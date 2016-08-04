@@ -1,0 +1,5 @@
+$CREATE INDEX ON :LtlCode(id)
+$CREATE INDEX ON :Zip(id)
+$CREATE INDEX ON :Zip(id)
+$CREATE INDEX ON :Zip(id)
+

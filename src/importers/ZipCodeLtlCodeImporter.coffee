@@ -70,7 +70,7 @@ class ZipCodeImporter extends iImport
         # 1 to skip the header of the csv file.
         build(0, LtlCodes,zip3s, (error, result) ->
             repo.run("CREATE INDEX ON :Zip(id)", {}, (error, result) ->
-                repo.run("CREATE INDEX ON :Zip(zip3)", {}, (error, result) ->
+                repo.run("CREATE INDEX ON :LtlCodes(id)", {}, (error, result) ->
                     callback(error, result)
                 )
             )

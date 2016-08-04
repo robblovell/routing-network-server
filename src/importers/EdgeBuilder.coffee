@@ -122,17 +122,15 @@ class Builder extends iImport
         @repo.pipeline()
     # for two zips, hook up an ltl.
         for warehouse in warehouses # hook up one zip.
-            distance = geodist({lat: parseInt(zip1.latitude), lon: parseInt(zip1.longitude)},
-                {lat: parseInt(zip2.latitude), lon: parseInt(zip2.longitude)})
-
             id1 = warehouse.id
             warehousezip3 = warehouse.PostalCode.substring(0,3)
-            for zip,ix in zips
-                if zip.zip3 == warehousezip3
-                    break
-            if ix >= zips.length
-                console.log("ERROR:: Warehouse missing postal code")
-                zip = zips[0]
+            matches = zips.filter(( obj ) -> return obj.zip3 == warehousezip3)
+            if (matches.length < 1)
+                console.log("ERROR:: Warehouse missing postal code: "+warehousezip3+"  code: "+warehouse.PostalCode)
+                continue
+            else if (matches.length > 1)
+                console.log("ERROR:: More than one zip found.")
+            zip = matches[0]
 
             id2 = zip.id
             params = {
@@ -144,6 +142,7 @@ class Builder extends iImport
 
             @repo.setEdge(params, obj)
 
+        console.log("finished")
         @repo.exec((error, result) =>
             if (error?)
                 console.log("error:" +result)
@@ -159,7 +158,7 @@ class Builder extends iImport
         # warehouse nodes have a zip code.
         @repo.find({type: "Zip"}, (error, zips) =>
             @repo.find({type: "Warehouse"}, (error, warehouses) =>
-                @wireupWarehouses(0, zips, warehouses, callback)
+                @wireupWarehouses(zips, warehouses, callback)
                 return
             )
         )

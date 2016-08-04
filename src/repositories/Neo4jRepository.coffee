@@ -80,8 +80,8 @@ module.exports = class iRepository
             properties = properties.slice(0,-2) # remove the trailing comma.
 
             upsertString = "MATCH "+
-                "(a:"+params.sourcekind+" {id:{{sourceid}}}), "+
-                "(b:"+params.destinationkind+" {id:{{destinationid}}}) "+
+                "(a:"+params.sourcekind+" {id:'"+params.sourceid+"'}), "+
+                "(b:"+params.destinationkind+" {id:'"+params.destinationid+"'}) "+
                 "MERGE (a)-[r:"+params.kind+" {"+propstring+"}]->(b) "+
                 "ON CREATE SET r.created=timestamp() "+
                 "ON MATCH SET r.updated=timestamp()"

@@ -25,9 +25,8 @@
         if ((error != null)) {
           console.log(error);
           assert(false);
-          done();
-          return;
         }
+        done();
       });
     });
   });
