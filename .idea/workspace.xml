@@ -6,21 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce9ccdf8-cac6-4359-a079-a8003980d434" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_functional/others/create_indexes.coffee" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_functional/test_wireup_skus_to_warehouses.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/EdgeBuilder.coffee" afterPath="$PROJECT_DIR$/src/importers/EdgeBuilder.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/EdgeBuilder.js" afterPath="$PROJECT_DIR$/src/importers/EdgeBuilder.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/EdgeBuilder.js.map" afterPath="$PROJECT_DIR$/src/importers/EdgeBuilder.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/ZipCodeLtlCodeImporter.coffee" afterPath="$PROJECT_DIR$/src/importers/ZipCodeLtlCodeImporter.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/ZipCodeLtlCodeImporter.js" afterPath="$PROJECT_DIR$/src/importers/ZipCodeLtlCodeImporter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/importers/ZipCodeLtlCodeImporter.js.map" afterPath="$PROJECT_DIR$/src/importers/ZipCodeLtlCodeImporter.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repositories/Neo4jRepository.coffee" afterPath="$PROJECT_DIR$/src/repositories/Neo4jRepository.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repositories/Neo4jRepository.js" afterPath="$PROJECT_DIR$/src/repositories/Neo4jRepository.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repositories/Neo4jRepository.js.map" afterPath="$PROJECT_DIR$/src/repositories/Neo4jRepository.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_wireup_warehouse_to_zip.coffee" afterPath="$PROJECT_DIR$/test_functional/test_wireup_warehouse_to_zip.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_wireup_warehouse_to_zip.js" afterPath="$PROJECT_DIR$/test_functional/test_wireup_warehouse_to_zip.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_functional/test_wireup_warehouse_to_zip.js.map" afterPath="$PROJECT_DIR$/test_functional/test_wireup_warehouse_to_zip.js.map" />
     </list>
     <ignored path="network-server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,7 +30,7 @@
     <favorites_list name="network-server" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.58954746">
+    <splitter split-orientation="horizontal" split-proportion="0.613245">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="test_import_warehouses.coffee" pinned="false" current-in-tab="false">
@@ -52,31 +43,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="EdgeBuilder.coffee" pinned="false" current-in-tab="false">
+          <file leaf-file-name="EdgeBuilder.coffee" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/importers/EdgeBuilder.coffee">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="287">
-                  <caret line="150" column="16" selection-start-line="150" selection-start-column="16" selection-end-line="150" selection-end-column="16" />
+                <state relative-caret-position="283">
+                  <caret line="182" column="42" selection-start-line="182" selection-start-column="42" selection-end-line="182" selection-end-column="42" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ZipCodeImporter.coffee" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/importers/ZipCodeImporter.coffee">
+          <file leaf-file-name="test_wireup_skus_to_warehouses.coffee" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/test_functional/test_wireup_skus_to_warehouses.coffee">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ZipCodeLtlCodeImporter.coffee" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/importers/ZipCodeLtlCodeImporter.coffee">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="361">
-                  <caret line="66" column="35" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
+                <state relative-caret-position="270">
+                  <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -95,8 +76,8 @@
           <file leaf-file-name="test_wireup_warehouse_to_zip.coffee" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/test_functional/test_wireup_warehouse_to_zip.coffee">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+                <state relative-caret-position="150">
+                  <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
                   <folding />
                 </state>
               </provider>
@@ -106,11 +87,21 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="test_wireup_warehouse_to_zip.coffee" pinned="false" current-in-tab="true">
+          <file leaf-file-name="test_wireup_warehouse_to_zip.coffee" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/test_functional/test_wireup_warehouse_to_zip.coffee">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+                <state relative-caret-position="345">
+                  <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="EdgeBuilder.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/importers/EdgeBuilder.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="462">
+                  <caret line="279" column="41" selection-start-line="279" selection-start-column="41" selection-end-line="279" selection-end-column="41" />
                   <folding />
                 </state>
               </provider>
@@ -136,7 +127,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/repositories/iRepository.coffee" />
         <option value="$PROJECT_DIR$/models/node.coffee" />
         <option value="$PROJECT_DIR$/models/item.coffee" />
         <option value="$PROJECT_DIR$/models/route.coffee" />
@@ -184,9 +174,10 @@
         <option value="$PROJECT_DIR$/src/importers/ZipCodeImporter.coffee" />
         <option value="$PROJECT_DIR$/test_functional/others/create_indexes.coffee" />
         <option value="$PROJECT_DIR$/src/repositories/Neo4jRepository.coffee" />
-        <option value="$PROJECT_DIR$/src/importers/EdgeBuilder.coffee" />
         <option value="$PROJECT_DIR$/test_functional/test_wireup_warehouse_to_zip.coffee" />
         <option value="$PROJECT_DIR$/src/importers/ZipCodeLtlCodeImporter.coffee" />
+        <option value="$PROJECT_DIR$/test_functional/test_wireup_skus_to_warehouses.coffee" />
+        <option value="$PROJECT_DIR$/src/importers/EdgeBuilder.coffee" />
       </list>
     </option>
   </component>
@@ -274,24 +265,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="test_functional" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="network-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="network-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test_functional" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test_wireup_warehouse_to_zip.coffee" />
-              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -503,7 +476,7 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/test_functional/test_wireup_warehouse_to_zip.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/test_functional/test_wireup_skus_to_warehouses.js" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/node_modules/mocha" />
   </component>
   <component name="RecentsManager">
@@ -522,7 +495,7 @@
       <recent name="$PROJECT_DIR$/test" />
     </key>
   </component>
-  <component name="RunManager" selected="Mocha.Build Warehouse-Zip">
+  <component name="RunManager" selected="Mocha.Build Sku-Warehouse">
     <configuration default="false" name="importWarehouses.coffee" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="importWarehouses.coffee" node-parameters="--require coffee-script/register" working-dir="$PROJECT_DIR$/src/importers">
       <method />
     </configuration>
@@ -695,6 +668,18 @@
       <test-file>$PROJECT_DIR$/test_functional/test_wireup_warehouse_to_zip.js</test-file>
       <method />
     </configuration>
+    <configuration default="false" name="Build Sku-Warehouse" type="mocha-javascript-test-runner" factoryName="Mocha" singleton="false">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>TEST_FILE</test-kind>
+      <test-file>$PROJECT_DIR$/test_functional/test_wireup_skus_to_warehouses.js</test-file>
+      <method />
+    </configuration>
     <configuration default="false" name="Import Skus" type="mocha-javascript-test-runner" factoryName="Mocha" singleton="false">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -744,21 +729,22 @@
       <test-file>$PROJECT_DIR$/test_experiments/test_upsert.js</test-file>
       <method />
     </configuration>
-    <list size="14">
+    <list size="15">
       <item index="0" class="java.lang.String" itemvalue="Mocha.Import ZipCodes" />
       <item index="1" class="java.lang.String" itemvalue="Mocha.Import Warehouses" />
       <item index="2" class="java.lang.String" itemvalue="Mocha.Import LtlCodes for Zips" />
       <item index="3" class="java.lang.String" itemvalue="Mocha.Build Zip-Ltl" />
       <item index="4" class="java.lang.String" itemvalue="Mocha.Build Ltl-Ltl" />
       <item index="5" class="java.lang.String" itemvalue="Mocha.Build Warehouse-Zip" />
-      <item index="6" class="java.lang.String" itemvalue="Mocha.Import Skus" />
-      <item index="7" class="java.lang.String" itemvalue="Mocha.unit tests" />
-      <item index="8" class="java.lang.String" itemvalue="Mocha.Build Experimental Graph" />
-      <item index="9" class="java.lang.String" itemvalue="Mocha.Test Upsert" />
-      <item index="10" class="java.lang.String" itemvalue="Node.js.bin/www" />
-      <item index="11" class="java.lang.String" itemvalue="Node.js.importWarehouses.coffee" />
-      <item index="12" class="java.lang.String" itemvalue="Node.js.importWarehouses.js" />
-      <item index="13" class="java.lang.String" itemvalue="Node.js.importZipCodes.js" />
+      <item index="6" class="java.lang.String" itemvalue="Mocha.Build Sku-Warehouse" />
+      <item index="7" class="java.lang.String" itemvalue="Mocha.Import Skus" />
+      <item index="8" class="java.lang.String" itemvalue="Mocha.unit tests" />
+      <item index="9" class="java.lang.String" itemvalue="Mocha.Build Experimental Graph" />
+      <item index="10" class="java.lang.String" itemvalue="Mocha.Test Upsert" />
+      <item index="11" class="java.lang.String" itemvalue="Node.js.bin/www" />
+      <item index="12" class="java.lang.String" itemvalue="Node.js.importWarehouses.coffee" />
+      <item index="13" class="java.lang.String" itemvalue="Node.js.importWarehouses.js" />
+      <item index="14" class="java.lang.String" itemvalue="Node.js.importZipCodes.js" />
     </list>
     <recent_temporary>
       <list size="3">
@@ -801,31 +787,31 @@
       <workItem from="1470008242960" duration="738000" />
       <workItem from="1470013667877" duration="21000" />
       <workItem from="1470155514246" duration="30553000" />
-      <workItem from="1470192485977" duration="27532000" />
+      <workItem from="1470192485977" duration="28506000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Build_Warehouse-Zip - 2016.08.04 at 11h 56m 55s.xml">
-      <configuration name="Build Warehouse-Zip" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Build_Sku-Warehouse - 2016.08.04 at 12h 20m 45s.xml">
+      <configuration name="Build Sku-Warehouse" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Build_Warehouse-Zip - 2016.08.04 at 11h 59m 51s.xml">
-      <configuration name="Build Warehouse-Zip" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Build_Sku-Warehouse - 2016.08.04 at 12h 22m 23s.xml">
+      <configuration name="Build Sku-Warehouse" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Build_Warehouse-Zip - 2016.08.04 at 12h 02m 34s.xml">
-      <configuration name="Build Warehouse-Zip" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Build_Sku-Warehouse - 2016.08.04 at 12h 22m 46s.xml">
+      <configuration name="Build Sku-Warehouse" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Build_Warehouse-Zip - 2016.08.04 at 12h 04m 33s.xml">
-      <configuration name="Build Warehouse-Zip" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Build_Sku-Warehouse - 2016.08.04 at 12h 23m 18s.xml">
+      <configuration name="Build Sku-Warehouse" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Build_Warehouse-Zip - 2016.08.04 at 12h 04m 55s.xml">
-      <configuration name="Build Warehouse-Zip" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Build_Sku-Warehouse - 2016.08.04 at 12h 23m 43s.xml">
+      <configuration name="Build Sku-Warehouse" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Build_Warehouse-Zip - 2016.08.04 at 12h 05m 29s.xml">
-      <configuration name="Build Warehouse-Zip" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Build_Sku-Warehouse - 2016.08.04 at 12h 24m 43s.xml">
+      <configuration name="Build Sku-Warehouse" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Build_Warehouse-Zip - 2016.08.04 at 12h 06m 09s.xml">
-      <configuration name="Build Warehouse-Zip" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Build_Sku-Warehouse - 2016.08.04 at 12h 27m 35s.xml">
+      <configuration name="Build Sku-Warehouse" configurationId="mocha-javascript-test-runner" />
     </history-entry>
     <history-entry file="Build_Warehouse-Zip - 2016.08.04 at 12h 07m 53s.xml">
       <configuration name="Build Warehouse-Zip" configurationId="mocha-javascript-test-runner" />
@@ -838,13 +824,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="194153000" />
+    <option name="totallyTimeSpent" value="195127000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="25" width="1918" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17290458" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20400633" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49840257" sideWeight="0.8058047" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32657418" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -916,7 +902,7 @@
           <option name="timeStamp" value="356" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="357" />
+      <option name="time" value="360" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="NodeJSConfigurationType">
@@ -930,20 +916,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/index.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/example_queries.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1080,6 +1052,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1233,14 +1206,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_functional/test_wireup_warehouse_to_zip.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/importers/NodeImporter.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -1265,26 +1230,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/importers/EdgeBuilder.coffee">
+    <entry file="file://$PROJECT_DIR$/src/importers/ZipCodeLtlCodeImporter.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="150" column="16" selection-start-line="150" selection-start-column="16" selection-end-line="150" selection-end-column="16" />
+        <state relative-caret-position="990">
+          <caret line="66" column="35" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/importers/ZipCodeImporter.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="300">
           <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/importers/ZipCodeLtlCodeImporter.coffee">
+    <entry file="file://$PROJECT_DIR$/test_functional/test_wireup_warehouse_to_zip.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="66" column="35" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
+        <state relative-caret-position="150">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_functional/test_wireup_skus_to_warehouses.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/importers/EdgeBuilder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="279" column="41" selection-start-line="279" selection-start-column="41" selection-end-line="279" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/importers/EdgeBuilder.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="182" column="42" selection-start-line="182" selection-start-column="42" selection-end-line="182" selection-end-column="42" />
           <folding />
         </state>
       </provider>

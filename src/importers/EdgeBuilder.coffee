@@ -118,7 +118,7 @@ class Builder extends iImport
     buildResuppliers: (callback) =>
         callback(null, true)
 
-    wireupWarehouses: (zips, warehouses, callback) =>
+    wireupWarehousesToZips: (zips, warehouses, callback) =>
         @repo.pipeline()
     # for two zips, hook up an ltl.
         for warehouse in warehouses # hook up one zip.
@@ -158,14 +158,52 @@ class Builder extends iImport
         # warehouse nodes have a zip code.
         @repo.find({type: "Zip"}, (error, zips) =>
             @repo.find({type: "Warehouse"}, (error, warehouses) =>
-                @wireupWarehouses(zips, warehouses, callback)
+                @wireupWarehousesToZips(zips, warehouses, callback)
                 return
             )
         )
         return
 
+    wireupSkustoWarehouses: (aix, skus, warehouses, callback) =>
+        @repo.pipeline()
+        # for two zips, hook up an ltl.
+        sku = skus[aix]
+        if sku?
+            id1 = sku.id
+            for warehouse in warehouses # hook up one zip.
+                id2 = warehouse.id
+
+                params = {
+                    sourcekind: 'Sku',sourceid: ''+id1
+                    destinationkind: 'Warehouse',destinationid: ''+id2
+                    kind: 'SKUWAREHOUSE',linkid: id1+'_'+id2
+                }
+                obj = { kind: 'SKUWAREHOUSE', id: id1+"_"+id2, inventory: math.floor(math.random(0,100)) }
+
+                @repo.setEdge(params, obj)
+
+        @repo.exec((error, result) =>
+            if (error?)
+                console.log("error:" +result)
+                callback(error, result)
+            else if (aix < skus.length)
+                console.log("Sku: "+aix+"  "+JSON.stringify(sku))
+                @wireupSkustoWarehouses(aix+1, skus, warehouses, callback)
+            else
+                console.log("finished")
+                callback(error, result)
+            return
+        )
+        return
+
+
     buildSkusToWarehouses: (callback) =>
-        callback(null, true)
+        @repo.find({type: "Sku"}, (error, skus) =>
+            @repo.find({type: "Warehouse"}, (error, warehouses) =>
+                @wireupSkustoWarehouses(0, skus, warehouses, callback)
+                return
+            )
+        )
         return
 
     build: (callback) =>

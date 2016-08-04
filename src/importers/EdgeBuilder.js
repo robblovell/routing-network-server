@@ -42,8 +42,9 @@
       this.repo = repo1 != null ? repo1 : null;
       this.build = bind(this.build, this);
       this.buildSkusToWarehouses = bind(this.buildSkusToWarehouses, this);
+      this.wireupSkustoWarehouses = bind(this.wireupSkustoWarehouses, this);
       this.buildWarehousesToZips = bind(this.buildWarehousesToZips, this);
-      this.wireupWarehouses = bind(this.wireupWarehouses, this);
+      this.wireupWarehousesToZips = bind(this.wireupWarehousesToZips, this);
       this.buildResuppliers = bind(this.buildResuppliers, this);
       this.buildSweeps = bind(this.buildSweeps, this);
       this.buildLtlToLtl = bind(this.buildLtlToLtl, this);
@@ -193,7 +194,7 @@
       return callback(null, true);
     };
 
-    Builder.prototype.wireupWarehouses = function(zips, warehouses, callback) {
+    Builder.prototype.wireupWarehousesToZips = function(zips, warehouses, callback) {
       var i, id1, id2, len, matches, obj, params, warehouse, warehousezip3, zip;
       this.repo.pipeline();
       for (i = 0, len = warehouses.length; i < len; i++) {
@@ -248,14 +249,65 @@
           return _this.repo.find({
             type: "Warehouse"
           }, function(error, warehouses) {
-            _this.wireupWarehouses(zips, warehouses, callback);
+            _this.wireupWarehousesToZips(zips, warehouses, callback);
           });
         };
       })(this));
     };
 
+    Builder.prototype.wireupSkustoWarehouses = function(aix, skus, warehouses, callback) {
+      var i, id1, id2, len, obj, params, sku, warehouse;
+      this.repo.pipeline();
+      sku = skus[aix];
+      if (sku != null) {
+        id1 = sku.id;
+        for (i = 0, len = warehouses.length; i < len; i++) {
+          warehouse = warehouses[i];
+          id2 = warehouse.id;
+          params = {
+            sourcekind: 'Sku',
+            sourceid: '' + id1,
+            destinationkind: 'Warehouse',
+            destinationid: '' + id2,
+            kind: 'SKUWAREHOUSE',
+            linkid: id1 + '_' + id2
+          };
+          obj = {
+            kind: 'SKUWAREHOUSE',
+            id: id1 + "_" + id2,
+            inventory: math.floor(math.random(0, 100))
+          };
+          this.repo.setEdge(params, obj);
+        }
+      }
+      this.repo.exec((function(_this) {
+        return function(error, result) {
+          if ((error != null)) {
+            console.log("error:" + result);
+            callback(error, result);
+          } else if (aix < skus.length) {
+            console.log("Sku: " + aix + "  " + JSON.stringify(sku));
+            _this.wireupSkustoWarehouses(aix + 1, skus, warehouses, callback);
+          } else {
+            console.log("finished");
+            callback(error, result);
+          }
+        };
+      })(this));
+    };
+
     Builder.prototype.buildSkusToWarehouses = function(callback) {
-      callback(null, true);
+      this.repo.find({
+        type: "Sku"
+      }, (function(_this) {
+        return function(error, skus) {
+          return _this.repo.find({
+            type: "Warehouse"
+          }, function(error, warehouses) {
+            _this.wireupSkustoWarehouses(0, skus, warehouses, callback);
+          });
+        };
+      })(this));
     };
 
     Builder.prototype.build = function(callback) {
