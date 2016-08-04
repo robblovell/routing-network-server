@@ -3,16 +3,18 @@ Papa = require('babyparse')
 fs = require('fs');
 
 class Importer extends iImport
-    constructor: (config) ->
-        @config = config
+    constructor: (@config) ->
 
     # add all to key value store.
     import: (filename, repo, callback) ->
         contents = fs.readFileSync(filename, 'utf8')
         result = Papa.parse(contents, @config)
         data = result.data
-        repo.run("CREATE INDEX ON :#{@config.nodeType}(id)", {}, (error, result) ->
-
+        repo.run("CREATE INDEX ON :#{@config.nodeType}(id)", {}, (error, result) =>
+            if (error?)
+                console.log(""+JSON.stringify(error))
+                callback(error)
+                return
             repo.pipeline()
             for node in data
                 if (@config.nodeIdName == '')

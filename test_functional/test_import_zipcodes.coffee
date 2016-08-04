@@ -70,6 +70,7 @@ describe 'Errata', () ->
             return
 
         )
+        return
 
 
 #    checkAllZipCodes2 = (filename, repo, done) =>

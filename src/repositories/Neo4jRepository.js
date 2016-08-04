@@ -18,6 +18,7 @@
       this.config = config;
       this.exec = bind(this.exec, this);
       this.set = bind(this.set, this);
+      this.setEdge = bind(this.setEdge, this);
       this.buffer = null;
       if (this.config.url == null) {
         this.config.url = 'bolt://neo4j:macro7@localhost';
@@ -90,6 +91,70 @@
       throw new Error('not implemented');
     };
 
+    iRepository.prototype.setEdge = function(params, edge, callback) {
+      var data, makeUpsert, ref, session, upsert;
+      makeUpsert = (function(_this) {
+        return function(params, data) {
+          var create, createStr, key, properties, propstring, update, updateStr, upsertStatement, upsertString, value;
+          if (!(data.id != null)) {
+            data.id = uuid.v4();
+          }
+          propstring = ((function() {
+            var results1;
+            results1 = [];
+            for (key in data) {
+              value = data[key];
+              results1.push("r." + key + "='" + value + "', ");
+            }
+            return results1;
+          })()).reduce(function(t, s) {
+            return t + s;
+          });
+          propstring = propstring.slice(0, -2);
+          properties = ((function() {
+            var results1;
+            results1 = [];
+            for (key in data) {
+              value = data[key];
+              results1.push("r." + key + "={" + key + "}, ");
+            }
+            return results1;
+          })()).reduce(function(t, s) {
+            return t + s;
+          });
+          properties = properties.slice(0, -2);
+          create = "r.created=timestamp(), " + properties;
+          update = "r.updated=timestamp(), " + properties;
+          createStr = "r.created=timestamp(), " + propstring;
+          updateStr = "r.updated=timestamp(), " + propstring;
+          upsertString = "MERGE (a:" + params.sourcekind + " {id:'" + params.sourceid + "'})-[r:" + params.kind + "]->(b:" + params.destinationkind + " {id:'" + params.destinationid + "'}) ON CREATE SET " + createStr + " ON MATCH SET " + updateStr;
+          upsertStatement = "MERGE (a:" + params.sourcekind + " {id:{sourceid}})-[r:" + params.kind + "]->(b:" + params.destinationkind + " {id:{destinationid}}) ON CREATE SET " + create + " ON MATCH SET " + update;
+          for (key in params) {
+            value = params[key];
+            data[key] = value;
+          }
+          return [data, upsertStatement];
+        };
+      })(this);
+      ref = makeUpsert(params, edge), data = ref[0], upsert = ref[1];
+      if ((this.buffer != null) || (callback == null)) {
+        this.buffer.run(upsert, data);
+      } else {
+        session = this.neo4j.session();
+        session.run(upsert, edge).then((function(_this) {
+          return function(result) {
+            session.close();
+            return callback(null, result);
+          };
+        })(this))["catch"]((function(_this) {
+          return function(error) {
+            session.close();
+            return callback(error, null);
+          };
+        })(this));
+      }
+    };
+
     iRepository.prototype.set = function(id, obj, callback) {
       var data, makeUpsert, ref, session, upsert;
       makeUpsert = function(data) {
@@ -114,11 +179,11 @@
         upsertStatement = ("MERGE (n:" + data.type + " { id: {id} }) ON CREATE SET ") + create + " ON MATCH SET " + update;
         return [data, upsertStatement];
       };
-      if (id) {
+      if ((id != null)) {
         obj.id = id;
       }
+      ref = makeUpsert(obj), data = ref[0], upsert = ref[1];
       if ((this.buffer != null) || (callback == null)) {
-        ref = makeUpsert(obj), data = ref[0], upsert = ref[1];
         this.buffer.run(upsert, data);
       } else {
         session = this.neo4j.session();

@@ -70,7 +70,7 @@
       };
       repo = new Neo4jRepostitory(repoConfig);
       filename = './data/zipcodes.csv';
-      return importer["import"](filename, repo, function(error, results) {
+      importer["import"](filename, repo, function(error, results) {
         if ((error != null)) {
           done();
           return;

@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "importLtlCodes.js",
+  "sourceRoot": "",
+  "sources": [
+    "importLtlCodes.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;AAAA"
+}

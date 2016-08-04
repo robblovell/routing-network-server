@@ -22,37 +22,44 @@
       contents = fs.readFileSync(filename, 'utf8');
       result = Papa.parse(contents, this.config);
       data = result.data;
-      return repo.run("CREATE INDEX ON :" + this.config.nodeType + "(id)", {}, function(error, result) {
-        var i, id, k, len, node, v;
-        repo.pipeline();
-        for (i = 0, len = data.length; i < len; i++) {
-          node = data[i];
-          if (this.config.nodeIdName === '') {
-            id = ((function() {
-              var results;
-              results = [];
-              for (k in node) {
-                v = node[k];
-                results.push(v);
-              }
-              return results;
-            })()).reduce(function(x, y) {
-              return "" + x + "_" + y;
-            });
-          } else {
-            id = node[this.config.nodeIdName];
+      return repo.run("CREATE INDEX ON :" + this.config.nodeType + "(id)", {}, (function(_this) {
+        return function(error, result) {
+          var i, id, k, len, node, v;
+          if ((error != null)) {
+            console.log("" + JSON.stringify(error));
+            callback(error);
+            return;
           }
-          console.log("id: " + id);
-          node.type = this.config.nodeType;
-          node.id = id;
-          repo.set(id, node, function(error, result) {
-            if (error != null) {
-              callback(error, null);
+          repo.pipeline();
+          for (i = 0, len = data.length; i < len; i++) {
+            node = data[i];
+            if (_this.config.nodeIdName === '') {
+              id = ((function() {
+                var results;
+                results = [];
+                for (k in node) {
+                  v = node[k];
+                  results.push(v);
+                }
+                return results;
+              })()).reduce(function(x, y) {
+                return "" + x + "_" + y;
+              });
+            } else {
+              id = node[_this.config.nodeIdName];
             }
-          });
-        }
-        repo.exec(callback);
-      });
+            console.log("id: " + id);
+            node.type = _this.config.nodeType;
+            node.id = id;
+            repo.set(id, node, function(error, result) {
+              if (error != null) {
+                callback(error, null);
+              }
+            });
+          }
+          repo.exec(callback);
+        };
+      })(this));
     };
 
     return Importer;

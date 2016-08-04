@@ -21,6 +21,7 @@ class ZipCodeImporter extends iImport
         for zipcode in data
             id = zipcode.zip3
             if !have[id]
+                console.log("zipcode: "+id)
                 repo.set(id, zipcode, (error, result) ->
                     if error?
                         callback(error, null)

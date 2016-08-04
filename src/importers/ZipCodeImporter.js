@@ -35,6 +35,7 @@
         zipcode = data[j];
         id = zipcode.zip3;
         if (!have[id]) {
+          console.log("zipcode: " + id);
           repo.set(id, zipcode, function(error, result) {
             if (error != null) {
               callback(error, null);

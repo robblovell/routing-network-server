@@ -63,6 +63,58 @@ module.exports = class iRepository
     add: (cypher, callback) ->
         throw new Error 'not implemented'
 
+    setEdge: (params, edge, callback) =>
+        makeUpsert = (params, data) =>
+            data.id = uuid.v4() unless (data.id?)
+            propstring = (("r."+key+"='"+value+"', ") for key,value of data).reduce((t,s) -> t + s)
+            propstring = propstring.slice(0,-2)
+            properties = (("r."+key+"={"+key+"}, ") for key,value of data).reduce((t,s) -> t + s)
+            properties = properties.slice(0,-2) # remove the trailing comma.
+
+            create = "r.created=timestamp(), "+properties
+            update = "r.updated=timestamp(), "+properties
+            createStr = "r.created=timestamp(), "+propstring
+            updateStr = "r.updated=timestamp(), "+propstring
+
+            upsertString = "MERGE (a:"+params.sourcekind+
+                " {id:'"+params.sourceid+"'})-[r:"+params.kind+"]->(b:"+
+                params.destinationkind+
+                " {id:'"+params.destinationid+"'}) ON CREATE SET "+
+                createStr+
+                " ON MATCH SET "+
+                updateStr
+
+#            console.log(upsertString)
+            upsertStatement = "MERGE (a:"+params.sourcekind+
+                " {id:{sourceid}})-[r:"+params.kind+"]->(b:"+
+                params.destinationkind+
+                " {id:{destinationid}}) ON CREATE SET "+
+                create+
+                " ON MATCH SET "+
+                update
+
+            for key,value of params
+                data[key] = value
+#            console.log(upsertStatement)
+            return [data, upsertStatement]
+
+        [data, upsert] = makeUpsert(params, edge)
+        if (@buffer? || !callback?)
+            @buffer.run(upsert, data)
+        else
+            session = @neo4j.session()
+            session.run(upsert, edge)
+            .then((result) =>
+                session.close()
+                callback(null, result)
+            )
+            .catch((error) =>
+                session.close()
+                callback(error, null)
+            )
+        return
+
+
     set: (id, obj, callback) =>
         makeUpsert = (data) ->
             data.id = uuid.v4() unless (data.id?)
@@ -79,9 +131,10 @@ module.exports = class iRepository
 
             return [data, upsertStatement]
 
-        obj.id = id if (id)
+        obj.id = id if (id?)
+        [data, upsert] = makeUpsert(obj)
+
         if (@buffer? || !callback?)
-            [data, upsert] = makeUpsert(obj)
             @buffer.run(upsert, data)
         else
             session = @neo4j.session()

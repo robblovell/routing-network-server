@@ -2,12 +2,9 @@ should = require('should')
 assert = require('assert')
 math = require('mathjs')
 
-importer = require('../src/importers/importZipCodes')
+importer = require('../src/importers/importZipCodeLtlCodes')
 async = require('async')
 
-RedisRepostitory = require('../src/repositories/RedisRepository')
-RestRepostitory = require('../src/repositories/RestRepository')
-MongooseRepostitory = require('../src/repositories/MongooseRepository')
 Neo4jRepostitory = require('../src/repositories/Neo4jRepository')
 fs = require('fs');
 Papa = require('babyparse')
@@ -37,26 +34,24 @@ describe 'Errata', () ->
             continue if i == 0
             zipcode.zip3 = zipcode[0].substring(0,3)
 
-            if (!zip3s[zipcode.zip3])
-                zipcode.type = "Zip"
+            if (zipcode.zip3 != "" && !zip3s[zipcode.zip3])
+                zipcode.type = "LtlCode"
                 zipcode.zip = [zipcode.zip]
                 zip3s[zipcode.zip3] = zipcode
-            else
-                zip3s[zipcode.zip3].zip.push(zipcode.zip)
 
         # random test for existence of codes.
         for ltlcode,i in LtlCodes
             continue if i == 0
-            continue if math.floor(math.random(0,100) > 0)
+            continue if math.floor(math.random(0,10) > 1)
 #            break if i > 2
             for key,zipcode of zip3s
-                continue if math.floor(math.random(0,300) > 0)
+                continue if math.floor(math.random(0,30) > 1)
                 zipcode.ltlCode = ltlcode[0]
                 zipcode.weightLo = ltlcode[1]
                 zipcode.weightHi = ltlcode[2]
                 id = zipcode.zip3+"_"+zipcode.ltlCode+"_"+zipcode.weightLo+"_"+zipcode.weightHi
                 zipcode.id = id
-                getZipFuncs.push(make(id, 'Zip')) if (id != "")
+                getZipFuncs.push(make(id, 'LtlCode')) if (id != "")
 
         console.log("Test for this many zips:"+getZipFuncs.length)
         async.parallelLimit(getZipFuncs, 1,
@@ -77,14 +72,14 @@ describe 'Errata', () ->
                 assert(false)
                 done(); return
             # do a spot check:
-            repo.get({id: '002_1000_0_100', type: 'Zip'}, (error, result) ->
+            repo.get({id: '002_1000_0_100', type: 'LtlCode'}, (error, result) ->
                 if (error?)
                     console.log("error: "+error)
                     assert(false)
                     done(); return
-                zip = JSON.parse(result)
-                zip.zip3.should.be.equal('002')
-                zip.city.should.be.equal('Portsmouth')
+                node = JSON.parse(result)
+                node.id.should.be.equal('002_1000_0_100')
+                node.zip3.should.be.equal('002')
 
                 # now check all the zipcodes
                 checkAllZipCodes(filename1, filename2, repo, done)
@@ -93,6 +88,7 @@ describe 'Errata', () ->
             return
 
         )
+        return
 
 
 #    checkAllZipCodes2 = (filename, repo, done) =>
