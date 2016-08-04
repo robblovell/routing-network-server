@@ -33,17 +33,10 @@ class Builder extends iImport
                 continue if zip.id == ''
                 id = zip.zip3+"_"+ltl.ltlCode+"_"+ltl.weightLo+"_"+ltl.weightHi
                 params = {
-                    sourcekind: 'Zip'
-                    sourceid: ''+zip.id
-                    destinationkind: 'LtlCode'
-                    destinationid: ''+id
-                    kind: 'ZIPLTL'
+                    sourcekind: 'Zip', sourceid: ''+zip.id,
+                    destinationkind: 'LtlCode', destinationid: ''+id, kind: 'ZIPLTL'
                 }
-                obj = {
-                    kind: 'ZIPLTL'
-                    cost: 0
-                    id: zip.id+"_"+id
-                }
+                obj = { kind: 'ZIPLTL',cost: 0,id: zip.id+"_"+id }
                 @repo.setEdge(params, obj)
 
         @repo.exec((error, result) =>
@@ -82,29 +75,12 @@ class Builder extends iImport
                 id1 = zip1.zip3+"_"+ltl.ltlCode+"_"+ltl.weightLo+"_"+ltl.weightHi
                 id2 = zip2.zip3+"_"+ltl.ltlCode+"_"+ltl.weightLo+"_"+ltl.weightHi
                 params = {
-                    sourcekind: 'LtlCode'
-                    sourceid: ''+id1
-                    destinationkind: 'LtlCode'
-                    destinationid: ''+id2
-                    kind: 'LTL'
-                    cost: distance+10
-                    linkid: id1+'_'+id2
+                    sourcekind: 'LtlCode',sourceid: ''+id1
+                    destinationkind: 'LtlCode',destinationid: ''+id2
+                    kind: 'LTL',cost: distance+10,linkid: id1+'_'+id2
                 }
-                matchStr =
-                    "MATCH (a:"+params.sourcekind+
-                        " {id: '"+params.sourceid+"'}), (b:"+params.destinationkind+
-                        " {id: '"+params.destinationid+
-                        "'}) CREATE (a)-[rel:"+params.kind.toUpperCase()+
-                        " {id: '"+params.linkid+"', kind: '"+params.kind+"', cost: "+params.cost+
-                        "}]->(b) RETURN rel"
-                console.log(matchStr) if math.floor(math.random(0,10000)) == 1
-                match = "MATCH (a:"+params.sourcekind+
-                    " {id:{sourceid}}), (b:"+
-                    params.destinationkind+
-                    " {id:{destinationid}}) CREATE (a)-[rel:"+
-                    params.kind.toUpperCase()+
-                    " {id:{linkid}, kind:{kind}, cost: {cost}}]->(b) RETURN rel"
-                @repo.run(match, params) # no callback on pipepline.s
+                obj = { kind: 'LTL', cost: distance+2, id: id1+"_"+id2 }
+                @repo.setEdge(params, obj)
 
         @repo.exec((error, result) =>
             if (error?)
@@ -123,7 +99,7 @@ class Builder extends iImport
         @wireupLtlsToLtls(aix, bix, zips, ltls, callback)
 
     # add all to key value store.
-    buildLtlCodesToLtlCodes: (callback) =>
+    buildLtlToLtl: (callback) =>
         filename = './data/weights-codes.csv'
         @repo.find({type: "Zip"}, (error, zips) =>
             contentsCodes = fs.readFileSync(filename, 'utf8')

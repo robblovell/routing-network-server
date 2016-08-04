@@ -13,7 +13,7 @@
   builder = require('../src/importers/buildEdges');
 
   describe('Build Edges', function() {
-    return it('Wires Up ZipCodes to LtlCodes.', function(done) {
+    return it('Wires Up LtlCodes to LtlCodes', function(done) {
       var repo, repoConfig;
       repoConfig = {
         user: 'neo4j',
@@ -21,16 +21,17 @@
       };
       repo = new Neo4jRepostitory(repoConfig);
       builder.setRepo(repo);
-      return builder.buildZipsToLtls(function(error, results) {
+      builder.buildLtlToLtl(function(error, results) {
         if ((error != null)) {
           console.log(error);
           assert(false);
+          done();
+          return;
         }
-        done();
       });
     });
   });
 
 }).call(this);
 
-//# sourceMappingURL=test_wireup_edges.js.map
+//# sourceMappingURL=test_wireup_ltl_to_ltl.js.map

@@ -45,7 +45,7 @@
       this.buildWarehousesToZips = bind(this.buildWarehousesToZips, this);
       this.buildResuppliers = bind(this.buildResuppliers, this);
       this.buildSweeps = bind(this.buildSweeps, this);
-      this.buildLtlCodesToLtlCodes = bind(this.buildLtlCodesToLtlCodes, this);
+      this.buildLtlToLtl = bind(this.buildLtlToLtl, this);
       this.traverseZips = bind(this.traverseZips, this);
       this.wireupLtlsToLtls = bind(this.wireupLtlsToLtls, this);
       this.buildZipsToLtls = bind(this.buildZipsToLtls, this);
@@ -114,7 +114,7 @@
     };
 
     Builder.prototype.wireupLtlsToLtls = function(aix, bix, zips, ltls, callback) {
-      var distance, i, id1, id2, len, ltl, match, matchStr, params, zip1, zip2;
+      var distance, i, id1, id2, len, ltl, obj, params, zip1, zip2;
       zip1 = zips[aix];
       zip2 = zips[bix];
       this.repo.pipeline();
@@ -139,12 +139,12 @@
             cost: distance + 10,
             linkid: id1 + '_' + id2
           };
-          matchStr = "MATCH (a:" + params.sourcekind + " {id: '" + params.sourceid + "'}), (b:" + params.destinationkind + " {id: '" + params.destinationid + "'}) CREATE (a)-[rel:" + params.kind.toUpperCase() + " {id: '" + params.linkid + "', kind: '" + params.kind + "', cost: " + params.cost + "}]->(b) RETURN rel";
-          if (math.floor(math.random(0, 10000)) === 1) {
-            console.log(matchStr);
-          }
-          match = "MATCH (a:" + params.sourcekind + " {id:{sourceid}}), (b:" + params.destinationkind + " {id:{destinationid}}) CREATE (a)-[rel:" + params.kind.toUpperCase() + " {id:{linkid}, kind:{kind}, cost: {cost}}]->(b) RETURN rel";
-          this.repo.run(match, params);
+          obj = {
+            kind: 'LTL',
+            cost: distance + 2,
+            id: id1 + "_" + id2
+          };
+          this.repo.setEdge(params, obj);
         }
       }
       return this.repo.exec((function(_this) {
@@ -168,7 +168,7 @@
       return this.wireupLtlsToLtls(aix, bix, zips, ltls, callback);
     };
 
-    Builder.prototype.buildLtlCodesToLtlCodes = function(callback) {
+    Builder.prototype.buildLtlToLtl = function(callback) {
       var filename;
       filename = './data/weights-codes.csv';
       this.repo.find({

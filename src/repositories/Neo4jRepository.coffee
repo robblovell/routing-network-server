@@ -1,9 +1,10 @@
 async = require('async')
 request = require('superagent')
 iRepository = require('./iRepository')
-
+combyne = require('combyne')
 neo4j = require('neo4j-driver').v1
 uuid = require('uuid')
+math = require('mathjs')
 
 module.exports = class iRepository
     constructor: (@config) ->
@@ -65,33 +66,34 @@ module.exports = class iRepository
 
     setEdge: (params, edge, callback) =>
         makeUpsert = (params, data) =>
+            ###
+                MATCH (a:Zip {id: '019'}), (b:LtlCode {id: '019_11000_200_300'})
+                MERGE (a)-[r:ZIPLTL {id: '019_019_11000_200_300', cost: '34', kind:'LTL' }]->(b)
+                ON CREATE SET r.created=timestamp()
+                ON MATCH SET r.updated=timestamp()
+            ###
+
             data.id = uuid.v4() unless (data.id?)
-            propstring = (("r."+key+"='"+value+"', ") for key,value of data).reduce((t,s) -> t + s)
+            propstring = ((""+key+":'"+value+"', ") for key,value of data).reduce((t,s) -> t + s)
             propstring = propstring.slice(0,-2)
-            properties = (("r."+key+"={"+key+"}, ") for key,value of data).reduce((t,s) -> t + s)
+            properties = ((""+key+":{"+key+"}, ") for key,value of data).reduce((t,s) -> t + s)
             properties = properties.slice(0,-2) # remove the trailing comma.
 
-            create = "r.created=timestamp(), "+properties
-            update = "r.updated=timestamp(), "+properties
-            createStr = "r.created=timestamp(), "+propstring
-            updateStr = "r.updated=timestamp(), "+propstring
+            upsertString = "MATCH "+
+                "(a:"+params.sourcekind+" {id:{{sourceid}}}), "+
+                "(b:"+params.destinationkind+" {id:{{destinationid}}}) "+
+                "MERGE (a)-[r:"+params.kind+" {"+propstring+"}]->(b) "+
+                "ON CREATE SET r.created=timestamp() "+
+                "ON MATCH SET r.updated=timestamp()"
+            upsertString = combyne(upsertString).render(params)
+            console.log(upsertString) if math.floor(math.random(0,500)) == 1
 
-            upsertString = "MERGE (a:"+params.sourcekind+
-                " {id:'"+params.sourceid+"'})-[r:"+params.kind+"]->(b:"+
-                params.destinationkind+
-                " {id:'"+params.destinationid+"'}) ON CREATE SET "+
-                createStr+
-                " ON MATCH SET "+
-                updateStr
-
-#            console.log(upsertString)
-            upsertStatement = "MERGE (a:"+params.sourcekind+
-                " {id:{sourceid}})-[r:"+params.kind+"]->(b:"+
-                params.destinationkind+
-                " {id:{destinationid}}) ON CREATE SET "+
-                create+
-                " ON MATCH SET "+
-                update
+            upsertStatement = "MATCH "+
+                "(a:"+params.sourcekind+" {id:{sourceid}}), "+
+                "(b:"+params.destinationkind+" {id:{destinationid}}) "+
+                "MERGE (a)-[r:"+params.kind+" {"+properties+"}]->(b) "+
+                "ON CREATE SET r.created=timestamp() "+
+                "ON MATCH SET r.updated=timestamp()"
 
             for key,value of params
                 data[key] = value

@@ -7,14 +7,10 @@
         <item url="file://$PROJECT_DIR$/node_modules/geodist/test/main.js" />
         <item url="file://$PROJECT_DIR$/test_functional/test_import_zipcodes.js" />
         <item url="file://$PROJECT_DIR$/node_modules/neo4j/lib-old/Path.js" />
-        <item url="file://$PROJECT_DIR$/src/importers/importZipCodeLtlCodes.js" />
-        <item url="file://$PROJECT_DIR$/test_functional/test_import_zipcodeltlcodes.js" />
         <item url="file://$PROJECT_DIR$/models/node.js" />
         <item url="file://$PROJECT_DIR$/src/repositories/MongooseRepository.js" />
-        <item url="file://$PROJECT_DIR$/src/importers/ZipCodeLtlCodeImporter.js" />
         <item url="file://$PROJECT_DIR$/node_modules/resolve/test/resolver/cup.js" />
         <item url="file://$PROJECT_DIR$/node_modules/neo4j/lib-old/util.js" />
-        <item url="file://$PROJECT_DIR$/src/importers/EdgeBuilder.js" />
         <item url="file://$PROJECT_DIR$/controllers/helpers/typeIsArray.js" />
         <item url="file://$PROJECT_DIR$/node_modules/xml2js/83.js" />
         <item url="file://$PROJECT_DIR$/node_modules/neo4j/lib-old/index.js" />
@@ -23,19 +19,18 @@
         <item url="file://$PROJECT_DIR$/controllers/items.js" />
         <item url="file://$PROJECT_DIR$/controllers/routes.js" />
         <item url="file://$PROJECT_DIR$/controllers/helpers/traverse.js" />
-        <item url="file://$PROJECT_DIR$/src/importers/buildEdges.js" />
         <item url="file://$PROJECT_DIR$/routes/index.js" />
         <item url="file://$PROJECT_DIR$/controllers/nodes.js" />
         <item url="file://$PROJECT_DIR$/controllers/swagger.js" />
         <item url="file://$PROJECT_DIR$/test_experiments/test_upsert.js" />
-        <item url="file://$PROJECT_DIR$/src/importers/importLtlCodes.js" />
+        <item url="file://$PROJECT_DIR$/src/importers/others/importLtlCodes.js" />
         <item url="file://$PROJECT_DIR$/node_modules/gulp-coffee/test/fixtures/grammar.js" />
         <item url="file://$PROJECT_DIR$/gulpfile.js" />
-        <item url="file://$PROJECT_DIR$/test_functional/test_wireup_edges.js" />
+        <item url="file://$PROJECT_DIR$/test_functional/test_wireup_zips_to_ltl.js" />
         <item url="file://$PROJECT_DIR$/node_modules/moment/foo.js" />
         <item url="file://$PROJECT_DIR$/node_modules/xml2js/text.js" />
         <item url="file://$PROJECT_DIR$/config/configuration.js" />
-        <item url="file://$PROJECT_DIR$/test_functional/test_import_ltlcodes.js" />
+        <item url="file://$PROJECT_DIR$/test_functional/others/test_import_ltlcodes.js" />
         <item url="file://$PROJECT_DIR$/node_modules/resolve/test/resolver/mug.js" />
         <item url="file://$PROJECT_DIR$/models/route.js" />
         <item url="file://$PROJECT_DIR$/src/repositories/iGraphRepository.js" />
@@ -55,6 +50,7 @@
         <item url="file://$PROJECT_DIR$/src/repositories/RedisRepository.js" />
         <item url="file://$PROJECT_DIR$/node_modules/neo4j/lib-new/Relationship.js" />
         <item url="file://$PROJECT_DIR$/node_modules/neo4j/lib-new/Constraint.js" />
+        <item url="file://$PROJECT_DIR$/test_functional/test_wireup_ltl_to_ltl.js" />
         <item url="file://$PROJECT_DIR$/src/importers/importSkus.js" />
         <item url="file://$PROJECT_DIR$/node_modules/neo4j/lib-new/exports.js" />
         <item url="file://$PROJECT_DIR$/node_modules/neo4j/lib-new/errors.js" />
@@ -68,9 +64,14 @@
         <item url="file://$PROJECT_DIR$/node_modules/ipaddr.js/test/ipaddr.test.js" />
         <item url="file://$PROJECT_DIR$/node_modules/ipaddr.js/src/ipaddr.js" />
         <item url="file://$PROJECT_DIR$/test_functional/test_import_warehouses.js" />
+        <item url="file://$PROJECT_DIR$/src/importers/importZipCodeLtlCodes.js" />
+        <item url="file://$PROJECT_DIR$/src/importers/EdgeBuilder.js" />
+        <item url="file://$PROJECT_DIR$/test_functional/test_import_zipcodeltlcodes.js" />
+        <item url="file://$PROJECT_DIR$/src/importers/buildEdges.js" />
+        <item url="file://$PROJECT_DIR$/src/importers/ZipCodeLtlCodeImporter.js" />
         <item url="file://$PROJECT_DIR$/test_experiments/build_graph.js" />
+        <item url="file://$PROJECT_DIR$/src/importers/others/EdgeBuilder.js" />
         <item url="file://$PROJECT_DIR$/src/repositories/Neo4jRepository.js" />
-        <item url="file://$PROJECT_DIR$/src/importers/ZipCodeLtlCodesEdgeBuilder.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -83,14 +84,10 @@
       <root url="file://$PROJECT_DIR$/node_modules/geodist/test/main.js" />
       <root url="file://$PROJECT_DIR$/test_functional/test_import_zipcodes.js" />
       <root url="file://$PROJECT_DIR$/node_modules/neo4j/lib-old/Path.js" />
-      <root url="file://$PROJECT_DIR$/src/importers/importZipCodeLtlCodes.js" />
-      <root url="file://$PROJECT_DIR$/test_functional/test_import_zipcodeltlcodes.js" />
       <root url="file://$PROJECT_DIR$/models/node.js" />
       <root url="file://$PROJECT_DIR$/src/repositories/MongooseRepository.js" />
-      <root url="file://$PROJECT_DIR$/src/importers/ZipCodeLtlCodeImporter.js" />
       <root url="file://$PROJECT_DIR$/node_modules/resolve/test/resolver/cup.js" />
       <root url="file://$PROJECT_DIR$/node_modules/neo4j/lib-old/util.js" />
-      <root url="file://$PROJECT_DIR$/src/importers/others/EdgeBuilder.js" />
       <root url="file://$PROJECT_DIR$/controllers/helpers/typeIsArray.js" />
       <root url="file://$PROJECT_DIR$/node_modules/xml2js/83.js" />
       <root url="file://$PROJECT_DIR$/node_modules/neo4j/lib-old/index.js" />
@@ -99,7 +96,6 @@
       <root url="file://$PROJECT_DIR$/controllers/items.js" />
       <root url="file://$PROJECT_DIR$/controllers/routes.js" />
       <root url="file://$PROJECT_DIR$/controllers/helpers/traverse.js" />
-      <root url="file://$PROJECT_DIR$/src/importers/buildEdges.js" />
       <root url="file://$PROJECT_DIR$/routes/index.js" />
       <root url="file://$PROJECT_DIR$/controllers/nodes.js" />
       <root url="file://$PROJECT_DIR$/controllers/swagger.js" />
@@ -107,7 +103,7 @@
       <root url="file://$PROJECT_DIR$/src/importers/others/importLtlCodes.js" />
       <root url="file://$PROJECT_DIR$/node_modules/gulp-coffee/test/fixtures/grammar.js" />
       <root url="file://$PROJECT_DIR$/gulpfile.js" />
-      <root url="file://$PROJECT_DIR$/test_functional/test_wireup_edges.js" />
+      <root url="file://$PROJECT_DIR$/test_functional/test_wireup_zips_to_ltl.js" />
       <root url="file://$PROJECT_DIR$/node_modules/moment/foo.js" />
       <root url="file://$PROJECT_DIR$/node_modules/xml2js/text.js" />
       <root url="file://$PROJECT_DIR$/config/configuration.js" />
@@ -131,6 +127,7 @@
       <root url="file://$PROJECT_DIR$/src/repositories/RedisRepository.js" />
       <root url="file://$PROJECT_DIR$/node_modules/neo4j/lib-new/Relationship.js" />
       <root url="file://$PROJECT_DIR$/node_modules/neo4j/lib-new/Constraint.js" />
+      <root url="file://$PROJECT_DIR$/test_functional/test_wireup_ltl_to_ltl.js" />
       <root url="file://$PROJECT_DIR$/src/importers/importSkus.js" />
       <root url="file://$PROJECT_DIR$/node_modules/neo4j/lib-new/exports.js" />
       <root url="file://$PROJECT_DIR$/node_modules/neo4j/lib-new/errors.js" />
@@ -144,9 +141,14 @@
       <root url="file://$PROJECT_DIR$/node_modules/ipaddr.js/test/ipaddr.test.js" />
       <root url="file://$PROJECT_DIR$/node_modules/ipaddr.js/src/ipaddr.js" />
       <root url="file://$PROJECT_DIR$/test_functional/test_import_warehouses.js" />
-      <root url="file://$PROJECT_DIR$/test_experiments/build_graph.js" />
-      <root url="file://$PROJECT_DIR$/src/repositories/Neo4jRepository.js" />
+      <root url="file://$PROJECT_DIR$/src/importers/importZipCodeLtlCodes.js" />
       <root url="file://$PROJECT_DIR$/src/importers/EdgeBuilder.js" />
+      <root url="file://$PROJECT_DIR$/test_functional/test_import_zipcodeltlcodes.js" />
+      <root url="file://$PROJECT_DIR$/src/importers/buildEdges.js" />
+      <root url="file://$PROJECT_DIR$/src/importers/ZipCodeLtlCodeImporter.js" />
+      <root url="file://$PROJECT_DIR$/test_experiments/build_graph.js" />
+      <root url="file://$PROJECT_DIR$/src/importers/others/EdgeBuilder.js" />
+      <root url="file://$PROJECT_DIR$/src/repositories/Neo4jRepository.js" />
     </CLASSES>
     <SOURCES />
   </library>

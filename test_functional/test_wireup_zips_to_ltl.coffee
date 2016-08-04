@@ -20,17 +20,5 @@ describe 'Build Edges', () ->
             return
         )
 
-#    it 'Wires Up LtlCodes to LtlCodes', (done) ->
-#        repoConfig = { user: 'neo4j', pass: 'macro7' }
-#        repo = new Neo4jRepostitory(repoConfig)
-#        builder.setRepo(repo)
-#        builder.buildLtlCodesToLtlCodes((error, results) ->
-#            if (error?)
-#                console.log(error)
-#                assert(false)
-#                done(); return
-#            return
-#        )
-#        return
 
 
