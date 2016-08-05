@@ -20,10 +20,12 @@
         <item url="file://$PROJECT_DIR$/controllers/routes.js" />
         <item url="file://$PROJECT_DIR$/controllers/helpers/traverse.js" />
         <item url="file://$PROJECT_DIR$/routes/index.js" />
+        <item url="file://$PROJECT_DIR$/test_functional/test_wireup_satellites.js" />
         <item url="file://$PROJECT_DIR$/controllers/nodes.js" />
         <item url="file://$PROJECT_DIR$/controllers/swagger.js" />
         <item url="file://$PROJECT_DIR$/test_experiments/test_upsert.js" />
         <item url="file://$PROJECT_DIR$/src/importers/others/importLtlCodes.js" />
+        <item url="file://$PROJECT_DIR$/test_functional/test_wireup_resuppliers.js" />
         <item url="file://$PROJECT_DIR$/node_modules/gulp-coffee/test/fixtures/grammar.js" />
         <item url="file://$PROJECT_DIR$/gulpfile.js" />
         <item url="file://$PROJECT_DIR$/test_functional/test_wireup_zips_to_ltl.js" />
@@ -41,6 +43,7 @@
         <item url="file://$PROJECT_DIR$/test_functional/others/create_indexes.js" />
         <item url="file://$PROJECT_DIR$/node_modules/gulp-tap/src/tap.js" />
         <item url="file://$PROJECT_DIR$/src/importers/flushredis.js" />
+        <item url="file://$PROJECT_DIR$/test_functional/test_wireup_sweeps.js" />
         <item url="file://$PROJECT_DIR$/node_modules/neo4j/lib-new/Index.js" />
         <item url="file://$PROJECT_DIR$/src/importers/iImport.js" />
         <item url="file://$PROJECT_DIR$/src/repositories/iRepository.js" />
@@ -100,10 +103,12 @@
       <root url="file://$PROJECT_DIR$/controllers/routes.js" />
       <root url="file://$PROJECT_DIR$/controllers/helpers/traverse.js" />
       <root url="file://$PROJECT_DIR$/routes/index.js" />
+      <root url="file://$PROJECT_DIR$/test_functional/test_wireup_satellites.js" />
       <root url="file://$PROJECT_DIR$/controllers/nodes.js" />
       <root url="file://$PROJECT_DIR$/controllers/swagger.js" />
       <root url="file://$PROJECT_DIR$/test_experiments/test_upsert.js" />
       <root url="file://$PROJECT_DIR$/src/importers/others/importLtlCodes.js" />
+      <root url="file://$PROJECT_DIR$/test_functional/test_wireup_resuppliers.js" />
       <root url="file://$PROJECT_DIR$/node_modules/gulp-coffee/test/fixtures/grammar.js" />
       <root url="file://$PROJECT_DIR$/gulpfile.js" />
       <root url="file://$PROJECT_DIR$/test_functional/test_wireup_zips_to_ltl.js" />
@@ -121,6 +126,7 @@
       <root url="file://$PROJECT_DIR$/test_functional/others/create_indexes.js" />
       <root url="file://$PROJECT_DIR$/node_modules/gulp-tap/src/tap.js" />
       <root url="file://$PROJECT_DIR$/src/importers/flushredis.js" />
+      <root url="file://$PROJECT_DIR$/test_functional/test_wireup_sweeps.js" />
       <root url="file://$PROJECT_DIR$/node_modules/neo4j/lib-new/Index.js" />
       <root url="file://$PROJECT_DIR$/src/importers/iImport.js" />
       <root url="file://$PROJECT_DIR$/src/repositories/iRepository.js" />

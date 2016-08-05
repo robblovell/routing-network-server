@@ -41,12 +41,17 @@
       this.config = config;
       this.repo = repo1 != null ? repo1 : null;
       this.build = bind(this.build, this);
+      this.buildWarehousesToSatellites = bind(this.buildWarehousesToSatellites, this);
+      this.wireupSatellites = bind(this.wireupSatellites, this);
+      this.buildResuppliersToWarehouses = bind(this.buildResuppliersToWarehouses, this);
+      this.wireupResuppliers = bind(this.wireupResuppliers, this);
+      this.buildSweepsToWarehouses = bind(this.buildSweepsToWarehouses, this);
+      this.wireupSweeps = bind(this.wireupSweeps, this);
+      this.cleanupAndCollateWarehouses = bind(this.cleanupAndCollateWarehouses, this);
       this.buildSkusToWarehouses = bind(this.buildSkusToWarehouses, this);
       this.wireupSkustoWarehouses = bind(this.wireupSkustoWarehouses, this);
       this.buildWarehousesToZips = bind(this.buildWarehousesToZips, this);
       this.wireupWarehousesToZips = bind(this.wireupWarehousesToZips, this);
-      this.buildResuppliers = bind(this.buildResuppliers, this);
-      this.buildSweeps = bind(this.buildSweeps, this);
       this.buildLtlToLtl = bind(this.buildLtlToLtl, this);
       this.traverseZips = bind(this.traverseZips, this);
       this.wireupLtlsToLtls = bind(this.wireupLtlsToLtls, this);
@@ -186,14 +191,6 @@
       })(this));
     };
 
-    Builder.prototype.buildSweeps = function(callback) {
-      return callback(null, true);
-    };
-
-    Builder.prototype.buildResuppliers = function(callback) {
-      return callback(null, true);
-    };
-
     Builder.prototype.wireupWarehousesToZips = function(zips, warehouses, callback) {
       var i, id1, id2, len, matches, obj, params, warehouse, warehousezip3, zip;
       this.repo.pipeline();
@@ -310,6 +307,317 @@
       })(this));
     };
 
+    Builder.prototype.cleanupAndCollateWarehouses = function(warehouses, zips) {
+      var bdwps, flag, flags, i, j, k, l, len, len1, len2, len3, len4, len5, len6, m, matches, n, o, resuppliers, satellites, sellers, sweepers, warehouse, zip;
+      flags = ['isSeller', 'isSweepable', 'IsBDWP', 'IsResupplier', 'IsCustomerPickup', 'IsSatellite'];
+      for (i = 0, len = warehouses.length; i < len; i++) {
+        warehouse = warehouses[i];
+        for (j = 0, len1 = flags.length; j < len1; j++) {
+          flag = flags[j];
+          if (warehouse[flag] === -1 || warehouse[flag] === '-1' || warehouse[flag].toUpperCase() === 'TRUE' || warehouse[flag] === true || warehouse[flag] === 1 || warehouse[flag] === '1') {
+            warehouse[flag] = true;
+          } else {
+            warehouse[flag] = false;
+          }
+        }
+        zip = warehouse['PostalCode'].substring(0, 3);
+        matches = zips.filter(function(obj) {
+          return obj.zip3 === zip;
+        });
+        if (matches.length > 0) {
+          zip = matches[0];
+          warehouse.zip3 = zip.zip3;
+          warehouse.lat = zip.latitude;
+          warehouse.lon = zip.longitude;
+          warehouse.haszip = true;
+        } else {
+          warehouse.haszip = false;
+        }
+      }
+      bdwps = [];
+      for (k = 0, len2 = warehouses.length; k < len2; k++) {
+        warehouse = warehouses[k];
+        if (warehouse.IsBDWP || warehouse.IsResupplier) {
+          bdwps.push(warehouse);
+        }
+      }
+      resuppliers = [];
+      for (l = 0, len3 = warehouses.length; l < len3; l++) {
+        warehouse = warehouses[l];
+        if (warehouse.IsResupplier) {
+          resuppliers.push(warehouse);
+        }
+      }
+      sellers = [];
+      for (m = 0, len4 = warehouses.length; m < len4; m++) {
+        warehouse = warehouses[m];
+        if (warehouse.isSeller) {
+          sellers.push(warehouse);
+        }
+      }
+      sweepers = [];
+      for (n = 0, len5 = warehouses.length; n < len5; n++) {
+        warehouse = warehouses[n];
+        if (warehouse.isSweepable) {
+          sweepers.push(warehouse);
+        }
+      }
+      satellites = [];
+      for (o = 0, len6 = warehouses.length; o < len6; o++) {
+        warehouse = warehouses[o];
+        if (warehouse.IsSatellite) {
+          satellites.push(warehouse);
+        }
+      }
+      return {
+        bdwps: bdwps,
+        resuppliers: resuppliers,
+        sellers: sellers,
+        sweepers: sweepers,
+        satellites: satellites,
+        warehouses: warehouses
+      };
+    };
+
+    Builder.prototype.wireupSweeps = function(warehouses, callback) {
+      var bdwp, closest, cost, distance, found, i, id1, id2, j, len, len1, obj, params, ref, ref1, sweeper;
+      this.repo.pipeline();
+      ref = warehouses.sweepers;
+      for (i = 0, len = ref.length; i < len; i++) {
+        sweeper = ref[i];
+        id1 = sweeper.id;
+        if (!sweeper.haszip) {
+          continue;
+        }
+        found = null;
+        closest = -1;
+        ref1 = warehouses.bdwps;
+        for (j = 0, len1 = ref1.length; j < len1; j++) {
+          bdwp = ref1[j];
+          if (!bdwp.haszip) {
+            continue;
+          }
+          distance = geodist({
+            lat: parseInt(bdwp.lat),
+            lon: parseInt(bdwp.lon)
+          }, {
+            lat: parseInt(sweeper.lat),
+            lon: parseInt(sweeper.lon)
+          });
+          if (distance < closest || closest === -1) {
+            closest = distance;
+            found = bdwp;
+          }
+        }
+        if (found != null) {
+          id2 = found.id;
+          cost = distance;
+          params = {
+            sourcekind: 'Warehouse',
+            sourceid: '' + id1,
+            destinationkind: 'Warehouse',
+            destinationid: '' + id2,
+            kind: 'SWEEP',
+            linkid: id1 + '_' + id2
+          };
+          obj = {
+            kind: 'SWEEP',
+            cost: cost,
+            id: id1 + "_" + id2
+          };
+          this.repo.setEdge(params, obj);
+        } else {
+          console.log("No warehouses found close to this sweeper, uses postal codes or the code is not assigned.");
+        }
+      }
+      this.repo.exec((function(_this) {
+        return function(error, result) {
+          if ((error != null)) {
+            console.log("error:" + result);
+            callback(error, result);
+          } else {
+            console.log("finished");
+            callback(error, result);
+          }
+        };
+      })(this));
+    };
+
+    Builder.prototype.buildSweepsToWarehouses = function(callback) {
+      this.repo.find({
+        type: "Zip"
+      }, (function(_this) {
+        return function(error, zips) {
+          return _this.repo.find({
+            type: "Warehouse"
+          }, function(error, warehouses) {
+            var collation;
+            collation = _this.cleanupAndCollateWarehouses(warehouses, zips);
+            _this.wireupSweeps(collation, callback);
+          });
+        };
+      })(this));
+      return;
+      return callback(null, true);
+    };
+
+    Builder.prototype.wireupResuppliers = function(warehouses, callback) {
+      var bdwp, cost, distance, i, id1, id2, j, len, len1, obj, params, ref, ref1, resupplier;
+      this.repo.pipeline();
+      ref = warehouses.resuppliers;
+      for (i = 0, len = ref.length; i < len; i++) {
+        resupplier = ref[i];
+        id1 = resupplier.id;
+        if (!resupplier.haszip) {
+          continue;
+        }
+        ref1 = warehouses.bdwps;
+        for (j = 0, len1 = ref1.length; j < len1; j++) {
+          bdwp = ref1[j];
+          if (bdwp.haszip) {
+            distance = geodist({
+              lat: parseInt(bdwp.lat),
+              lon: parseInt(bdwp.lon)
+            }, {
+              lat: parseInt(resupplier.lat),
+              lon: parseInt(resupplier.lon)
+            });
+          } else {
+            distance = -1;
+          }
+          id2 = bdwp.id;
+          cost = distance;
+          params = {
+            sourcekind: 'Warehouse',
+            sourceid: '' + id1,
+            destinationkind: 'Warehouse',
+            destinationid: '' + id2,
+            kind: 'RESUPPLIES',
+            linkid: id1 + '_' + id2
+          };
+          obj = {
+            kind: 'RESUPPLIES',
+            cost: cost,
+            id: id1 + "_" + id2
+          };
+          console.log("resupplier: " + JSON.stringify(params));
+          this.repo.setEdge(params, obj);
+        }
+      }
+      this.repo.exec((function(_this) {
+        return function(error, result) {
+          if ((error != null)) {
+            console.log("error:" + result);
+            callback(error, result);
+          } else {
+            console.log("finished");
+            callback(error, result);
+          }
+        };
+      })(this));
+    };
+
+    Builder.prototype.buildResuppliersToWarehouses = function(callback) {
+      this.repo.find({
+        type: "Zip"
+      }, (function(_this) {
+        return function(error, zips) {
+          return _this.repo.find({
+            type: "Warehouse"
+          }, function(error, warehouses) {
+            var collation;
+            collation = _this.cleanupAndCollateWarehouses(warehouses, zips);
+            _this.wireupResuppliers(collation, callback);
+          });
+        };
+      })(this));
+      return;
+      return callback(null, true);
+    };
+
+    Builder.prototype.wireupSatellites = function(warehouses, callback) {
+      var bdwp, closest, cost, distance, found, i, id1, id2, j, len, len1, obj, params, ref, ref1, satellite;
+      this.repo.pipeline();
+      ref = warehouses.bdwps;
+      for (i = 0, len = ref.length; i < len; i++) {
+        bdwp = ref[i];
+        id1 = bdwp.id;
+        if (!bdwp.haszip) {
+          continue;
+        }
+        found = null;
+        closest = -1;
+        ref1 = warehouses.satellites;
+        for (j = 0, len1 = ref1.length; j < len1; j++) {
+          satellite = ref1[j];
+          if (!satellite.haszip) {
+            continue;
+          }
+          distance = geodist({
+            lat: parseInt(bdwp.lat),
+            lon: parseInt(bdwp.lon)
+          }, {
+            lat: parseInt(satellite.lat),
+            lon: parseInt(satellite.lon)
+          });
+          if (distance < closest || closest === -1) {
+            closest = distance;
+            found = satellite;
+          }
+        }
+        if ((found != null) && distance < 300) {
+          id2 = found.id;
+          cost = distance;
+          params = {
+            sourcekind: 'Warehouse',
+            sourceid: '' + id1,
+            destinationkind: 'Warehouse',
+            destinationid: '' + id2,
+            kind: 'REPOSITION',
+            linkid: id1 + '_' + id2
+          };
+          obj = {
+            kind: 'REPOSITION',
+            cost: cost,
+            id: id1 + "_" + id2
+          };
+          console.log("satellite: " + JSON.stringify(params));
+          this.repo.setEdge(params, obj);
+        } else {
+          console.log("No satellite found close to this warehouse, uses postal codes or the code is not assigned.");
+        }
+      }
+      this.repo.exec((function(_this) {
+        return function(error, result) {
+          if ((error != null)) {
+            console.log("error:" + result);
+            callback(error, result);
+          } else {
+            console.log("finished");
+            callback(error, result);
+          }
+        };
+      })(this));
+    };
+
+    Builder.prototype.buildWarehousesToSatellites = function(callback) {
+      this.repo.find({
+        type: "Zip"
+      }, (function(_this) {
+        return function(error, zips) {
+          return _this.repo.find({
+            type: "Warehouse"
+          }, function(error, warehouses) {
+            var collation;
+            collation = _this.cleanupAndCollateWarehouses(warehouses, zips);
+            _this.wireupSatellites(collation, callback);
+          });
+        };
+      })(this));
+      return;
+      return callback(null, true);
+    };
+
     Builder.prototype.build = function(callback) {
       async.parallel([
         (function(_this) {
@@ -322,11 +630,15 @@
           };
         })(this), (function(_this) {
           return function(callback) {
-            return _this.buildSweeps(callback);
+            return _this.buildSweepsToWarehouses(callback);
           };
         })(this), (function(_this) {
           return function(callback) {
-            return _this.buildResuppliers(callback);
+            return _this.buildResuppliersToWarehouses(callback);
+          };
+        })(this), (function(_this) {
+          return function(callback) {
+            return _this.buildWarehousesToWarehouses(callback);
           };
         })(this), (function(_this) {
           return function(callback) {

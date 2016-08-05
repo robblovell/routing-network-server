@@ -26,8 +26,6 @@
     "morgan": "~1.6.1",
     "neo4j": "^2.0.0-RC2",
     "neo4j-driver": "^1.1.0-M01",
-    "node-rules": "^3.0.3",
-    "nools": "^0.4.1",
     "resourcejs": "^1.2.2",
     "seraph": "^0.14.4",
     "serve-favicon": "~2.3.0",

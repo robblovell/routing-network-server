@@ -81,12 +81,12 @@ module.exports = class iRepository
 
             upsertString = "MATCH "+
                 "(a:"+params.sourcekind+" {id:'"+params.sourceid+"'}), "+
-                "(b:"+params.destinationkind+" {id:'"+params.destinationid+"'}) "+
+                "(b:"+params.destinationkind+" {id:"+params.destinationid+"}) "+
                 "MERGE (a)-[r:"+params.kind+" {"+propstring+"}]->(b) "+
                 "ON CREATE SET r.created=timestamp() "+
                 "ON MATCH SET r.updated=timestamp()"
             upsertString = combyne(upsertString).render(params)
-            console.log(upsertString) if math.floor(math.random(0,500)) == 1
+            console.log(upsertString)  if math.floor(math.random(0,500)) == 1
 
             upsertStatement = "MATCH "+
                 "(a:"+params.sourcekind+" {id:{sourceid}}), "+

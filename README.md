@@ -2,13 +2,28 @@
 
 A persistence layer for a routing network and mechanisms to determine minimum paths from one node to another.
 
-The network consists of six node types where products or "items" can reside: **Warehouse, Resupplier, Seller, Sweeper, Consumer**
+To make this work:
 
-And one node type that represents an item: **Item** (still to be modeled)
+Install neo4j locally.  Set the password for the 'neo4j' user to 'macro7'.
+run 'npm install'
+run 'npm start'
 
-There are three edge types: **Sweeps_to, Resupplies, Leaf**
+This will start the rest server.
 
-Optimal query through different node types:
+To run imports from files to build the network, run the mocha tests in 'test_functional'.
+Run the import tests first, then run the wireup tests. Imports upsert nodes into the network and 
+Wireups upsert the edges between nodes.
+
+
+The network consists of a warehouse node type where products or "items" can reside: **Warehouse, Resupplier, Seller, Sweeper, or Satellite**
+
+The last mile of delivery is represented by a network of zip codes and ltl codes that are interconnected with costs.
+
+Sku's or item nodes point to warehouses with edges that hold the amount of inventory at each warehouse.
+
+The edge types between warehouses are: **Sweeps_to and Resupplies, Repositions_to**
+
+Optimal query through different node types (old network query, todo:: new query):
 
 ```
 MATCH p=(sweepNode)-[:SWEEPS_TO]->()-[:RESUPPLIES]->()-[:LEAF]->(consumer:Consumer) 
@@ -30,12 +45,8 @@ LIMIT 10
 ```
 
 TODO:
-* REST interface hooked to the graph database
 * REST endpoint for Routes
-* Add **items** and **satellites** to the model
-* Queries for Consolidated routes
-* 2D locations 
+* Add  **satellites** to the model
 * Other costs like time and distance (per item type)
-* Cost breakdowns between sellers, retailer, and consumer (per item type)
 * Fees for nodes (per item type)
 
