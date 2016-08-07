@@ -143,12 +143,12 @@
             destinationkind: 'LtlCode',
             destinationid: '' + id2,
             kind: 'LTL',
-            cost: distance + 10,
+            cost: distance + 50,
             linkid: id1 + '_' + id2
           };
           obj = {
             kind: 'LTL',
-            cost: distance + 2,
+            cost: distance + 50,
             id: id1 + "_" + id2
           };
           this.repo.setEdge(params, obj);
