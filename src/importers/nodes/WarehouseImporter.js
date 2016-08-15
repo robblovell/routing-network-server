@@ -45,19 +45,7 @@
           };
         })(this), (function(_this) {
           return function(callback) {
-            return repo.run("CREATE INDEX ON :Bdwp(id)", {}, function(error, result) {
-              return callback(error, result);
-            });
-          };
-        })(this), (function(_this) {
-          return function(callback) {
-            return repo.run("CREATE INDEX ON :Satellite(id)", {}, function(error, result) {
-              return callback(error, result);
-            });
-          };
-        })(this), (function(_this) {
-          return function(callback) {
-            return repo.run("CREATE INDEX ON :SuperDc(id)", {}, function(error, result) {
+            return repo.run("CREATE INDEX ON :Warehouse(id)", {}, function(error, result) {
               return callback(error, result);
             });
           };

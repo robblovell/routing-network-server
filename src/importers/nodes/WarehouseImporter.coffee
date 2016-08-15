@@ -27,14 +27,8 @@ class Importer extends iImport
                     repo.run("CREATE INDEX ON :Seller(id)", {}, (error, result) =>
                         callback(error, result))
                 (callback) =>
-                    repo.run("CREATE INDEX ON :Bdwp(id)", {}, (error, result) =>
-                        callback(error, result)    )
-                (callback) =>
-                    repo.run("CREATE INDEX ON :Satellite(id)", {}, (error, result) =>
-                        callback(error, result)    )
-                (callback) =>
-                    repo.run("CREATE INDEX ON :SuperDc(id)", {}, (error, result) =>
-                        callback(error, result)    )
+                    repo.run("CREATE INDEX ON :Warehouse(id)", {}, (error, result) =>
+                        callback(error, result))
             ]
         ,
             (error, result) =>

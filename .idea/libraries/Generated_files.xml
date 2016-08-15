@@ -15,7 +15,6 @@
         <item url="file://$PROJECT_DIR$/test_functional/test_import_warehouses.js" />
         <item url="file://$PROJECT_DIR$/src/importers/importZipCodeLtlCodes.js" />
         <item url="file://$PROJECT_DIR$/test_functional/test_import_zipcodeltlcodes.js" />
-        <item url="file://$PROJECT_DIR$/src/importers/buildEdges.js" />
         <item url="file://$PROJECT_DIR$/src/importers/nodes/ZipCodeLtlCodeImporter.js" />
         <item url="file://$PROJECT_DIR$/test_experiments/build_graph.js" />
         <item url="file://$PROJECT_DIR$/src/importers/others/EdgeBuilder.js" />
@@ -24,6 +23,7 @@
         <item url="file://$PROJECT_DIR$/app.js" />
         <item url="file://$PROJECT_DIR$/node_modules/geodist/test/main.js" />
         <item url="file://$PROJECT_DIR$/test_functional/test_import_zipcodes.js" />
+        <item url="file://$PROJECT_DIR$/src/importers/others/buildEdges.js" />
         <item url="file://$PROJECT_DIR$/node_modules/neo4j/lib-old/Path.js" />
         <item url="file://$PROJECT_DIR$/models/node.js" />
         <item url="file://$PROJECT_DIR$/src/importers/nodes/WarehouseImporter.js" />
@@ -61,6 +61,7 @@
         <item url="file://$PROJECT_DIR$/test_functional/others/test_import_ltlcodes.js" />
         <item url="file://$PROJECT_DIR$/config/configuration.js" />
         <item url="file://$PROJECT_DIR$/node_modules/resolve/test/resolver/mug.js" />
+        <item url="file://$PROJECT_DIR$/test_functional/delete_graph.js" />
         <item url="file://$PROJECT_DIR$/models/route.js" />
         <item url="file://$PROJECT_DIR$/src/repositories/iGraphRepository.js" />
         <item url="file://$PROJECT_DIR$/node_modules/moment/f.js" />
@@ -94,6 +95,8 @@
       <root url="file://$PROJECT_DIR$/test/test_simple_graph.js" />
       <root url="file://$PROJECT_DIR$/test/test_routes.js" />
       <root url="file://$PROJECT_DIR$/test/test_simple_graph.js" />
+      <root url="file://$PROJECT_DIR$/src/importers/buildEdges.js" />
+      <root url="file://$PROJECT_DIR$/src/importers/buildEdges.js" />
       <root url="file://$PROJECT_DIR$/src/importers/importZipCodes.js" />
       <root url="file://$PROJECT_DIR$/test/test_neo4jrepository.js" />
       <root url="file://$PROJECT_DIR$/node_modules/neo4j/lib-new/utils.js" />
@@ -107,7 +110,6 @@
       <root url="file://$PROJECT_DIR$/test_functional/test_import_warehouses.js" />
       <root url="file://$PROJECT_DIR$/src/importers/importZipCodeLtlCodes.js" />
       <root url="file://$PROJECT_DIR$/test_functional/test_import_zipcodeltlcodes.js" />
-      <root url="file://$PROJECT_DIR$/src/importers/buildEdges.js" />
       <root url="file://$PROJECT_DIR$/src/importers/nodes/ZipCodeLtlCodeImporter.js" />
       <root url="file://$PROJECT_DIR$/test_experiments/build_graph.js" />
       <root url="file://$PROJECT_DIR$/src/importers/others/EdgeBuilder.js" />
@@ -116,6 +118,7 @@
       <root url="file://$PROJECT_DIR$/app.js" />
       <root url="file://$PROJECT_DIR$/node_modules/geodist/test/main.js" />
       <root url="file://$PROJECT_DIR$/test_functional/test_import_zipcodes.js" />
+      <root url="file://$PROJECT_DIR$/src/importers/others/buildEdges.js" />
       <root url="file://$PROJECT_DIR$/node_modules/neo4j/lib-old/Path.js" />
       <root url="file://$PROJECT_DIR$/models/node.js" />
       <root url="file://$PROJECT_DIR$/src/importers/nodes/WarehouseImporter.js" />
@@ -153,6 +156,7 @@
       <root url="file://$PROJECT_DIR$/test_functional/others/test_import_ltlcodes.js" />
       <root url="file://$PROJECT_DIR$/config/configuration.js" />
       <root url="file://$PROJECT_DIR$/node_modules/resolve/test/resolver/mug.js" />
+      <root url="file://$PROJECT_DIR$/test_functional/delete_graph.js" />
       <root url="file://$PROJECT_DIR$/models/route.js" />
       <root url="file://$PROJECT_DIR$/src/repositories/iGraphRepository.js" />
       <root url="file://$PROJECT_DIR$/node_modules/moment/f.js" />
