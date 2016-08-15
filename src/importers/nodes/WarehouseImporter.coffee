@@ -7,8 +7,7 @@ class Importer extends iImport
     constructor: (@config) ->
 
     setTruth = (flag) ->
-        if flag == -1 || flag == '-1' || flag.toUpperCase() == 'TRUE'||
-        flag == true || flag == 1 || flag == '1'
+        if flag == -1 || flag == true || flag == 1 || flag == '1' || flag == '-1' || flag.toUpperCase() == 'TRUE'
             flag = true
             return true
         else
@@ -53,7 +52,7 @@ class Importer extends iImport
                         node.type = 'Warehouse'
                     if setTruth(node.IsResupplier)
                         node.type = 'Warehouse'
-                    if setTruth(node.Satellite)
+                    if setTruth(node.IsSatellite)
                         node.type = 'Warehouse'
 
                     node.id = id

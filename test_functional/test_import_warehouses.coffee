@@ -28,7 +28,11 @@ describe 'Import Warehouses', () ->
         for node,i in data
             continue if i == 0 # don't look at the header.
             id = node[0]
-            getFuncs.push(make(id, 'Warehouse'))
+            flag = node[3]
+            if flag == -1 || flag == true || flag == 1 || flag == '1' || flag == '-1' || flag.toUpperCase() == 'TRUE'
+                getFuncs.push(make(id, 'Seller'))
+            else
+                getFuncs.push(make(id, 'Warehouse'))
 
         async.parallelLimit(getFuncs, 1,
             (error, results) =>

@@ -50,3 +50,4 @@ test_functional/**/*.js
 
 
 .idea
+app.js

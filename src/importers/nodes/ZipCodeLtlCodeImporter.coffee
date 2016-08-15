@@ -2,6 +2,7 @@ iImport = require('./../iImport')
 Papa = require('babyparse')
 fs = require('fs');
 math = require('mathjs')
+async = require('async')
 class ZipCodeImporter extends iImport
     constructor: (config) ->
         @config = config
@@ -63,18 +64,29 @@ class ZipCodeImporter extends iImport
             )
             return
 
+        async.series([
+            (callback) -> repo.run("CREATE INDEX ON :Zip(id)", {}, callback),
+            (callback) -> repo.run("CREATE INDEX ON :Zip(zip3)", {}, callback)
+            (callback) -> repo.run("CREATE INDEX ON :Ltl(id)", {}, callback)
+            (callback) -> repo.run("CREATE INDEX ON :Ltl(zip3)", {}, callback)
+        ],
+        (error, result) ->
+            build(0, Ltls,zip3s, (error, result) ->
+                callback(error, result)
+            )
+        )
 #        repo.run("CREATE INDEX ON :Zip(id)", {}, (error, result) ->
 #            repo.run("CREATE INDEX ON :Zip(zip3)", {}, (error, result) ->
 #            )
 #        )
         # 1 to skip the header of the csv file.
-        build(0, Ltls,zip3s, (error, result) ->
-            repo.run("CREATE INDEX ON :Zip(id)", {}, (error, result) ->
-                repo.run("CREATE INDEX ON :Ltls(id)", {}, (error, result) ->
-                    callback(error, result)
-                )
-            )
-        )
+#        build(0, Ltls,zip3s, (error, result) ->
+#            repo.run("CREATE INDEX ON :Zip(id)", {}, (error, result) ->
+#                repo.run("CREATE INDEX ON :Ltls(id)", {}, (error, result) ->
+#                    callback(error, result)
+#                )
+#            )
+#        )
 
         return
 
