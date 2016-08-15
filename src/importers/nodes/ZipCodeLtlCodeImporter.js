@@ -4,7 +4,7 @@
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
 
-  iImport = require('./iImport');
+  iImport = require('./../iImport');
 
   Papa = require('babyparse');
 
@@ -20,13 +20,13 @@
     }
 
     ZipCodeImporter.prototype["import"] = function(filename1, filename2, repo, callback) {
-      var LtlCodes, ZipCodes, build, contents, contentsCodes, i, j, len, result1, result2, zip3s, zipcode;
+      var Ltls, ZipCodes, build, contents, contentsCodes, i, j, len, result1, result2, zip3s, zipcode;
       contents = fs.readFileSync(filename1, 'utf8');
       result1 = Papa.parse(contents, this.config);
       ZipCodes = result1.data;
       contentsCodes = fs.readFileSync(filename2, 'utf8');
       result2 = Papa.parse(contentsCodes, this.config);
-      LtlCodes = result2.data;
+      Ltls = result2.data;
       zip3s = {};
       for (i = j = 0, len = ZipCodes.length; j < len; i = ++j) {
         zipcode = ZipCodes[i];
@@ -35,7 +35,7 @@
         }
         zipcode.zip3 = zipcode.zip.substring(0, 3);
         if (zipcode.zip3 !== "" && !zip3s[zipcode.zip3]) {
-          zipcode.type = "LtlCode";
+          zipcode.type = "Ltl";
           zipcode.zip = [zipcode.zip];
           zip3s[zipcode.zip3] = zipcode;
         }
@@ -77,9 +77,9 @@
           }
         });
       };
-      build(0, LtlCodes, zip3s, function(error, result) {
+      build(0, Ltls, zip3s, function(error, result) {
         return repo.run("CREATE INDEX ON :Zip(id)", {}, function(error, result) {
-          return repo.run("CREATE INDEX ON :LtlCodes(id)", {}, function(error, result) {
+          return repo.run("CREATE INDEX ON :Ltls(id)", {}, function(error, result) {
             return callback(error, result);
           });
         });

@@ -2,7 +2,7 @@
 (function() {
   var Builder, builder, config;
 
-  Builder = require('./EdgeBuilder');
+  Builder = require('./edges/EdgeBuilder');
 
   config = {
     delimiter: ",",

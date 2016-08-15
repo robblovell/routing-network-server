@@ -2,7 +2,7 @@
 (function() {
   var Importer, config, importer;
 
-  Importer = require('./NodeImporter');
+  Importer = require('./nodes/WarehouseImporter');
 
   config = {
     delimiter: ",",
@@ -18,8 +18,6 @@
     skipEmptyLines: false,
     fastMode: false
   };
-
-  config.nodeType = 'Warehouse';
 
   config.nodeIdName = 'ConsolidatedWarehouseID';
 

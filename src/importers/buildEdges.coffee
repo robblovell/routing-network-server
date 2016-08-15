@@ -1,4 +1,4 @@
-Builder = require('./EdgeBuilder')
+Builder = require('./edges/EdgeBuilder')
 
 config = {
     delimiter: ","	# auto-detect

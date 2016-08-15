@@ -1,4 +1,4 @@
-iImport = require('./iImport')
+iImport = require('./../iImport')
 fs = require('fs');
 async = require('async')
 math = require('mathjs')
@@ -34,7 +34,7 @@ class Builder extends iImport
                 id = zip.zip3+"_"+ltl.ltlCode+"_"+ltl.weightLo+"_"+ltl.weightHi
                 params = {
                     sourcekind: 'Zip', sourceid: ''+zip.id,
-                    destinationkind: 'LtlCode', destinationid: ''+id, kind: 'ZIPLTL'
+                    destinationkind: 'Ltl', destinationid: ''+id, kind: 'ZIPLTL'
                 }
                 obj = { kind: 'ZIPLTL',cost: 0,id: zip.id+"_"+id }
                 @repo.setEdge(params, obj)
@@ -75,8 +75,8 @@ class Builder extends iImport
                 id1 = zip1.zip3+"_"+ltl.ltlCode+"_"+ltl.weightLo+"_"+ltl.weightHi
                 id2 = zip2.zip3+"_"+ltl.ltlCode+"_"+ltl.weightLo+"_"+ltl.weightHi
                 params = {
-                    sourcekind: 'LtlCode',sourceid: ''+id1
-                    destinationkind: 'LtlCode',destinationid: ''+id2
+                    sourcekind: 'Ltl',sourceid: ''+id1
+                    destinationkind: 'Ltl',destinationid: ''+id2
                     kind: 'LTL',cost: distance+50,linkid: id1+'_'+id2
                 }
                 obj = { kind: 'LTL', cost: distance+50, id: id1+"_"+id2 }
@@ -407,10 +407,10 @@ class Builder extends iImport
     build: (callback) =>
         async.parallel([
                 (callback) =>
-                    @buildZipsToLtlCodes(callback)
+                    @buildZipsToLtls(callback)
             ,
                 (callback) =>
-                    @buildLtlCodesToLtlCodes(callback)
+                    @buildLtlsToLtls(callback)
             ,
                 (callback) =>
                     @buildSweepsToWarehouses(callback)

@@ -2,7 +2,7 @@
 (function() {
   var Importer, config, importer;
 
-  Importer = require('./NodeImporter');
+  Importer = require('./nodes/NodeImporter');
 
   config = {
     delimiter: ",",

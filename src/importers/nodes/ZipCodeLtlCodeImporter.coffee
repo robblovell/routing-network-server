@@ -1,4 +1,4 @@
-iImport = require('./iImport')
+iImport = require('./../iImport')
 Papa = require('babyparse')
 fs = require('fs');
 math = require('mathjs')
@@ -13,7 +13,7 @@ class ZipCodeImporter extends iImport
         ZipCodes = result1.data
         contentsCodes = fs.readFileSync(filename2, 'utf8')
         result2 = Papa.parse(contentsCodes, @config)
-        LtlCodes = result2.data
+        Ltls = result2.data
 
         zip3s = {}
         for zipcode,i in ZipCodes
@@ -21,7 +21,7 @@ class ZipCodeImporter extends iImport
             zipcode.zip3 = zipcode.zip.substring(0,3)
 
             if (zipcode.zip3 != "" && !zip3s[zipcode.zip3])
-                zipcode.type = "LtlCode"
+                zipcode.type = "Ltl"
                 zipcode.zip = [zipcode.zip]
                 zip3s[zipcode.zip3] = zipcode
 
@@ -68,9 +68,9 @@ class ZipCodeImporter extends iImport
 #            )
 #        )
         # 1 to skip the header of the csv file.
-        build(0, LtlCodes,zip3s, (error, result) ->
+        build(0, Ltls,zip3s, (error, result) ->
             repo.run("CREATE INDEX ON :Zip(id)", {}, (error, result) ->
-                repo.run("CREATE INDEX ON :LtlCodes(id)", {}, (error, result) ->
+                repo.run("CREATE INDEX ON :Ltls(id)", {}, (error, result) ->
                     callback(error, result)
                 )
             )

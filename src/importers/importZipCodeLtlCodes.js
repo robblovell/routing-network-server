@@ -2,7 +2,7 @@
 (function() {
   var Importer, config, importer;
 
-  Importer = require('./ZipCodeLtlCodeImporter');
+  Importer = require('./nodes/ZipCodeLtlCodeImporter');
 
   config = {
     delimiter: ",",

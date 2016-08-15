@@ -1,4 +1,4 @@
-Importer = require('./ZipCodeLtlCodeImporter')
+Importer = require('./nodes/ZipCodeLtlCodeImporter')
 
 config = {
     delimiter: ","	# auto-detect

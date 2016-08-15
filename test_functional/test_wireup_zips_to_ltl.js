@@ -10,7 +10,7 @@
 
   Neo4jRepostitory = require('../src/repositories/Neo4jRepository');
 
-  builder = require('../src/importers/buildEdges');
+  builder = require('../src/importers/edges/ZipsToLtls');
 
   describe('Build Edges', function() {
     return it('Wires Up ZipCodes to LtlCodes.', function(done) {

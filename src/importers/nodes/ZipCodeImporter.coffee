@@ -1,4 +1,4 @@
-iImport = require('./iImport')
+iImport = require('./../iImport')
 Papa = require('babyparse')
 fs = require('fs');
 async = require('async')

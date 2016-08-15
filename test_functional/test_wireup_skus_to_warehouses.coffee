@@ -4,7 +4,7 @@ async = require('async')
 
 Neo4jRepostitory = require('../src/repositories/Neo4jRepository')
 
-builder = require('../src/importers/buildEdges')
+builder = require('../src/importers/SkusToWarehouses')
 
 describe 'Build Edges', () ->
 

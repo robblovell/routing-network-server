@@ -1,4 +1,4 @@
-Importer = require('./NodeImporter')
+Importer = require('./nodes/NodeImporter')
 
 config = {
     delimiter: ","	# auto-detect

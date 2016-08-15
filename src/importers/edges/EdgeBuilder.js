@@ -5,7 +5,7 @@
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
 
-  iImport = require('./iImport');
+  iImport = require('./../iImport');
 
   fs = require('fs');
 
@@ -76,7 +76,7 @@
           params = {
             sourcekind: 'Zip',
             sourceid: '' + zip.id,
-            destinationkind: 'LtlCode',
+            destinationkind: 'Ltl',
             destinationid: '' + id,
             kind: 'ZIPLTL'
           };
@@ -138,9 +138,9 @@
           id1 = zip1.zip3 + "_" + ltl.ltlCode + "_" + ltl.weightLo + "_" + ltl.weightHi;
           id2 = zip2.zip3 + "_" + ltl.ltlCode + "_" + ltl.weightLo + "_" + ltl.weightHi;
           params = {
-            sourcekind: 'LtlCode',
+            sourcekind: 'Ltl',
             sourceid: '' + id1,
-            destinationkind: 'LtlCode',
+            destinationkind: 'Ltl',
             destinationid: '' + id2,
             kind: 'LTL',
             cost: distance + 50,
@@ -622,11 +622,11 @@
       async.parallel([
         (function(_this) {
           return function(callback) {
-            return _this.buildZipsToLtlCodes(callback);
+            return _this.buildZipsToLtls(callback);
           };
         })(this), (function(_this) {
           return function(callback) {
-            return _this.buildLtlCodesToLtlCodes(callback);
+            return _this.buildLtlsToLtls(callback);
           };
         })(this), (function(_this) {
           return function(callback) {

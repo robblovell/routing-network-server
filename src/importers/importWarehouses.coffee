@@ -1,4 +1,4 @@
-Importer = require('./NodeImporter')
+Importer = require('./nodes/WarehouseImporter')
 
 config = {
     delimiter: ","	# auto-detect
@@ -19,7 +19,6 @@ config = {
 #    beforeFirstChunk: undefined,
 #    withCredentials: undefined
 }
-config.nodeType = 'Warehouse'
 config.nodeIdName = 'ConsolidatedWarehouseID'
 importer = new Importer(config)
 
