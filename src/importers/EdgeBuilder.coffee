@@ -77,9 +77,9 @@ class Builder extends iImport
                 params = {
                     sourcekind: 'LtlCode',sourceid: ''+id1
                     destinationkind: 'LtlCode',destinationid: ''+id2
-                    kind: 'LTL',cost: distance+10,linkid: id1+'_'+id2
+                    kind: 'LTL',cost: distance+50,linkid: id1+'_'+id2
                 }
-                obj = { kind: 'LTL', cost: distance+2, id: id1+"_"+id2 }
+                obj = { kind: 'LTL', cost: distance+50, id: id1+"_"+id2 }
                 @repo.setEdge(params, obj)
 
         @repo.exec((error, result) =>

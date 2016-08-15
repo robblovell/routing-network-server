@@ -58,6 +58,8 @@ gulp.task('watch', () ->
     gulp.watch(stylusFiles, ['stylusscripts'])
 )
 
+gulp.task('build', ['coffeescripts','jadescripts','stylusscripts'])
+
 gulp.task('default', ['watch', 'coffeescripts'])
 
 gulp.task('done', (() -> ))

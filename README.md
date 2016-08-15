@@ -50,3 +50,9 @@ TODO:
 * Other costs like time and distance (per item type)
 * Fees for nodes (per item type)
 
+* Cost updates
+* Inventory updates
+* CLI for imports
+* initial load of costs and inventory
+* update node.
+

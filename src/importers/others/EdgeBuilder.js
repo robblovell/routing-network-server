@@ -68,8 +68,8 @@
         matchStr = "MATCH (a:" + params.sourcekind + " {id: " + params.sourceid + "}), (b:" + params.destinationkind + " {id: " + params.destinationid + "}) CREATE (a)-[rel:" + params.kind.toUpperCase() + " {kind: {" + params.kind + "}, inventory: " + params.inventory + "}]->(b) RETURN rel";
         console.log(matchStr);
         match = "MATCH (a:" + params.sourcekind + " {name:{sourceid}}), (b:" + params.destinationkind + " {name:{destinationid}}) CREATE (a)-[rel:" + params.kind.toUpperCase() + " {kind: {kind}, cost: {cost}}]->(b) RETURN rel";
+        this.repo.run(match, params);
       }
-      this.repo.run(match, params);
       return this.repo.exec((function(_this) {
         return function(error, result) {
           if (bix + 1 < bNode.length) {
@@ -118,25 +118,23 @@
         type: "Zip"
       }, (function(_this) {
         return function(error, aNodes) {
-          _this.repo.find({
-            type: "LtlCode"
-          }, function(error, ltlCodes) {
-            _this.traverse(1, 1, aNodes, ltlCodes, callback);
-          });
+          var i, len, zip;
+          for (i = 0, len = aNodes.length; i < len; i++) {
+            zip = aNodes[i];
+            _this.repo.find({
+              type: "LtlCode"
+            }, function(error, ltlCodes) {
+              _this.traverse(1, 1, aNodes, ltlCodes, callback);
+            });
+          }
         };
       })(this));
     };
 
     Importer.prototype.wireupLtlCodes = function(aix, ltlCodes, callback) {
-      var aCode, bCode, i, len, results;
+      var aCode;
       this.repo.pipeline();
-      aCode = ltlCodes[aix];
-      results = [];
-      for (i = 0, len = ltlCodes.length; i < len; i++) {
-        bCode = ltlCodes[i];
-        results.push(b);
-      }
-      return results;
+      return aCode = ltlCodes[aix];
     };
 
     Importer.prototype.buildLtlCodesToLtlCodes = function(callback) {

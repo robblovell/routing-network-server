@@ -109,7 +109,7 @@ class Importer extends iImport
     wireupLtlCodes: (aix, ltlCodes,callback) ->
         @repo.pipeline()
         aCode = ltlCodes[aix]
-        for bCode in ltlCodes
+#        for bCode in ltlCodes
 
 
 
