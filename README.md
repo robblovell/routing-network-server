@@ -2,11 +2,22 @@
 
 A persistence layer for a routing network and mechanisms to determine minimum paths from one node to another.
 
+To test:
+
+```
+npm install
+npm test
+```
+
 To make this work:
 
 Install neo4j locally.  Set the password for the 'neo4j' user to 'macro7'.
-run 'npm install'
-run 'npm start'
+
+```
+npm install
+gulp build
+npm start
+```
 
 This will start the rest server.
 
