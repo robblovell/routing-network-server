@@ -4,9 +4,10 @@ async = require('async')
 
 Neo4jRepostitory = require('../src/repositories/Neo4jRepository')
 
-builder = require('../src/importers/edges/WarehousesToZips')
+Builder = require('../src/importers/edges/WarehousesToZips')
+builder = new Builder()
 
-describe 'Build Edges', () ->
+describe 'Wire Warehouses to Zips', () ->
 
     it 'Wires Up Warehouses to Zips', (done) ->
         repoConfig = { user: 'neo4j', pass: 'macro7' }

@@ -55,7 +55,7 @@ class ZipCodeImporter extends iImport
                     console.log("error")
                     callback(error, result)
                 else if (ix < codes.length && codes[ix+1]?)
-                    console.log("next chunck: "+(ix+1))
+                    console.log("next chunk: "+(ix+1))
                     build(ix+1, codes, zips, callback)
                 else
                     console.log("finished")

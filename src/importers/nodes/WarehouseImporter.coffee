@@ -7,11 +7,14 @@ class Importer extends iImport
     constructor: (@config) ->
 
     setTruth = (flag) ->
-        if flag == -1 || flag == true || flag == 1 || flag == '1' || flag == '-1' || flag.toUpperCase() == 'TRUE'
-            flag = true
+        if (typeof flag == "string")
+            if flag == '1' || flag == '-1' || flag.toUpperCase() == 'TRUE'
+                return true
+            else
+                return false
+        if flag == -1 || flag == true || flag == 1
             return true
         else
-            flag = false
             return false
     
 
@@ -45,16 +48,16 @@ class Importer extends iImport
                     # If a property of a warehouse can change over time, then it's not a new node type.
                     # If a property can't change over time, it's a node type.
 
-                    # testTruth changes the value to true or false.
-                    if setTruth(node.isSeller)
+                    node.isSeller = setTruth(node.isSeller)
+                    node.IsBDWP = setTruth(node.IsBDWP) # don't string this together as an "or" set truth has a side effect.
+                    node.IsResupplier = setTruth(node.IsResupplier)
+                    node.IsSatellite = setTruth(node.IsSatellite)
+                    node.isSweepable = setTruth(node.isSweepable)
+                    node.isSeller = setTruth(node.isSeller)
+                    node.IsCustomerPickup = setTruth(node.IsCustomerPickup)
+                    node.type = 'Warehouse'
+                    if node.isSeller
                         node.type = 'Seller'
-                    if setTruth(node.IsBDWP) # don't string this together as an "or" set truth has a side effect.
-                        node.type = 'Warehouse'
-                    if setTruth(node.IsResupplier)
-                        node.type = 'Warehouse'
-                    if setTruth(node.IsSatellite)
-                        node.type = 'Warehouse'
-
                     node.id = id
                     repo.set(id, node, (error, result) ->
                         if error?

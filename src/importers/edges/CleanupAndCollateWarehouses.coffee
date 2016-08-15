@@ -1,12 +1,20 @@
 cleanupAndCollateWarehouses = (warehouses, zips) ->
     flags = ['isSeller','isSweepable','IsBDWP','IsResupplier','IsCustomerPickup','IsSatellite']
+
+    setTruth = (flag) ->
+        if (typeof flag == "string")
+            if flag == '1' || flag == '-1' || flag.toUpperCase() == 'TRUE'
+                return true
+            else
+                return false
+        if flag == -1 || flag == true || flag == 1
+            return true
+        else
+            return false
+
     for warehouse in warehouses
         for flag in flags
-            if flag == -1 || flag == true || flag == 1 || flag == '1' || flag == '-1' || flag.toUpperCase() == 'TRUE'
-
-                warehouse[flag] = true
-            else
-                warehouse[flag] = false
+            warehouse[flag] = setTruth(warehouse[flag])
 
         zip = warehouse['PostalCode'].substring(0,3)
         matches = zips.filter(( obj ) -> return obj.zip3 == zip)

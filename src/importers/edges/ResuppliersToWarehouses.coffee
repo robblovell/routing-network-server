@@ -4,7 +4,7 @@ async = require('async')
 math = require('mathjs')
 geodist = require('geodist')
 fs = require('fs');
-cleanupAndCollateWarehouses = require('cleanupAndCollateWarehouses')
+cleanupAndCollateWarehouses = require('./CleanupAndCollateWarehouses')
 
 Papa = require('babyparse')
 papaConfig = {
@@ -36,23 +36,24 @@ class Builder extends iImport
             continue unless resupplier.haszip
             # hook up this resupplier to all bdwp warehouses and other resuppliers.
             for bdwp in warehouses.bdwps
-                if bdwp.haszip
-                    distance = geodist({lat: parseInt(bdwp.lat), lon: parseInt(bdwp.lon)},
-                        {lat: parseInt(resupplier.lat), lon: parseInt(resupplier.lon)})
-                else
-                    distance = -1 #TODO:: real costs.
+                if bdwp.id != resupplier.id and !bdwp.IsSatellite
+                    if bdwp.haszip
+                        distance = geodist({lat: parseInt(bdwp.lat), lon: parseInt(bdwp.lon)},
+                            {lat: parseInt(resupplier.lat), lon: parseInt(resupplier.lon)})
+                    else
+                        distance = -1 #TODO:: real costs.
 
-                id2 = bdwp.id
-                cost = distance # TODO:: real cost from a file generated from analytics
-                # hook up this resupplier to this warehouse.
-                params = {
-                    sourcekind: 'Warehouse', sourceid: ''+id1
-                    destinationkind: 'Warehouse', destinationid: ''+id2
-                    kind: 'RESUPPLIES', linkid: id1+'_'+id2
-                }
-                obj = { kind: 'RESUPPLIES', cost: cost, id: id1+"_"+id2 }
-                console.log("resupplier: "+JSON.stringify(params))
-                @repo.setEdge(params, obj)
+                    id2 = bdwp.id
+                    cost = distance # TODO:: real cost from a file generated from analytics
+                    # hook up this resupplier to this warehouse.
+                    params = {
+                        sourcekind: 'Warehouse', sourceid: ''+id1
+                        destinationkind: 'Warehouse', destinationid: ''+id2
+                        kind: 'RESUPPLIES', linkid: id1+'_'+id2
+                    }
+                    obj = { kind: 'RESUPPLIES', cost: cost, id: id1+"_"+id2 }
+                    console.log("resupplier: "+JSON.stringify(params))
+                    @repo.setEdge(params, obj)
 
         @repo.exec((error, result) =>
             if (error?)
@@ -68,9 +69,12 @@ class Builder extends iImport
     buildResuppliersToWarehouses: (callback) =>
         @repo.find({type: "Zip"}, (error, zips) =>
             @repo.find({type: "Warehouse"}, (error, warehouses) =>
-                collation = cleanupAndCollateWarehouses(warehouses, zips)
-                @wireupResuppliers(collation, callback)
-                return
+                @repo.find({type: "Seller"}, (error, sellers) =>
+                    warehouses = [warehouses..., sellers...]
+                    collation = cleanupAndCollateWarehouses(warehouses, zips)
+                    @wireupResuppliers(collation, callback)
+                    return
+                )
             )
         )
         return

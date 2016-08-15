@@ -4,9 +4,9 @@ async = require('async')
 
 Neo4jRepostitory = require('../src/repositories/Neo4jRepository')
 
-builder = require('../src/importers/edges/LtlsToLtls')
-
-describe 'Build Edges', () ->
+Builder = require('../src/importers/edges/LtlsToLtls')
+builder = new Builder()
+describe 'Link Ltl to Ltl Costs', () ->
 
     it 'Wires Up LtlCodes to LtlCodes', (done) ->
         repoConfig = { user: 'neo4j', pass: 'macro7' }

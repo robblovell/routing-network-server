@@ -4,7 +4,7 @@ async = require('async')
 math = require('mathjs')
 geodist = require('geodist')
 fs = require('fs');
-cleanupAndCollateWarehouses = require('cleanupAndCollateWarehouses')
+cleanupAndCollateWarehouses = require('./CleanupAndCollateWarehouses')
 
 Papa = require('babyparse')
 papaConfig = {
@@ -53,6 +53,7 @@ class Builder extends iImport
                     destinationkind: 'Warehouse', destinationid: ''+id2
                     kind: 'SWEEP', linkid: id1+'_'+id2
                 }
+                console.log(JSON.stringify(params))
                 obj = { kind: 'SWEEP', cost: cost, id: id1+"_"+id2 }
                 @repo.setEdge(params, obj)
             else

@@ -9,7 +9,7 @@ Neo4jRepostitory = require('../src/repositories/Neo4jRepository')
 fs = require('fs');
 Papa = require('babyparse')
 
-describe 'Errata', () ->
+describe 'Import LtlCodes', () ->
 
     checkAllZipCodes = (filename1, filename2, repo, done) =>
         contents = fs.readFileSync(filename1, 'utf8')
@@ -35,7 +35,7 @@ describe 'Errata', () ->
             zipcode.zip3 = zipcode[0].substring(0,3)
 
             if (zipcode.zip3 != "" && !zip3s[zipcode.zip3])
-                zipcode.type = "LtlCode"
+                zipcode.type = "Ltl"
                 zipcode.zip = [zipcode.zip]
                 zip3s[zipcode.zip3] = zipcode
 
@@ -51,7 +51,7 @@ describe 'Errata', () ->
                 zipcode.weightHi = ltlcode[2]
                 id = zipcode.zip3+"_"+zipcode.ltlCode+"_"+zipcode.weightLo+"_"+zipcode.weightHi
                 zipcode.id = id
-                getZipFuncs.push(make(id, 'LtlCode')) if (id != "")
+                getZipFuncs.push(make(id, 'Ltl')) if (id != "")
 
         console.log("Test for this many zips:"+getZipFuncs.length)
         async.parallelLimit(getZipFuncs, 1,
@@ -61,7 +61,7 @@ describe 'Errata', () ->
         )
         return
 
-    it 'Imports ZipCodes Neo4j', (done) ->
+    it 'Imports LTL Codes Neo4j', (done) ->
         repoConfig = { user: 'neo4j', pass: 'macro7' }
         repo = new Neo4jRepostitory(repoConfig)
         filename1 = './data/zipcodes.csv'
@@ -72,7 +72,7 @@ describe 'Errata', () ->
                 assert(false)
                 done(); return
             # do a spot check:
-            repo.get({id: '002_1000_0_100', type: 'LtlCode'}, (error, result) ->
+            repo.get({id: '002_1000_0_100', type: 'Ltl'}, (error, result) ->
                 if (error?)
                     console.log("error: "+error)
                     assert(false)

@@ -4,7 +4,7 @@ ConsolidatedWarehouseID,PIMCoreWarehouseID,Name,isSeller,isSweepable,IsSatellite
 2000507,69394,BDWP NJ - Cranbury,FALSE,,,TRUE,-1,-1,8512,0,1240 Cranbury South River Road,Cranbury,NJ,225,ABF-CranburyNJ,,BD - Metro NY / New Jersey,Appointment,Phone,609-366-1050,builddirect@abf.com,,
 2000511,69400,BDWP GA,FALSE,,,TRUE,-1,-1,30336,0,650 Selig Drive,Atlanta,GA,225,ABF-Atlanta,,"BD - Atlanta, GA",Appointment,Phone,404-699-1062 EXT 234,builddirect@abf.com,,
 2000514,69422,BDWP IL - Bolingbrook,FALSE,,TRUE,,-1,-1,60440,0,1450 Remington Blvd,Bolingbrook,IL,225,ABF-Bolingbrook,,"BD - Bolingbrook, IL",Appointment,Phone,630-759-1520 EXT 333,builddirect@abf.com,,
-2000819,128081,BDWP Hutchins TX,FALSE,,,,-1,-1,75141,0,1005 W Wintergreen Rd,Hutchins,TX,225,ABF-HutchinsTX,,"BD - Hutchins, TX",Appointment,Phone,972-290-8002,builddirect@abf.com,,-1
+2000819,128081,BDWP Hutchins TX,FALSE,,TRUE,,-1,-1,75141,0,1005 W Wintergreen Rd,Hutchins,TX,225,ABF-HutchinsTX,,"BD - Hutchins, TX",Appointment,Phone,972-290-8002,builddirect@abf.com,,-1
 2000001,69374,AAA DISTRIBUTOR INC - PA,TRUE,TRUE,,,0,0,19114,0,2501 GRANT AVE,Philadelphia,PA,225,,,S - AAA DISTRIBUTOR INC - Philadelphia - PA - 19114,"Vlad,Ed","Prist, Arabadzhi",215-745-7900,VLAD@AAADISTRIBUTOR.COM;info@aaadistributor.com,,
 2000002,69379,ACI,TRUE,TRUE,,,0,0,55379,0,7802 E. HWY 101 Bay 200,Shakopee,MN,225,,,S - ACI - Shakopee - MN - 55379,Brenda;Tim,Swanson;Conyard,952-224-9110,info@aciprefinish.com;tc@aciprefinish.com,952-224-9113,
 2000003,69427,Alessco Inc Warehouse CA,TRUE,TRUE,,,0,-1,91605,0,"13161 Sherman Way, Unit C",North Hollywood,CA,225,,,S - Alessco Inc Warehouse - North Hollywood - CA - 91605,Robert,Unizycki,818-821-8278,,,

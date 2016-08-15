@@ -36,7 +36,7 @@ class Builder extends iImport
                     {lat: parseInt(zip2.latitude), lon: parseInt(zip2.longitude)})
 
                 # TODO:: replace constant below with something that makes sense.
-                if distance < 1000
+                if distance < 200
                     id1 = zip1.zip3+"_"+ltl.ltlCode+"_"+ltl.weightLo+"_"+ltl.weightHi
                     id2 = zip2.zip3+"_"+ltl.ltlCode+"_"+ltl.weightLo+"_"+ltl.weightHi
                     params = {
@@ -45,6 +45,8 @@ class Builder extends iImport
                         kind: 'LTL',cost: distance+50,linkid: id1+'_'+id2
                     }
                     obj = { kind: 'LTL', cost: distance+50, id: id1+"_"+id2 }
+#                    console.log(JSON.stringify(params)) if math.floor(math.random(0,300)) == 0
+
                     @repo.setEdge(params, obj)
 
         @repo.exec((error, result) =>
@@ -54,7 +56,7 @@ class Builder extends iImport
             else if (bix+1 < zips.length)
                 @wireupLtlsToLtls(aix, bix+1, zips, ltls, callback)
             else if ( aix+1 < zips.length)
-                console.log("zip: "+zips[aix].zip3)
+                console.log("zip: "+zips[aix+1].zip3)
                 @traverseZips(aix+1, 0, zips, ltls, callback)
             else
                 callback(error, result)

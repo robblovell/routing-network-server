@@ -205,7 +205,8 @@ class Builder extends iImport
         flags = ['isSeller','isSweepable','IsBDWP','IsResupplier','IsCustomerPickup','IsSatellite']
         for warehouse in warehouses
             for flag in flags
-                if flag == -1 || flag == true || flag == 1 || flag == '1' || flag == '-1' || flag.toUpperCase() == 'TRUE'
+                if warehouse[flag] == -1 || warehouse[flag] == '-1' || warehouse[flag].toUpperCase() == 'TRUE'||
+                warehouse[flag] == true || warehouse[flag] == 1 || warehouse[flag] == '1'
                     warehouse[flag] = true
                 else
                     warehouse[flag] = false

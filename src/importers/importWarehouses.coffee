@@ -19,6 +19,7 @@ config = {
 #    beforeFirstChunk: undefined,
 #    withCredentials: undefined
 }
+
 config.nodeIdName = 'ConsolidatedWarehouseID'
 importer = new Importer(config)
 

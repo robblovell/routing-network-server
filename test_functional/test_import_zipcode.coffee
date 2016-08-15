@@ -11,7 +11,7 @@ Neo4jRepostitory = require('../src/repositories/Neo4jRepository')
 fs = require('fs');
 Papa = require('babyparse')
 
-describe 'Errata', () ->
+describe 'Import Zip Codes', () ->
 
     checkAllZipCodes = (filename, repo, done) =>
         contents = fs.readFileSync(filename, 'utf8')

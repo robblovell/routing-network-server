@@ -4,7 +4,7 @@ async = require('async')
 math = require('mathjs')
 geodist = require('geodist')
 fs = require('fs');
-cleanupAndCollateWarehouses = require('cleanupAndCollateWarehouses')
+cleanupAndCollateWarehouses = require('./CleanupAndCollateWarehouses')
 
 Papa = require('babyparse')
 papaConfig = {
@@ -66,18 +66,22 @@ class Builder extends iImport
         filename = './data/warehouses.csv'
         # warehouse nodes have a zip code.
         @repo.find({type: "Zip"}, (error, zips) =>
-            @repo.find({type: "Warehouse"}, (error, warehouses) =>
-                @wireupWarehousesToZips(zips, warehouses, 'Warehouse', callback)
-                return
-            )
-            @repo.find({type: "Seller"}, (error, warehouses) =>
-                @wireupWarehousesToZips(zips, warehouses, 'Seller', callback)
-                return
+            async.series([
+                (callback) =>
+                    @repo.find({type: "Warehouse"}, (error, warehouses) =>
+                        @wireupWarehousesToZips(zips, warehouses, 'Warehouse', callback)
+                        return
+                    )
+                (callback) =>
+                    @repo.find({type: "Seller"}, (error, warehouses) =>
+                        @wireupWarehousesToZips(zips, warehouses, 'Seller', callback)
+                        return
+                    )
+                ],
+                (error, result) =>
+                    callback()
             )
         )
         return
-
-
-
 
 module.exports = Builder

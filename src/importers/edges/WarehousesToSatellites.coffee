@@ -4,7 +4,7 @@ async = require('async')
 math = require('mathjs')
 geodist = require('geodist')
 fs = require('fs');
-cleanupAndCollateWarehouses = require('cleanupAndCollateWarehouses')
+cleanupAndCollateWarehouses = require('./CleanupAndCollateWarehouses')
 
 Papa = require('babyparse')
 papaConfig = {
@@ -36,12 +36,13 @@ class Builder extends iImport
             found = false
             for satellite in warehouses.satellites
                 continue unless satellite.haszip
+                continue if id1 == satellite.id
 
                 distance = geodist({lat: parseInt(bdwp.lat), lon: parseInt(bdwp.lon)},
                     {lat: parseInt(satellite.lat), lon: parseInt(satellite.lon)})
 
                 # TODO:: replace constant below with something that makes sense.
-                if distance < 1000 # TODO:: maximum distance to a sattelite
+                if distance < 1200 # TODO:: maximum distance to a sattelite
                     found = true
                     id2 = satellite.id
                     cost = distance # TODO:: real cost from a file generated from analytics
