@@ -64,8 +64,9 @@ describe 'Import LtlCodes', () ->
     it 'Imports LTL Codes Neo4j', (done) ->
         repoConfig = { user: 'neo4j', pass: 'macro7' }
         repo = new Neo4jRepostitory(repoConfig)
+        # TODO:: move to config:
         filename1 = './data/zipcodes.csv'
-        filename2 = './data/weights-codes.csv'
+        filename2 = './data/weights-codes-half.csv'
         importer.import(filename1, filename2, repo, (error, results) ->
             if (error?)
                 console.log("error: "+error)

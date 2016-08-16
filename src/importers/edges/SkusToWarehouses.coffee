@@ -33,10 +33,13 @@ class Builder extends iImport
             id1 = sku.id
             for warehouse in warehouses # hook up one zip.
                 id2 = warehouse.id
-
+                if warehouse.isSeller
+                    destinationkind = 'Seller'
+                else
+                    destinationkind = 'Warehouse'
                 params = {
                     sourcekind: 'Sku',sourceid: ''+id1
-                    destinationkind: 'Warehouse',destinationid: ''+id2
+                    destinationkind: destinationkind ,destinationid: ''+id2
                     kind: 'SKUWAREHOUSE',linkid: id1+'_'+id2
                 }
                 obj = { kind: 'SKUWAREHOUSE', id: id1+"_"+id2, inventory: math.floor(math.random(0,100)) }

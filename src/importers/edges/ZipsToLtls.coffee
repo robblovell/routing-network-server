@@ -38,6 +38,12 @@ class Builder extends iImport
                 }
                 obj = { kind: 'ZIPLTL',cost: 0,id: zip.id+"_"+id }
                 @repo.setEdge(params, obj)
+                params = {
+                    destinationkind: 'Zip', destinationid: ''+zip.id,
+                    sourcekind: 'Ltl', sourceid: ''+id, kind: 'LTLZIP'
+                }
+                obj = { kind: 'LTLZIP',cost: 0,id: id+"__"+zip.id }
+                @repo.setEdge(params, obj)
 
         @repo.exec((error, result) =>
             console.log("nodes: "+nodes.length+" ix: "+aix)
@@ -52,7 +58,8 @@ class Builder extends iImport
         )
 
     buildZipsToLtls: (callback) =>
-        filename = './data/weights-codes.csv'
+        # TODO:: move to config:
+        filename = './data/weights-codes-half.csv'
         @repo.find({type: "Zip"}, (error, zips) =>
             contentsCodes = fs.readFileSync(filename, 'utf8')
             result = Papa.parse(contentsCodes, papaConfig)
